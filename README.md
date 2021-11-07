@@ -1,2 +1,2 @@
-# fibble_box
+# fibble-box
 Entertainment platform Application
