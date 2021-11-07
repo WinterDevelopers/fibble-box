@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="login-box">
+   <div class="login-header">
+       LOGIN
+   </div>
+   <form class="login-form" action="" method="post">
+    <label for="username"> Username</label>   
+    <input type="text" name="username">
+    <label for="password"> Password</label>
+    <input type="password">
+    <input type="submit" value="Login">
+   </form>
+   <div style="font-size:xx-small; margin-left: 5%;">Don't have an account, click here to <span>sign up</span></div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>FibbleBox</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />    
+        <link rel="stylesheet" href="{% static 'css/fibblebox.css' %}">
+        
+    </head>
+    <body>
+    <div class="nav-bar">
+        <div class="nav-bar-head">
+            <img src="{% static 'logos/fibble_box_logo.png' %}" alt="">
+            <p><span style="color: #AED6DC;">Fibble</span> <span style="color: #4A536B;">Box</span></p>
+        </div>
+        <div class="nav-bar-links">
+            <div>home</div>
+            <div>category</div>
+            <div>about us</div>
+            <div>contact</div>
+            <div>login</div>
+        </div>
+        <div class="nav-bar-search">
+            <input type='search' placeholder="  search...">
+        </div>
+    </div>
+            
+        
+
+    {% block content %}
+
+
+    {% endblock content %}
+        <div class="nav-bar-mobile">
+            <div>category</div>
+                <div>about us</div>
+                <div>contact</div>
+                <div>login</div>
+        </div>
+
+        <footer>
+            <div class="footer-item">
+                <div class="footer-box">
+                    <img src="{% static 'logos/fibble_box_logo.png' %}" alt="">
+                    <p style="margin-left: 10px;">Fibble Box</p>
+                </div>
+                <div>
+                    <h4>services</h4>
+                    <p>voting</p>
+                    <p>pagentry</p>
+                    <p>survey</p>
+                    <p>ticket</p>
+                </div>
+                <div>
+                    <h4>Go social</h4>
+                    <p>telegram</p>
+                    <p>twitter</p>
+                    <p>instagram</p>
+                    <p>whatsapp</p>
+                </div>
+            </div>
+            <div style=" color: rgba(205, 205, 235, 0.842); text-align: center;"> <H1>SPONSORS</H2></div>
+                <div><p style="color: rgba(205, 205, 235, 0.842);text-align: center;">Terms and condition </p></div>
+    
+                <div><p style="color: rgba(205, 205, 235, 0.842);text-align: center;">2021 copyright(c) developed by winterdevelopers </p></div>
+        </footer>
+        <script type="text/javascript" src="{% static 'js/fibblebox.js' %}"></script>
+    </body>
+
+    
+
+    
+</html>

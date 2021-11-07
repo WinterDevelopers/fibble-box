@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="candidate">
+    <img src="{{candidate.background_image_URL}}" alt='image'>
+    <img class="candidate-img" src="{{candidate.personal_image_URL}}" alt="personal-image">
+    <h1>{{candidate.name}}</h1>
+    <div>
+        <h3 style="margin-bottom: 3px; margin-top: 30px; margin-left: 25px;">OFFICE : {{candidate.office}}</h3>
+        <div style="display: flex; flex-direction: row; margin-top: 1px;">
+            <h3 style="padding: 1px; margin-left: 25px;">QUOTE: <span style="font-size: small;"></span></h3>
+            <p class="candidate-quote" style="inline-size: 170px;">{{candidate.quote}}</p>
+        </div>
+        <div style="position: relative;">
+            <div id="candidate-code" class="candidate-code" > vote using code</div>
+            <div class="code-option">
+                <div id="code-option-content" class="no-display">
+                    <div class="code-option-close">
+                        <p style="padding-bottom: 10px;">x</p>
+                    </div>
+                    <p style="text-align: center;">input your code below</p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="code">
+                        <input type="submit" value="submit your vote">
+
+                    </form>
+                    <div style="font-size: xx-small; text-align: center; margin-top: 15px;">click here to get your voting code</div>
+                </div>
+            
+            </div>
+        </div>
+        <div style="background-color: grey;  width: 60%; position: relative; top: -2px; height: 1px; margin-top: 20px; margin-left: 55px;"></div>
+        <!--<div style="margin-left: 60%;margin-top: 20px;">OR</div>-->
+        <div class="candidate-vote">
+            <div id="candidate-btn-minus" class="candidate-btn-minus" >
+                -
+            </div>
+            <div id="candidate-vote-count" class="candidate-vote-count" >
+                0
+            </div>
+            <div id="candidate-btn-plus" class="candidate-btn-plus">
+                +
+            </div>
+        </div>
+        <div class="candidate-submit">
+            <img src="{% static 'images/finger-print.png' %}" alt="" height="35px" width="35px">
+            <div>submit vote</div>
+        </div>
+        <div style="position: relative; height: 60px;">
+            <div style="position: absolute; top:140%; left: 40%;"> Votes: {{candidate.votes}}</div>
+            <div style="position: absolute; top:100%; left: 10%; background-color: rgb(136, 138, 138); height: 5px; width:65%; padding: 2px; border-radius: 5px;" ></div>
+            <div style="position: absolute; top:100%; left: 10%;background-image:linear-gradient(to right, rgb(27, 18, 75),rgb(30, 247, 247)); height:5px; width:{% widthratio candidate.votes candidate.event.total_votes 65 %}%; padding:2px; border-radius:5px;" ></div>
+            <div style="position: absolute; top:88%; left: 80%;"> {% widthratio candidate.votes candidate.event.total_votes 100 %}% </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

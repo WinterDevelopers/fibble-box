@@ -1,0 +1,359 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="head-banner">
+    <div class="head-banner-text">
+        <h3> The best voting <br> platform</h3>
+         <p style="font-size: small;">vote your candidate</p>
+    </div>
+    <div class="home-image">
+        <img src="{% static 'images/trikky tee.jpg' %}" alt="face">
+        <img src="{% static 'images/model2.jpg' %}" alt="face" >
+        <img src="{% static 'images/model1.jpg' %}" alt="face" >
+    </div>
+</div>
+
+
+
+
+
+
+<div class="categories" >
+    <h4>Categories</h4>
+    <div class="categories-item">
+        <div>
+            <div class="circle"></div>
+            <p>pagentry</p>
+        </div>
+        <div>
+            <div class="circle"></div>
+            <p>Awards</p>
+        </div>
+
+        <div>
+            <div class="circle"></div>
+            <p>Comperism</p>
+        </div>
+        <div>
+            <div class="circle"></div>
+            <p>Survey</p>
+        </div>
+    </div>
+</div>
+<div class="ads1">
+    <img src="{% static 'images/mbgn.jpg' %}" alt="advertisment">
+    <div class="ads1-text">
+        <h1 style="margin-bottom: -5px;">MBGN Awards</h1>
+        <p>Most beautiful girl in Nigeria</p>
+    </div>
+    <p class="ads1-button">
+        Start voting
+    </p>
+
+</div>
+<div id="top-events" style="padding-bottom: 20px;">
+    <h3 style="margin-left: 15px;">Top Events</h3>
+    <div class="top-events" >
+        <div class="top-events-post">
+            <img src="{% static 'images/9ja-party2.jpg'  %}" alt="post-image" height="200px" width="150px" style="border-radius: 10px;">
+            <p>9ja party of winter</p>
+        </div>
+        <div class="top-events-post">
+            <img src="{% static 'images/cafe.jpg'  %}" alt="post-image" height="200px" width="150px" style="object-fit: cover; background-position: center;border-radius: 10px;">
+            <p>winter cafe</p>
+        </div>
+        <div class="top-events-post">
+            <img src="{% static 'images/ebony.jpg'  %}" alt="post-image" height="200px" width="150px" style="border-radius: 10px;">
+            <p>beauty ebony</p>
+        </div>
+        <div class="top-events-post">
+            <img src="{% static 'images/face-abj.jpg'  %}" alt="post-image" height="200px" width="150px" style="border-radius: 10px;">
+            <p>face of ABJ</p>
+        </div>
+        <div class="top-events-post">
+            <img src="{% static 'images/face-anambra.jpg'  %}" alt="post-image" height="200px" width="150px" style="border-radius: 10px;">
+            <p>face of Anambra</p>
+        </div>
+        
+    
+    </div>
+</div>
+<div id="content">
+    <h3 style="margin-left: 30px;">Awards</h3>
+    <div class="content">
+        {% for event in events %}
+        <div>
+            <div  class="content-box">
+                <img src="{{event.eventBanner}}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
+                <div class="content-box-info">
+                    <div>
+                        <img src="{{event.eventImage}}" alt="" height="180px" width="150px">
+                    </div>
+                    <div class="content-box-info-text">
+                        <h5>{{event.name}}</h5>
+                        <p style="margin-top: -25px; font-size: xx-small;">2020/2021</p>
+                        <p style="font-size: xx-small; font-weight: 600; padding-top: 10px;">
+                            This award event occurs every year in Anambra state and is awarded to the most beautiful girl
+                        </p>
+                    </div>
+                </div>
+                <div style="position: absolute; top: 85%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 5px 10px; font-size: x-small; border-radius: 5px; font-weight: 600;">
+                    <a href="{% url 'fibblebox_app:event' event.slug %}" style="color: white; ">VIEW</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div>
+            <div  class="content-box">
+                <img src="{% static 'images/mbgn.jpg' %}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
+                <div class="content-box-info">
+                    <div>
+                        <img src="{% static 'images/face-abj.jpg' %}" alt="" height="180px" width="150px">
+                    </div>
+                    <div class="content-box-info-text">
+                        <h5>Face of Abuja</h5>
+                        <p style="margin-top: -25px; font-size: xx-small;">2020/2021</p>
+                        <p style="font-size: xx-small; font-weight: 600; padding-top: 10px;">
+                            This award event occurs every year in Abj state and is awarded to the most beautiful girl
+                        </p>
+                    </div>
+                </div>
+                <div style="position: absolute; top: 85%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 5px 10px; font-size: x-small; border-radius: 5px; font-weight: 600;">
+                    VIEW
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="content-viewmore"> <p>View more...</p></div>
+    </div>
+
+</div>
+<div class="ads1">
+    <img src="{% static 'images/mbgn.jpg' %}" alt="advertisment" width="100%" height="300px">
+    <div class="ads1-text">
+        <h1 style="margin-bottom: -5px;">MBGN Awards</h1>
+        <p>Most beautiful girl in Nigeria</p>
+    </div>
+    <p class="ads1-button">
+        Start voting
+    </p>
+
+</div>
+<div id="content">
+    <h3 style="margin-left: 30px; margin-top: 50px;">Pagentry</h3>
+    <div class="content">
+        <div>
+            <div  class="content-box">
+                <img src="{% static 'images/cafe.jpg' %}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
+                <div class="content-box-info">
+                    <div>
+                        <img src="{% static 'images/face-anambra.jpg' %}" alt="" height="180px" width="150px">
+                    </div>
+                    <div class="content-box-info-text">
+                        <h5>Face of Anambra</h5>
+                        <p style="margin-top: -25px; font-size: xx-small;">2020/2021</p>
+                        <p style="font-size: xx-small; font-weight: 600; padding-top: 10px;">
+                            This award event occurs every year in Anambra state and is awarded to the most beautiful girl
+                        </p>
+                    </div>
+                </div>
+                <div style="position: absolute; top: 85%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 5px 10px; font-size: x-small; border-radius: 5px; font-weight: 600;">
+                    VIEW
+                </div>
+            </div>
+        </div>
+        <div>
+            <div  class="content-box">
+                <img src="{% static 'images/mbgn.jpg' %}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
+                <div class="content-box-info">
+                    <div>
+                        <img src="{% static 'images/face-abj.jpg' %}" alt="" height="180px" width="150px">
+                    </div>
+                    <div class="content-box-info-text">
+                        <h5>Face of Abuja</h5>
+                        <p style="margin-top: -25px; font-size: xx-small;">2020/2021</p>
+                        <p style="font-size: xx-small; font-weight: 600; padding-top: 10px;">
+                            This award event occurs every year in Abj state and is awarded to the most beautiful girl
+                        </p>
+                    </div>
+                </div>
+                <div style="position: absolute; top: 85%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 5px 10px; font-size: x-small; border-radius: 5px; font-weight: 600;">
+                    VIEW
+                </div>
+            </div>
+            
+        </div>
+        <div>
+            <div  class="content-box">
+                <img src="{% static 'images/9ja-party2.jpg' %}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
+                <div class="content-box-info">
+                    <div>
+                        <img src="{% static 'images/mbgn.jpg' %}" alt="" height="180px" width="150px">
+                    </div>
+                    <div class="content-box-info-text">
+                        <h5>MBGN award</h5>
+                        <p style="margin-top: -25px; font-size: xx-small;">2020/2021</p>
+                        <p style="font-size: xx-small; font-weight: 600; padding-top: 10px;">
+                            This award event occurs every year in south east and is awarded to the most beautiful girl
+                        </p>
+                    </div>
+                </div>
+                <div style="position: absolute; top: 85%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 5px 10px; font-size: x-small; border-radius: 5px; font-weight: 600;">
+                    VIEW
+                </div>
+            </div>
+            
+        </div>
+        <div class="content-viewmore"> <p>View more...</p></div>
+    </div>
+
+</div>
+<div id="content">
+    <h3 style="margin-left: 30px;">Party</h3>
+    <div class="content">
+        <div>
+            <div  class="content-box">
+                <img src="{% static 'images/cafe.jpg' %}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
+                <div class="content-box-info">
+                    <div>
+                        <img src="{% static 'images/face-anambra.jpg' %}" alt="" height="180px" width="150px">
+                    </div>
+                    <div class="content-box-info-text">
+                        <h5>Face of Anambra</h5>
+                        <p style="margin-top: -25px; font-size: xx-small;">2020/2021</p>
+                        <p style="font-size: xx-small; font-weight: 600; padding-top: 10px;">
+                            This award event occurs every year in Anambra state and is awarded to the most beautiful girl
+                        </p>
+                    </div>
+                </div>
+                <div style="position: absolute; top: 85%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 5px 10px; font-size: x-small; border-radius: 5px; font-weight: 600;">
+                    VIEW
+                </div>
+            </div>
+        </div>
+        <div>
+            <div  class="content-box">
+                <img src="{% static 'images/mbgn.jpg' %}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
+                <div class="content-box-info">
+                    <div>
+                        <img src="{% static 'images/face-abj.jpg' %}" alt="" height="180px" width="150px">
+                    </div>
+                    <div class="content-box-info-text">
+                        <h5>Face of Abuja</h5>
+                        <p style="margin-top: -25px; font-size: xx-small;">2020/2021</p>
+                        <p style="font-size: xx-small; font-weight: 600; padding-top: 10px;">
+                            This award event occurs every year in Abj state and is awarded to the most beautiful girl
+                        </p>
+                    </div>
+                </div>
+                <div style="position: absolute; top: 85%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 5px 10px; font-size: x-small; border-radius: 5px; font-weight: 600;">
+                    VIEW
+                </div>
+            </div>
+            
+        </div>
+        <div>
+            <div  class="content-box">
+                <img src="{% static 'images/9ja-party2.jpg' %}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
+                <div class="content-box-info">
+                    <div>
+                        <img src="{% static 'images/mbgn.jpg' %}" alt="" height="180px" width="150px">
+                    </div>
+                    <div class="content-box-info-text">
+                        <h5>MBGN award</h5>
+                        <p style="margin-top: -25px; font-size: xx-small;">2020/2021</p>
+                        <p style="font-size: xx-small; font-weight: 600; padding-top: 10px;">
+                            This award event occurs every year in south east and is awarded to the most beautiful girl
+                        </p>
+                    </div>
+                </div>
+                <div class="view-button" onclick="view_button_func()">
+                    VIEW
+                </div>
+            </div>
+            
+        </div>
+        <div class="content-viewmore"> <p>View more...</p></div>
+    </div>
+
+</div>
+
+<div style="background-color: grey; position: relative; top: -1px; height: 1px; margin: 20px 50px; "></div>
+
+<div class="others"> 
+    <div class="others-box-a">
+        <div style="display: flex;flex-direction: row;">
+            <img src="{% static 'images/events.png' %}" alt="" class="img-event-add">
+            <div class="how-to-event">
+                <h4>HOW TO ADD AN EVENT</h4>
+                <p>
+                    1. you have to know it iz what <br>
+                    2. yevyyvevyeyyevyevye8y <br>
+                    3. uyyvyvy8eyh7jf9ujeuju9e <br>
+                    4. yheueivjvieyuvheyhvn8v <br>
+                    5. your done
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="others-box-a" style="border-radius: 10px;">
+        <div style="height: 125px;display: flex; flex-direction: row;">
+            <img src="{% static 'images/face-anambra.jpg' %}" alt="" class="subscribe-img">
+            <div class="subscribe-text">
+                <h3>
+                    Don't miss out!!!
+                </h3>
+                <p>
+                    subscribe and receive the
+                    lastest updates and promo 
+                </p>
+            </div>
+        </div>
+        <div style="height: 75px; display: flex; flex-direction: row;" class="sub-form">
+            <input type="text" >
+            <input type="submit" value="subscribe" style="color: white; background-color:rgb(21, 16, 49); width: 100px; border: none; border-radius: 0px 10px 10px 0px; height: 42px; margin: 10px 0px; font-weight: 800; font-family: poppins;">
+        
+        </div>        
+
+
+    </div>
+    <div class="others-box-b" style="border-radius:10px; background-color: white;">
+        <div class="about-us">
+            <div style="height:150px; padding: 10px; padding-left: 15px; ">
+                <h3 style="margin-top: 5px;"><u>ABOUT US</u></h3>
+                <p>
+                    we give you the best platform to carry
+                    out your contest, voting, surveying and
+                    event ticket sales
+                </p>
+            </div>
+            <img src="{% static 'images/coin-box.jpg' %}" alt="">
+        </div>
+    </div>
+    <div class="others-box-b">
+        <div class="others-box-b-sub">
+            <div style="height: 200px; display: flex; flex-direction: row; margin-bottom: 80px; background-color: white;">
+                <img src="{% static 'images/election.png' %}" alt="" height="200px"  style="clip-path: polygon(0 0, 100% 0, 80% 100%, 0px 100%);">
+                <div>
+                    <h4>WHY FIBBLEBOX ?</h4>
+                    <p class="why-text">
+                        customers first<br>
+                        lowest rates/ charges<br>
+                        we are fast and reliable<br>
+                        customer care services 24/7<br>
+                    </p>
+                </div>
+            </div>
+            </div>
+            <div style="height: 100px; font-size: large; font-weight: 700; background-color: rgba(122, 255, 244, 0.356); border-radius: 10px;  height: 60px; margin: 0px 20px; display: flex; flex-direction: row; box-shadow: rgba(128, 128, 128, 0.185) 2px 2px 30px;">
+                <p class="telegram-channel-text">Join our telegram channel</p>
+                <img src="{% static 'images/telegram-logo.png' %}" alt="" class="telegram-channel-logo">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
