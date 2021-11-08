@@ -1,1 +1,1 @@
-web: gunicorn fibblebox.wsgi
+web: gunicorn fibblebox.wsgi --log-file -
