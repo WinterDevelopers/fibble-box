@@ -5,14 +5,16 @@
         <title>FibbleBox</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />    
+        <link rel="shortcut icon" href="{% static 'logos/fibble_box_logo.png' %}" type="image/x-icon">
         <link rel="stylesheet" href="{% static 'css/fibblebox.css' %}">
+        <link rel="stylesheet" href="{% static 'css/fibblebox_mobile.css' %}">
         
     </head>
     <body>
     <div class="nav-bar">
         <div class="nav-bar-head">
             <img src="{% static 'logos/fibble_box_logo.png' %}" alt="">
-            <p><span style="color: #AED6DC;">Fibble</span> <span style="color: #4A536B;">Box</span></p>
+            <a style="text-decoration:none; padding: 0px;" href="{% url 'fibblebox_app:home' %}"><span style="color: #AED6DC;">Fibble</span> <span style="color: #4A536B;">Box</span></a>
         </div>
         <div class="nav-bar-links">
             <div>home</div>

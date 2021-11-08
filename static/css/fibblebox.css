@@ -13,6 +13,11 @@ body{
     font-family: 'Poppins';
     background-color: var(--background-color);
 }
+.categories-img{
+    width: 40px;
+    height: 40px;
+    margin: 1px;
+}
 
 .content{
     margin-bottom: 30px;
@@ -84,7 +89,7 @@ body{
     padding-left: 25px;
 }
 .event-office > div{
-    margin-left: 20px;
+    margin-left: 10px;
     background-color: rgb(255, 255, 255);
     height: 400px;
     position: relative;
@@ -216,7 +221,7 @@ footer{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: rgb(6, 29, 63);
+    border: 2px solid #4A536B;
 }
 .categories{
     padding-left: 40px;
@@ -609,284 +614,4 @@ height: 50%;
     border-radius: 50%; 
     color: white; 
     text-align: center;
-}
-@media screen and (max-width:600px) {
-    .summary-content{
-    margin: 10px 0px;
-    }
-
-    .nav-bar-links{
-    display: none;
-    }
-
-    .nav-bar-search > input[type=search]{
-        padding: 5px;
-        width: 150px;
-        font-size: small;
-        font-weight: 400;
-    }
-    .nav-bar-head{
-        font-size: medium;
-        margin-top: 7px;
-        
-    }
-    .nav-bar-head > img{
-        width: 25px;
-        height: 25px;
-    }
-    .nav-bar-head > p{
-        margin: 1px;
-        margin-left: 10px;
-    }
-    .nav-bar-mobile{
-        position:fixed;
-        bottom: 0px;
-        width: 100%;
-        padding: 20px;
-        padding-left: 30px;
-        display: flex;
-        font-size: x-small;
-        background-color: rgb(255, 255, 255);
-    }
-    .nav-bar-mobile >div{
-        margin-inline-end: 13%;
-        
-    }
-    footer{
-        
-        background-color: #4A536B;
-        font-size: x-small;
-        padding-bottom: 100px;
-    }
-    .footer-item{
-        display:grid;
-        grid-template-columns: auto auto auto;
-        color: #AED6DC;
-        padding-inline-start: 10px;
-        text-align: center;
-    }
-    .footer-item > div > img{
-        width: 50px;
-        height: 50px;
-    }
-    .footer-item>div{
-        text-align: start;
-    }
-    .footer-item >div> p{
-        color: #aed6dc9f;
-        text-align: start;
-        
-    }
-    .footer-box{
-        margin-top: 40px;
-        margin-left: 10px;
-        
-    }
-    .home-image > img{
-        width: 80px;
-    }
-    
-    .sponsors{
-        color: #aed6dc9f;
-    }
-    
-    .ads1-button{
-        left: 35% ;
-    }
-    .ads1-text{
-        left: 15%;
-    }
-    .content{
-        flex-direction: column;
-        margin-left: 0px;
-
-    }
-    .content-box{
-        width: 300px; 
-        height: 230px;
-        margin-bottom: 30px;
-        
-    }
-    .content-box > img{
-        width: 300px;
-
-    }
-    
-    .content-box-info{ 
-        width: 250px; 
-        height: 120px; 
-        
-    }
-    .content-box-info-text{  
-        height: 150px;
-        inline-size: 150px; 
-        
-        
-    }
-    .content-box-info > div > img {
-        width: 120px;
-        height: 150px;
-    }
-    .content-viewmore{
-        background-color:rgb(39, 39, 39); 
-        color: white; 
-        height: 55px; 
-        margin-top: 10px; 
-        text-align: center; 
-        border-radius: 70px;  
-        width: 200px;
-    }
-    .content > div:last-child{
-        margin-left: 80px;
-    }
-    .head-banner{
-        height: 150px;
-    }
-    .head-banner-text{
-        font-size: medium;
-    }
-    .event-office{
-        grid-template-columns: auto;
-        display: block;
-        
-    }
-    .event-office > div{
-        /* margin-left: 10px; */
-        height: 380px;
-        width: 300px;
-        margin-bottom: 20px;
-    }
-    .person-name{
-        text-align: center;
-        margin-top: 30px;
-    }
-    .person-image{
-        left: 80px;
-    }
-    .summary{
-        grid-template-columns: auto;
-        margin: 20px;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-    }
-    .candidate{
-        margin: 5% 10%;
-        height: 730px;
-        width: 300px;
-        
-    }
-    .candidate > h1{
-        top: 22%;
-        left: 60%;
-        font-size: medium;
-        
-    }
-    .candidate > img:first-child {
-        width: 300px;
-        height: 150px;
-    }
-    .candidate-img{
-        width:150px;
-        height:150px;
-        border-radius: 50%; 
-        position: absolute; 
-        top: 10%; 
-        left:6%;
-    }
-    .candidate > div{
-        top: 30%;
-        font-size: smaller;
-        left: 5%;
-
-    }
-    .candidate-quote{
-        inline-size: 200px;
-        margin-top: 19px; 
-        padding-left: 2px;
-
-    }
-    .candidate-code{
-        margin-left: 50px;
-    }
-    .candidate-code:hover{
-        box-shadow: rgb(153, 153, 153) 1px 1px 4px;
-        transition: 0.3s;
-    }
-    .candidate-submit{
-        margin-left: 50px;
-    }
-    .candidate-vote{
-        margin-left: 35px;
-    }
-    .others{  
-        display: grid;
-        grid-template-columns: 600px; 
-        margin-top: 60px;
-        margin-bottom: 50px;
-        height: 1300px;
-    }
-    .others-box-a{
-        width: 300px;
-        margin-left: 30px;
-    }
-    .how-to-event > h4{
-        margin-top: 40px;
-        font-size: x-small;
-    }
-    .how-to-event > p{
-        font-size: x-small;
-    }
-    .img-event-add{
-        height:200px;
-        width: 150px;
-        clip-path: polygon(0 0, 100% 0, 80% 100%, 0px 100%);
-    }
-    .subscribe-img{
-        height:70px; 
-        width:70px; 
-        border-radius: 50%; 
-        margin: 15px 10px;
-    }
-    .subscribe-text > p{
-        font-size: small;
-    }
-    .sub-form > input[type=text]{
-        margin-left: 25px;
-        border: none; 
-        border-radius: 10px 0px 0px 10px; 
-        height: 40px; 
-        width:150px; 
-        margin-top: 10px; 
-        background-color: rgba(122, 255, 244, 0.356);
-    }
-    .others-box-b{
-        width: 300px;
-        margin-left: 30px;
-    }
-    .about-us{
-        width: 300px;
-    }
-    .about-us > img {
-        height: 230px;
-    }
-    .why-text{
-        font-size: x-small; 
-        margin-top: -15px;
-    }
-    .telegram-channel-text{
-        font-size: x-small;
-        margin-left: 20px;
-        margin-top: 20px;
-    }
-    .telegram-channel-logo{
-        height:50px; 
-        width:80px; 
-        border-radius: 50%; 
-        margin: 5px 0px;
-        margin-left: 20px;
-    }
-    .others-box-b-sub > div > img{
-        width: 150px;
-    }
 }

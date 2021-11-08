@@ -97,3 +97,10 @@ code_option_close.onclick = function(){
     code_option_content.className = 'no-display'
     code_option.className=''
 }
+
+var candidate_share = document.getElementById('candidate-share')
+var candidate_share_icon = document.getElementById('candidate-share-icon')
+
+candidate_share.onclick = function(){
+    candidate_share_icon.className='candidate-share-icon';
+}
