@@ -49,11 +49,11 @@
         position:fixed;
         bottom: 0px;
         width: 100vw;
-        padding: 18px 0px;
+        padding: 5vw 0px;
         display: flex;
         font-size: x-small;
         background-color: rgb(255, 255, 255);
-        border-radius: 5px 5px 0px 0px;
+        border-radius: 10px 10px 0px 0px;
     }
     
     .nav-bar-mobile >div{
@@ -193,7 +193,7 @@
         flex-direction: column;
     }
     .candidate{
-        margin: 5% 10%;
+        margin: 6vw 10vw;
         height: 730px;
         width: 300px;
         
