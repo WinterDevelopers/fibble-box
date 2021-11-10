@@ -150,8 +150,9 @@
         text-align: center; 
         border-radius: 70px;  
         width: 200px;
+        margin-left: 80px;
     }
-   
+    
     .content > div {
         margin-left:8vw;
     }
