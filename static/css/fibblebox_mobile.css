@@ -151,8 +151,9 @@
         border-radius: 70px;  
         width: 200px;
     }
-    .content > div:last-child{
-        margin-left: 80px;
+   
+    .content > div {
+        margin-left:8vw;
     }
     .head-banner{
         height: 150px;
