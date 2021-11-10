@@ -57,15 +57,15 @@
     }
     
     .nav-bar-mobile >div{
-        margin-inline-end: 13%;
+        margin-inline-end: 13vw;
         
     }
     .nav-bar-mobile >div:last-child{
-        margin-inline-end: 6%;
+        margin-inline-end: 10vw;
         
     }
     .nav-bar-mobile >div:first-child{
-        margin-inline-start: 8%;
+        margin-inline-start: 10vw;
     }
     footer{
         
@@ -113,44 +113,49 @@
     }
     .content{
         flex-direction: column;
-        margin-left: 0px;
+        align-content: center;
+    
 
     }
+    .content > div:last-child{
+        margin-top:10px ;
+        margin-left:25vw ;
+        margin-bottom: 5px;
+    }
     .content-box{
-        width: 300px; 
+        width: 85vw; 
         height: 230px;
         margin-bottom: 30px;
+        margin-right: 1px;
         
     }
     .content-box > img{
-        width: 300px;
+        width: 85vw;
 
     }
     
     .content-box-info{ 
-        width: 250px; 
+        width: 75vw; 
         height: 120px; 
         
     }
     .content-box-info-text{  
         height: 150px;
-        inline-size: 150px; 
+        inline-size: 350px; 
         
         
     }
     .content-box-info > div > img {
-        width: 120px;
+        width:30vw;
         height: 150px;
     }
     .content-viewmore{
         background-color:rgb(39, 39, 39); 
         color: white; 
-        height: 55px; 
-        margin-top: 10px; 
+        height: 55px;  
         text-align: center; 
         border-radius: 70px;  
         width: 200px;
-        margin-left: 80px;
     }
     
     .content > div {
@@ -238,14 +243,14 @@
     }
     .others{  
         display: grid;
-        grid-template-columns: 600px; 
+        grid-template-columns: 80vw; 
         margin-top: 60px;
         margin-bottom: 50px;
         height: 1300px;
     }
     .others-box-a{
-        width: 300px;
-        margin-left: 30px;
+        width: 95vw;
+        margin-left: 3vw;
     }
     .how-to-event > h4{
         margin-top: 40px;
@@ -256,7 +261,7 @@
     }
     .img-event-add{
         height:200px;
-        width: 150px;
+        width: 45vw;
         clip-path: polygon(0 0, 100% 0, 80% 100%, 0px 100%);
     }
     .subscribe-img{
@@ -273,16 +278,16 @@
         border: none; 
         border-radius: 10px 0px 0px 10px; 
         height: 40px; 
-        width:150px; 
+        width:45vw; 
         margin-top: 10px; 
         background-color: rgba(122, 255, 244, 0.356);
     }
     .others-box-b{
-        width: 300px;
-        margin-left: 30px;
+        width: 95vw;
+        margin-left: 2vw;
     }
     .about-us{
-        width: 300px;
+        width: 95vw;
     }
     .about-us > img {
         height: 230px;
