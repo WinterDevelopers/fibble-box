@@ -57,12 +57,12 @@
     }
     
     .nav-bar-mobile >div{
-        margin-inline-end: 15vw;
+        margin-inline-end: 13vw;
         
     }
     
     .nav-bar-mobile >div:first-child{
-        margin-inline-start: 10vw;
+        margin-inline-start: 13vw;
     }
     footer{
         
