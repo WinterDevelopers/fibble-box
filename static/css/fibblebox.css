@@ -22,20 +22,24 @@ body{
 .content{
     margin-bottom: 30px;
     display: flex;
+    flex-wrap: wrap;
+    width: 99vw;
     flex-direction: row;
     align-content: center;
 }
-/*
-.content > div:last-child{
+
+.content > div:first-child{
     margin-left: 20px;  
-    margin-right: 20px;
-}*/
+    
+}
 .content-box{
     width: 350px;
     height: 270px;
     background-color: rgb(255, 255, 255); 
     padding: 0px;
     position: relative;
+    margin-left: 20px;
+
     
 }
 
@@ -63,10 +67,11 @@ body{
     background-color:rgb(39, 39, 39); 
     color: white; 
     height: 55px; 
-    margin-top: 100px; 
+    margin-top: 210px; 
     text-align: center; 
     border-radius: 20px; 
-    margin-left: 80px; width: 200px;
+    margin-left: 8px;
+    width: 200px;
 }
 
 .event > img{

@@ -91,16 +91,16 @@
     
     </div>
 </div>
-<div id="content" class="content">
+<div id="content">
     <h3 style="margin-left: 30px;" id="pagentry">Pagentry</h3>
-    
+    <div class="content">
         {% for event in events %}
         <div>
             <div  class="content-box">
-                <img src="{{event.eventBanner}}" alt="Awards" width="70vw" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
+                <img src="{{event.eventBanner}}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
                 <div class="content-box-info">
                     <div>
-                        <img src="{{event.eventImage}}" alt="" >
+                        <img src="{{event.eventImage}}" alt="" width="150px" height="180px">
                     </div>
                     <div class="content-box-info-text">
                         <h5>{{event.name}}</h5>
@@ -138,9 +138,8 @@
             
         </div>
         
-    <div class="content-viewmore"> <p>View more...</p></div>
-    
-
+        <div style="display: grid;"><div class="content-viewmore" onclick="view_button_func()"> <p>View more...</p></div></div>
+    </div>
 </div>
 <div class="ads1">
     <img src="{% static 'images/mbgn.jpg' %}" alt="advertisment" width="100%" height="300px">
@@ -220,7 +219,7 @@
         </div>
         <div class="content-viewmore"> <p>View more...</p></div>
     </div>
-
+    <hr>
 </div>
 <div id="content">
     <h3 style="margin-left: 30px;" id="comperism">Comperism</h3>

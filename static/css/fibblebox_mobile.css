@@ -117,11 +117,7 @@
     
 
     }
-    .content > div:last-child{
-        margin-top:10px ;
-        margin-left:25vw ;
-        margin-bottom: 5px;
-    }
+  
     .content-box{
         width: 85vw; 
         height: 230px;
@@ -156,10 +152,12 @@
         text-align: center; 
         border-radius: 70px;  
         width: 200px;
+        margin-left: 40px;
+        margin-top: 0px;
     }
     
     .content > div {
-        margin-left:8vw;
+        margin-left:7.5vw;
     }
     .head-banner{
         height: 150px;
@@ -169,6 +167,7 @@
     }
     .event-office{
         grid-template-columns: auto;
+        margin-left: 5.7vw;
         display: block;
         
     }
@@ -193,7 +192,7 @@
         flex-direction: column;
     }
     .candidate{
-        margin: 6vw 10vw;
+        margin: 6vw 8.5vw;
         height: 730px;
         width: 300px;
         
