@@ -173,7 +173,8 @@
         
     }
     .event-office > div{
-        margin-left: 10px;
+        margin-left: auto;
+        margin-right: auto;
         height: 380px;
         width: 300px;
         margin-bottom: 20px;
@@ -193,7 +194,7 @@
         flex-direction: column;
     }
     .candidate{
-        margin: 6vw 8.5vw;
+        margin: 6vw auto;
         height: 730px;
         width: 300px;
         

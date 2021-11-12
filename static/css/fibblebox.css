@@ -85,7 +85,6 @@ body{
 .event-office{
     display: grid;
     grid-template-columns: auto auto auto;
-    margin-left: 8vw;
     margin-bottom: 100px;
     display: flex;
     justify-content: space-evenly;
