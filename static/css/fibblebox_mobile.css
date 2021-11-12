@@ -123,6 +123,7 @@
         height: 230px;
         margin-bottom: 30px;
         margin-right: 1px;
+        margin-left: 1px;
         
     }
     .content-box > img{
@@ -157,7 +158,11 @@
     }
     
     .content > div {
-        margin-left:7.5vw;
+        margin-left:0px;
+    }
+    .content > div:first-child{
+        margin-left: 0px;  
+        
     }
     .head-banner{
         height: 150px;
