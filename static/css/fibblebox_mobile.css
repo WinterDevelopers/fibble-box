@@ -60,10 +60,7 @@
         margin-inline-end: 13vw;
         
     }
-    .nav-bar-mobile >div:last-child{
-        margin-inline-end: 10vw;
-        
-    }
+    
     .nav-bar-mobile >div:first-child{
         margin-inline-start: 10vw;
     }
