@@ -49,9 +49,9 @@
         position:fixed;
         bottom: 0px;
         width: 100vw;
-        padding: 5vw 0px;
+        padding: 2vw 0px;
         display: flex;
-        font-size: x-small;
+        font-size: xx-small;
         background-color: rgb(255, 255, 255);
         border-radius: 10px 10px 0px 0px;
     }
@@ -315,22 +315,36 @@
     .candidate-share{
         background-color: white;
         padding: 5px;
-        margin-left: 35px;
+        margin-left: 14vw;
         margin-bottom: 30px;
-        width: 10vw;
-        height: 5vh;
+        height: 45px;
+        width: 45px;
         border-radius: 50%;
         box-shadow: rgba(128, 127, 127, 0.507) 1px 1px 5px;
 
     }
-    .candidate-share > img{
-        height: 35px;
+    .candidate-share > svg{
+        margin: 5px;
+    }
+    .candidate-share-container{
+        margin-left:10px;
+        display: flex;
+        flex-direction: row;
     }
     .candidate-share-icon{
+
         background-color: white;
         padding: 5px;
-        height: 5vh;
+        height: 45px;
+        width: 45px;
         transition:background-color 2s;
+        border-radius: 50%;
+        box-shadow: rgba(128, 127, 127, 0.507) 1px 1px 5px;
+        margin-right: 10px;
+
+    }
+    .candidate-share-icon > svg{
+        margin: 5px;
     }
     .no-display-1{
         display: ruby;

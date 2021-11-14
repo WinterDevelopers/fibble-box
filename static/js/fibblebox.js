@@ -99,8 +99,8 @@ code_option_close.onclick = function(){
 }
 
 var candidate_share = document.getElementById('candidate-share')
-var candidate_share_icon = document.getElementById('candidate-share-icon')
+var candidate_share_icon = document.querySelector('#candidate-share-container')
 
 candidate_share.onclick = function(){
-    candidate_share_icon.className='candidate-share-icon';
+    candidate_share_icon.className='candidate-share-container';
 }
