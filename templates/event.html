@@ -14,7 +14,7 @@
         are entilted to know about your event so then i hope 
     </div> 
     {% for candy in office %}
-    <h3 class="event-office-name">{{candy.office_name}}</h3>
+    <h3 class="event-office-name">{{candy.office_name}} </h3>
     <div class="event-office">
     
     {% for cap in candidate %}
@@ -30,8 +30,8 @@
         <h4 class="person-name">{{cap.name}}</h4>
         <a href="{% url 'fibblebox_app:candidate' cap.id %}"><div style="position: absolute; top:70%; left:40%; padding:10px 20px ; background-color:#4A536B; border-radius: 10px; color: white; font-weight: 700;">Vote</div></a>
         <div style="position: absolute; top:90%; left: 10%; background-color: rgb(136, 138, 138); height: 5px; width:65%; padding: 2px; border-radius: 5px;" ></div>
-        <div style="position: absolute; top:90%; left: 10%;background-image:linear-gradient(to right, rgb(27, 18, 75),rgb(30, 247, 247)); height:5px; width:{% widthratio  cap.votes percentage_votes 65 %}% ; padding:2px; border-radius:5px;" ></div>
-        <div style="position: absolute; top:88%; left: 80%;"> {% widthratio  cap.votes percentage_votes 100 %}% </div>
+        <div style="position: absolute; top:90%; left: 10%;background-image:linear-gradient(to right, rgb(27, 18, 75),rgb(30, 247, 247)); height:5px; width:{% widthratio  cap.votes candy.office_total_votes 65 %}% ; padding:2px; border-radius:5px;" ></div>
+        <div style="position: absolute; top:88%; left: 80%;"> {% widthratio  cap.votes candy.office_total_votes 100 %}% </div>
     </div>
         
     

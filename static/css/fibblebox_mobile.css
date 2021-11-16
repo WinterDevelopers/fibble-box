@@ -54,10 +54,12 @@
         font-size: xx-small;
         background-color: rgb(255, 255, 255);
         border-radius: 10px 10px 0px 0px;
+    
     }
     
     .nav-bar-mobile >div{
         margin-inline-end: 13vw;
+        text-align: center;
         
     }
     
@@ -315,7 +317,7 @@
     .candidate-share{
         background-color: white;
         padding: 5px;
-        margin-left: 14vw;
+        margin-left: 13vw;
         margin-bottom: 30px;
         height: 45px;
         width: 45px;

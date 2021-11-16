@@ -73,6 +73,15 @@ class Office(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_office')
     office_name = models.CharField(max_length=200)
 
+    @property
+    def office_total_votes(self):
+        votes = self.candidate_office.all()
+        
+        office_votes = sum([x.votes for x in votes])
+        
+        return office_votes
+
+
     def __str__(self):
         return self.office_name
 

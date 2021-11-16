@@ -17,19 +17,21 @@ def event(request, slug):
     template_name = 'event.html'
 
     event = get_object_or_404(Event, slug=slug)
-    can = Candidate.objects.all()
     candidate = event.event_candidate.all()
     office  = event.event_office.all()
     percentage_votes = event.total_votes
+   
+    print(office)
 
-    context = {'event':event, 'candidate':candidate, 'office':office, 'percentage_votes':percentage_votes, 'can':can}
-
+    context = { 'event':event, 'candidate':candidate, 'office':office, 'percentage_votes':percentage_votes}
+   
     return render(request, template_name, context)
 
 
 def candidate(request, id):
     candidate = get_object_or_404(Candidate, id=id)
     coupon_code = votingCode.objects.all()
+    
     coupon_list = []
     for x in coupon_code:
         coupon_list.append(x.coupon)
