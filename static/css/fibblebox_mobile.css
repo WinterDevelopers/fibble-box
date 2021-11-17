@@ -345,8 +345,11 @@
         margin-right: 10px;
 
     }
-    .candidate-share-icon > svg{
+    .candidate-share-icon > a> svg{
         margin: 5px;
+    }
+    .candidate-share-icon > a{
+        color: var(--font-color);
     }
     .no-display-1{
         display: ruby;

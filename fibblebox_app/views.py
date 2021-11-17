@@ -2,6 +2,8 @@ from django.shortcuts import redirect, render
 from django.shortcuts import get_object_or_404
 from .models import *
 
+
+
 # Create your views here.
 
 def home(request):
@@ -31,7 +33,7 @@ def event(request, slug):
 def candidate(request, id):
     candidate = get_object_or_404(Candidate, id=id)
     coupon_code = votingCode.objects.all()
-    
+    share_string = 'vote me'
     coupon_list = []
     for x in coupon_code:
         coupon_list.append(x.coupon)
@@ -58,7 +60,7 @@ def candidate(request, id):
         else:
             print('code wrong')
 
-    context = {'candidate':candidate}
+    context = {'candidate':candidate, 'share_string':share_string}
     template_name = 'candidate.html'
 
     return render(request, template_name, context)
