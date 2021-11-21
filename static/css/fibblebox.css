@@ -375,7 +375,6 @@ footer{
 
 }
 .others-box-b{
-   
     margin: 20px;
     height: 400px;
     margin-left: 120px;
@@ -568,12 +567,12 @@ footer{
     padding: 10px 15px; 
     font-size: small; 
     border-radius: 5px; 
-    font-weight: 600;
+    font-weight: 800;
 }
 
-.why-text{
+.why-fibblebox > p{
     font-size: x-small; 
-    margin-top: -15px;
+    
 }
 .telegram-channel-text{
     margin-left: 50px;
@@ -711,7 +710,7 @@ height: 50%;
 .comperism-box-a{
     clip-path: polygon(0 0, 100% 0px, 80% 100%, 0px 100% );
     background-color: rgb(194, 213, 221);
-    width: 195px;
+    width: 185px;
     height: 200px;
     position: absolute;
     top: 0;
@@ -724,11 +723,11 @@ height: 50%;
 .comperism-box-b{
     clip-path: polygon(20% 0, 100% 0px, 100% 100%, 0px 100% );
     background-color: rgb(30, 35, 58);
-    width: 195px;
+    width: 185px;
     height: 200px;
     position: absolute;
     top: 0;
-    left: 42vw;
+    left: 165px;
 }
 .comperism-box-b > p{
     text-align:center;
@@ -761,6 +760,8 @@ height: 50%;
 }
 .comperism-view{
     position: absolute;
+    display: flex;
+    flex-direction: row;
     bottom: 5%;
     left: 68%;
     width: 80px;
@@ -778,4 +779,7 @@ height: 50%;
 }
 .comperism-view > svg{
     margin:auto;
+}
+.comperism-view > p{
+    margin: auto;
 }
