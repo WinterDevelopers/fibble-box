@@ -738,17 +738,25 @@ height: 50%;
 .pic-box-a{
     margin: auto;
     margin-top: 20px;
-    height: 130px;
-    width: 100px;
+    height: 140px;
+    width: 120px;
     clip-path: polygon(0 0, 100% 0px, 80% 100%, 0px 100% );
+}
+.pic-box-a > img{
+    width:120px;
+    height:130px;
 }
 
 .pic-box-b{
     margin: auto;
     margin-top: 20px;
-    height: 130px;
-    width: 100px;
+    height: 140px;
+    width: 120px;
     clip-path: polygon(20% 0, 100% 0px, 100% 100%, 0px 100% );
+}
+.pic-box-b > img{
+    width:120px;
+    height:130px;
 }
 .comperism-title{
     position: absolute;
