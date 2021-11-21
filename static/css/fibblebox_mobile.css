@@ -145,16 +145,7 @@
         width:30vw;
         height: 150px;
     }
-    .content-viewmore{
-        background-color:rgb(39, 39, 39); 
-        color: white; 
-        height: 55px;  
-        text-align: center; 
-        border-radius: 70px;  
-        width: 200px;
-        margin-left: 40px;
-        margin-top: 0px;
-    }
+   
     
     .content > div {
         margin-left:0px;
