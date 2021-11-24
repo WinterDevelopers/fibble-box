@@ -60,7 +60,7 @@ var vote_add = document.getElementById('candidate-btn-plus');
 
 
 
-vote_remove.onclick=function(){
+/*vote_remove.onclick=function(){
     if (candidate_count > 1) {
         candidate_count -= 1
         vote_count.innerHTML = candidate_count
@@ -71,7 +71,7 @@ vote_remove.onclick=function(){
     }
 
    
-};
+}; 
 
 
 vote_add.onclick = function(){
@@ -79,7 +79,7 @@ vote_add.onclick = function(){
     vote_count.innerHTML = candidate_count
 };
 
-console.log(candidate_count)
+console.log(candidate_count)*/
 
 //using code to vote
 

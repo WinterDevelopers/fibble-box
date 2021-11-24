@@ -696,6 +696,13 @@ height: 50%;
     border-radius: 50%; 
     color: white; 
     text-align: center;
+    position: relative;
+    
+}
+.code-option-close > div{
+    position: absolute;
+    top: 10%;
+    left: 38%;
 }
 .comperism{
     position: relative;
