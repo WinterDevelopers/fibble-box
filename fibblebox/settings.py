@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
+from django.core.management.utils import get_random_secret_key
 
 from pathlib import Path
 
@@ -24,12 +25,11 @@ MEDIA_DIR = BASE_DIR/ 'media'
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'dnn#5n@kkv)7sk#0tf1wra05y=5bd2&mqw723e-um&vmsqg6fr'
-
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'False') == 'True'[]
 
-ALLOWED_HOSTS = ['fibble-box.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
