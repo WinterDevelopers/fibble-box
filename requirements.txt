@@ -1,4 +1,3 @@
-u9on2-cffi==20.1.0
 asgiref==3.2.10
 astroid==2.4.2
 atomicwrites==1.4.0
