@@ -12,7 +12,6 @@ Django==3.1.2
 django-crispy-forms==1.9.2
 django-etc==1.2.0
 django-heroku==0.3.1
-
 gunicorn==20.1.0
 heroku==0.1.4
 idna==2.10
@@ -22,7 +21,6 @@ lazy-object-proxy==1.4.3
 mccabe==0.6.1
 more-itertools==8.5.0
 npm==0.1.1
-
 optional-django==0.1.0
 packaging==20.4
 Pillow==7.2.0

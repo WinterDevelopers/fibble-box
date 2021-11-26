@@ -32,6 +32,7 @@ class Event(models.Model):
     slug = models.SlugField(max_length=250, unique=True)
     event_image = models.ImageField(upload_to = 'media/events')
     event_banner = models.ImageField(upload_to = 'media/events')
+    event_info = models.CharField(max_length=3000, null=True, blank=True)
     category = models.CharField(choices=CATEGORIES, max_length=2)
     intro_text = models.CharField(max_length=250)
     discription = models.CharField(max_length=450)
