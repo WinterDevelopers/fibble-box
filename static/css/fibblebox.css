@@ -505,7 +505,7 @@ footer{
 .candidate-submit{
     display: flex;
     flex-direction: row;
-    background-color: rgb(32, 33, 53);
+    background-color: rgb(255, 255, 255);
     height: 45px;
     width: 165px;
     color: white; 

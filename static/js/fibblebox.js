@@ -29,7 +29,7 @@ var a;
     
 }*/
 
-var count_down = new Date("Jan 24, 2022 14:34:52").getTime();
+var count_down = new Date("Dec 6, 2021 14:34:52").getTime();
 console.log(count_down)
 
 var a = setInterval(function(){
