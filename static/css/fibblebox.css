@@ -475,8 +475,9 @@ footer{
 .candidate > img:first-child {
     width: 250px;
     height: 700px;
-    filter: blur(5px);
-    -webkit-filter:blur(5px);
+    object-fit: cover;
+    filter: blur(3px);
+    -webkit-filter:blur(3px);
 }
 .candidate-img{
     width:150px;
@@ -610,7 +611,7 @@ height: 50%;
 
 .candidate-quote{
     inline-size: 200px;
-    margin-top: 23px; 
+    margin-top: 1px; 
     padding-left: 2px;
 }
 
