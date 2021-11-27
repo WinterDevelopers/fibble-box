@@ -4,15 +4,18 @@
 
 </script>
 {% block content %}
-<h3>MR $ MISS ENGINEERING PAGEANTRY 2021.(E-CHOKE EDITION)</h3>
+<h3 style="margin: 5px;">MR $ MISS ENGINEERING PAGEANTRY 2021.(E-CHOKE EDITION)</h3>
 
 <div class="event">
     <img src="{{event.eventBanner}}" alt="" style="object-fit: fill; background-position: center;">
     <div style="margin: 5px;">
-        {{event.intro_text}} 
+        {{event.intro_text}} <br>
+        <span style="font-weight: 700;">Live at Engineering Night 2021 at Marble arch hotel...       Dec 5th 2021.  Time 9pm </span>
     </div> 
+    <div style="background-color: grey; position: relative; top: -1px; height: 1px; margin: 20px 20px; "></div>
+
     {% for candy in office %}
-    <h3 class="event-office-name">{{candy.office_name}} </h3>
+    <h3 class="event-office-name">{{candy.office_name}}</h3>
     <div class="event-office">
     
     {% for cap in candidate %}
