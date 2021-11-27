@@ -4,14 +4,12 @@
 
 </script>
 {% block content %}
-<h3>{{event.name}}</h3>
+<h3>MR $ MISS ENGINEERING PAGEANTRY 2021.(E-CHOKE EDITION)</h3>
 
 <div class="event">
     <img src="{{event.eventBanner}}" alt="" style="object-fit: fill; background-position: center;">
     <div style="margin: 5px;">
-        this where you would give the neccessary write ups you thik your 
-        event would be needing and information you think that the people
-        are entilted to know about your event so then i hope 
+        {{event.intro_text}} 
     </div> 
     {% for candy in office %}
     <h3 class="event-office-name">{{candy.office_name}} </h3>
