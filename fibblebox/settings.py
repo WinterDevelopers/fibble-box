@@ -27,7 +27,7 @@ MEDIA_DIR = BASE_DIR/ 'media'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'False'
+DEBUG = False
 
 ALLOWED_HOSTS = ["134.209.188.190","fibblebox.com"]
 if not DEBUG:
