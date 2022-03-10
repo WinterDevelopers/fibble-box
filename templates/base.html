@@ -1,6 +1,4 @@
-<!DOCTYPE html>
 {% load static %}
-<html>
     <head>
         <title>FibbleBox</title>
         <meta charset="utf-8">
@@ -15,7 +13,7 @@
     <div class="nav-bar">
         <div class="nav-bar-head">
             <img src="{% static 'logos/fibble_box_logo.png' %}" alt="">
-            <a style="text-decoration:none; padding: 0px; margin-left: 5px;" href="{% url 'fibblebox_app:home' %}"><span style="color: #AED6DC;"> Fibble</span> <span style="color: #4A536B;">Box</span></a>
+            <a style="text-decoration:none; padding: 0px; margin-left: 5px; margin-top: 6px;" href="{% url 'Pageantry:home' %}"><span style="color: #AED6DC;"> Fibble</span> <span style="color: #4A536B;">Box</span></a>
         </div>
         <div class="nav-bar-links">
             <div>home</div>
@@ -25,16 +23,39 @@
             <div>login</div>
         </div>
         <div class="nav-bar-search">
-            <input type='search' placeholder="  search...">
+            <input type='search' placeholder="  search..." id="search" onkeyup="simple_search()">
         </div>
     </div>
-            
-        
+    <div class="search_item">
+        <li class="search_list" >nuesa</li>
+        <li class="search_list">fassa</li>
+        <li class="search_list">lawsa</li>
+    </div>     
+    <script type="text/javascript">
+       function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+    </script>
+    <div style="height: 60px; background-color: none;"></div>
 
     {% block content %}
 
 
     {% endblock content %}
+    <!-- the navbar mobile -->
         <div class="nav-bar-mobile">
             <div>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +77,7 @@
             </div>
             <div>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 21H10C8.89543 21 8 20.1046 8 19V15H10V19H19V5H10V9H8V5C8 3.89543 8.89543 3 10 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21ZM12 16V13H3V11H12V8L17 12L12 16Z" fill="#2E3A59"/>
+                    <path class="path"  d="M19 21H10C8.89543 21 8 20.1046 8 19V15H10V19H19V5H10V9H8V5C8 3.89543 8.89543 3 10 3H19C20.1046 3 21 3.89543 21 5V19C21 20.1046 20.1046 21 19 21ZM12 16V13H3V11H12V8L17 12L12 16Z" fill="#2E3A59" />
                 </svg>                    
                 login
             </div>
@@ -90,8 +111,3 @@
         </footer>
         <script type="text/javascript" src="{% static 'js/fibblebox.js' %}"></script>
     </body>
-
-    
-
-    
-</html>

@@ -3,8 +3,51 @@
 
 {% block content %}
 
-<h2>xup
-    
-</h2>
+
+    <div style="text-align: center; font-weight: 700; margin-top: 20px;"> your vote(s) would cost  = <span id="candidate-vote_cost">&#8358; {{payment.amount}}</span></div>
+
+    <div style="margin: 50px 100px;">
+        <form method="post">
+            {% csrf_token %}
+            
+                <button type="button" onclick="payWithPaystack()" class="payment-submit" id="paystack-btn">Make Payment </button>
+            
+            <script src="https://js.paystack.co/v1/inline.js"></script>
+        </form>
+    </div>
+
+
+
+
+<script>
+    const url = '/'
+
+    function payWithPaystack(){
+      var handler = PaystackPop.setup({
+        key: '{{public_key}}',
+        email: '{{payment.email}}',
+        amount: "{{payment.amount_value}}",
+        currency: "NGN",
+        ref: "{{payment.reference}}",
+        metadata: {
+           custom_fields: [
+              {
+                  display_name: "Mobile Number",
+                  variable_name: "mobile_number",
+                  value: "+2348012345678"
+              }
+           ]
+        },
+        callback: function(response){
+            
+            window.location.href="{% url 'Pageantry:verify_payment' payment.reference %}";
+        },
+        onClose: function(){
+            alert('window closed');
+        }
+      });
+      handler.openIframe();
+    }
+  </script>
 
 {% endblock %}

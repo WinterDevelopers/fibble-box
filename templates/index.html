@@ -2,11 +2,10 @@
 {% load static %}
 
 {% block content %}
-
 <div class="head-banner">
     <div class="head-banner-text">
-        <h3> The best voting <br> platform</h3>
-         <p style="font-size: small;">vote your candidate</p>
+        <h3> The best activity<br> platform</h3>
+         <p style="font-size: small;">Enjoy our services</p>
     </div>
     <div class="home-image">
         <img src="{% static 'images/trikky tee.jpg' %}" alt="face">
@@ -32,7 +31,7 @@
             </div>
         </a>
         
-            <div>
+            <div onclick="my_fetch()">
                 <a href="#event" class="categories-link">
                 <div class="circle"><img style="width: 50px; height: 50px;" src="{% static 'logos/event-logo.png' %}" alt="events-logo"></div>
                 <p>Events</p>
@@ -42,7 +41,7 @@
         <div>
             <a href="#comperism" class="categories-link">
             <div class="circle"><img src="{% static 'logos/comperism-logo.png' %}" alt="Comperism-logo" class="categories-img" style="margin-top: 4px;"></div>
-            <p>Comperism</p>
+            <p>reality posts</p>
             </a>
         </div>
         <div>
@@ -91,54 +90,39 @@
     
     </div>
 </div>
+
+<!-- pagentry -->
 <div id="content">
-    <h3 style="margin-left: 30px;" id="pagentry">Pagentry</h3>
+    <h2 style="margin-left: 0px; margin-top: 50px; background-color: aliceblue; height: 70px;text-align: center;">
+        <div style="margin: 30px auto; width: 200px;padding-top: 20px; background-color: rgb(20, 20, 41); height: 50px;color: aliceblue;" >PAGEANTRIES</div>
+    </h2>
     <div class="content">
-        {% for event in events %}
+        {% for pageantry in pageantries %}
         <div>
             <div  class="content-box">
-                <img src="{{event.eventBanner}}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
+                <img src="{{pageantry.pageantryBanner}}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
                 <div class="content-box-info">
                     <div>
-                        <img src="{{event.eventImage}}" alt="" width="150px" height="180px">
+                        <img src="{{pageantry.pageantryImage}}" alt="" width="150px" height="180px" style=" border-radius: 5px 0px 0px 5px;">
                     </div>
                     <div class="content-box-info-text">
-                        <h5>{{event.name}}</h5>
+                        <h5 class="pageantry_name">{{pageantry.name}}</h5>
                         <p style="margin-top: -25px; font-size: xx-small;">2020/2021</p>
                         <p style="font-size: xx-small; font-weight: 600; padding-top: 10px;">
-                            This award event occurs every year in Anambra state and is awarded to the most beautiful girl
+                            This award pageantry occurs every year in Anambra state and is awarded to the most beautiful girl
                         </p>
                     </div>
                 </div>
-                <div style="position: absolute; top: 85%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 5px 10px; font-size: small; border-radius: 5px; font-weight: 600;">
-                    <a href="{% url 'fibblebox_app:event' event.slug %}" style="color: white; text-decoration: none; ">VIEW</a>
+                <div style="position: absolute; top: 80%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 5px 10px; font-size: small; border-radius: 5px; font-weight: 600;">
+                    <a href="{% url 'Pageantry:pageantry' pageantry.slug %}" style="color: white; text-decoration: none; ">VIEW</a>
                 </div>
             </div>
         </div>
         {% endfor %}
-        <div>
-            <div  class="content-box">
-                <img src="{% static 'images/mbgn.jpg' %}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
-                <div class="content-box-info">
-                    <div>
-                        <img src="{% static 'images/face-abj.jpg' %}" alt="" height="180px" width="150px">
-                    </div>
-                    <div class="content-box-info-text">
-                        <h5>Face of Abuja</h5>
-                        <p style="margin-top: -25px; font-size: xx-small;">2020/2021</p>
-                        <p style="font-size: xx-small; font-weight: 600; padding-top: 10px;">
-                            This award event occurs every year in Abj state and is awarded to the most beautiful girl
-                        </p>
-                    </div>
-                </div>
-                <div style="position: absolute; top: 85%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 5px 10px; font-size: small; border-radius: 5px; font-weight: 600;">
-                    VIEW
-                </div>
-            </div>
-            
-        </div>
     </div>
 </div>
+
+
 <div>
     <div style=" width: 35vw; height: 50px; margin: 10px auto; text-align: center; position: relative;">
         <div class="content-viewmore">
@@ -146,8 +130,11 @@
         </div>
     </div>
 </div>
+
+<!--Advertisment-->
+<div style="background-color: grey; position: relative; top: -1px; height: 1px; margin: 20px 50px; margin-bottom: 0px; "></div>
 <div class="ads1">
-    <img src="{% static 'images/mbgn.jpg' %}" alt="advertisment" width="100%" height="300px">
+    <img src="{% static 'images/mbgn.jpg' %}" alt="advertisment" width="100%" height="400px" style="object-fit: cover;">
     <div class="ads1-text">
         <h1 style="margin-bottom: -5px;">MBGN Awards</h1>
         <p>Most beautiful girl in Nigeria</p>
@@ -155,195 +142,100 @@
     <p class="ads1-button">
         Start voting
     </p>
-
 </div>
-<div id="content">
-    <h3 style="margin-left: 30px; margin-top: 50px;" id="event">Events</h3>
-    <div class="content">
-        <div>
-            <div class="party">
-            
-                <img src="{% static 'images/9ja-party2.jpg' %}" alt="" >
-                <h6>2020/2021</h6>
-                <h3> SUG Night</h3>
-                <p>Welcome once again to Unizik Sug Night where we make 
-                    sure you enjoy the best night in Unizik. the party is open to
-                both students and non-students let have fun.... </p>
-                <div style="font-family: verdana;">
-                   <div class="party-date">
-                    <h4>24TH</h4>
-                    <h6>SEPT</h6>
-                    <p>2021</p>
-                   </div>
-                   <div class="party-location" >
-                    <svg width="35" height="35" viewBox="0 0 20 20" fill="blue" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 21C10.7369 19.9226 9.56619 18.7415 8.5 17.469C6.9 15.558 5 12.712 5 9.99999C4.99858 7.16754 6.70425 4.61338 9.32107 3.52939C11.9379 2.44539 14.9501 3.04523 16.952 5.04899C18.2685 6.3596 19.0059 8.14238 19 9.99999C19 12.712 17.1 15.558 15.5 17.469C14.4338 18.7415 13.2631 19.9226 12 21ZM12 6.99999C10.9282 6.99999 9.93782 7.57179 9.40193 8.49999C8.86603 9.42819 8.86603 10.5718 9.40193 11.5C9.93782 12.4282 10.9282 13 12 13C13.6569 13 15 11.6568 15 9.99999C15 8.34313 13.6569 6.99999 12 6.99999Z" fill="#2E3A59"/>
-                    </svg>
-                    <P>Lagos, Ikeja</P>
-                   </div>
-                   <div style="text-align: center;">
-                    <h3 style="margin-top:5px;">Tickets</h3>
-                    <p style="font-weight: 400; margin-bottom: 10px;">On sales !!!</p>
-            
-                   </div>
-                </div>
-            
-            </div>
-        </div>
-        <div>
-            <div class="party">
-            
-                <img src="{% static 'images/mbgn.jpg' %}" alt="" >
-                <h6>2020/2021</h6>
-                <h3> All Out Night</h3>
-                <p>Welcome once again to Unizik Sug Night where we make 
-                    sure you enjoy the best night in Unizik. the party is open to
-                both students and non-students let have fun.... </p>
-                <div style="font-family: verdana;">
-                   <div class="party-date">
-                    <h4>29TH</h4>
-                    <h6>OCT</h6>
-                    <p>2021</p>
-                   </div>
-                   <div class="party-location" >
-                    <svg width="35" height="35" viewBox="0 0 20 20" fill="blue" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 21C10.7369 19.9226 9.56619 18.7415 8.5 17.469C6.9 15.558 5 12.712 5 9.99999C4.99858 7.16754 6.70425 4.61338 9.32107 3.52939C11.9379 2.44539 14.9501 3.04523 16.952 5.04899C18.2685 6.3596 19.0059 8.14238 19 9.99999C19 12.712 17.1 15.558 15.5 17.469C14.4338 18.7415 13.2631 19.9226 12 21ZM12 6.99999C10.9282 6.99999 9.93782 7.57179 9.40193 8.49999C8.86603 9.42819 8.86603 10.5718 9.40193 11.5C9.93782 12.4282 10.9282 13 12 13C13.6569 13 15 11.6568 15 9.99999C15 8.34313 13.6569 6.99999 12 6.99999Z" fill="#2E3A59"/>
-                    </svg>
-                    <P>Enugu, GRA</P>
-                   </div>
-                   <div style="text-align: center;">
-                    <h3 style="margin-top:5px;">Tickets</h3>
-                    <p style="font-weight: 400; margin-bottom: 10px;">On sales !!!</p>
-            
-                   </div>
-                </div>
-            </div>
-            
-        </div>
-        <div>
-            <div class="party">
-            
-                <img src="{% static 'images/bike.jpg' %}" alt="" >
-                <h6>2020/2021</h6>
-                <h3> SUG Night</h3>
-                <p>Welcome once again to Unizik Sug Night where we make 
-                    sure you enjoy the best night in Unizik. the party is open to
-                both students and non-students let have fun.... </p>
-                <div style="font-family: verdana;">
-                   <div class="party-date">
-                    <h4>24TH</h4>
-                    <h6>SEPT</h6>
-                    <p>2021</p>
-                   </div>
-                   <div class="party-location" >
-                    <svg width="35" height="35" viewBox="0 0 20 20" fill="blue" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 21C10.7369 19.9226 9.56619 18.7415 8.5 17.469C6.9 15.558 5 12.712 5 9.99999C4.99858 7.16754 6.70425 4.61338 9.32107 3.52939C11.9379 2.44539 14.9501 3.04523 16.952 5.04899C18.2685 6.3596 19.0059 8.14238 19 9.99999C19 12.712 17.1 15.558 15.5 17.469C14.4338 18.7415 13.2631 19.9226 12 21ZM12 6.99999C10.9282 6.99999 9.93782 7.57179 9.40193 8.49999C8.86603 9.42819 8.86603 10.5718 9.40193 11.5C9.93782 12.4282 10.9282 13 12 13C13.6569 13 15 11.6568 15 9.99999C15 8.34313 13.6569 6.99999 12 6.99999Z" fill="#2E3A59"/>
-                    </svg>
-                    <P>Lagos, Ikeja</P>
-                   </div>
-                   <div style="text-align: center;">
-                    <h3 style="margin-top:5px;">Tickets</h3>
-                    <p style="font-weight: 400; margin-bottom: 10px;">On sales !!!</p>
-            
-                   </div>
-                </div>
-            
-            </div>
-            
-        </div>
-    
-    </div>
-    <div>
-        <div style=" width: 35vw; height: 50px; margin: 10px auto; text-align: center; position: relative;">
-            <div class="content-viewmore">
-                View more
-            </div>
-        </div>
-    </div>
-    <div style="background-color: grey; position: relative; top: -1px; height: 1px; margin: 20px 50px; "></div>
 
+
+<!--Events-->
+<h2 style="margin-left: 0px; margin-top: 50px; background-color: aliceblue; height: 70px;text-align: center;">
+    <div style="margin: 30px auto; width: 200px;padding-top: 20px; background-color: rgb(20, 20, 41); height: 50px;color: aliceblue;" >EVENTS</div>
+</h2>
+<div class="party">
+    <div class="party-box">
+        <img src="{% static 'images/cafe.jpg' %}" alt="party-image" class="party-image">
+        <div class="party-info">
+            <h2>Coal flex </h2>
+            <h5>9 days to go</h5>
+            <p>this party is for anyone that needs to fill the vibe of coal city</p>
+        </div>
+        <div class="party-footer">
+            <div class="party-footer-others" style="font-size: small;">All night</div>
+            <div class="party-button"><p>Let's party</p></div>
+            <div class="party-footer-others">Enugu</div>
+        </div>
+    </div>
+    <!--  -->
+    <div class="party-box">
+        <img src="{% static 'images/ebony.jpg' %}" alt="party-image" class="party-image">
+        <div class="party-info">
+            <h2>Owerri flex </h2>
+            <h5>13 days to go</h5>
+            <p>this party is for anyone that needs to fill the vibe of coal city</p>
+        </div>
+        <div class="party-footer">
+            <div class="party-footer-others" style="font-size: small;">All night</div>
+            <div class="party-button"><p>Let's party</p></div>
+            <div class="party-footer-others">Owerri</div>
+        </div>
+    </div>
+    <div class="party-box">
+        <img src="{% static 'images/cafe.jpg' %}" alt="party-image" class="party-image">
+        <div class="party-info">
+            <h2>Coal flex </h2>
+            <h5>9 days to go</h5>
+            <p>this party is for anyone that needs to fill the vibe of coal city</p>
+        </div>
+        <div class="party-footer">
+            <div class="party-footer-others" style="font-size: small;">All night</div>
+            <div class="party-button"><p>Let's party</p></div>
+            <div class="party-footer-others">Enugu</div>
+        </div>
+    </div>
 </div>
-<div id="content">
-    <h3 style="margin-left: 30px;" id="comperism">Comperism</h3>
-    <div class="content">
-        <div>
-            <div class="comperism">
-                <div class="comperism-box-a">
-            
-                   <div class="pic-box-a">
-                    <img src="{% static 'images/9ja-party2.jpg' %}" alt="Awards" >
-                    
-                   </div>
-                   <p>Club</p>
-                </div>
-                <div class="comperism-box-b">
-                    <div class="pic-box-b">
-                        <img src="{% static 'images/9ja-party.jpg' %}" alt="Awards">
-                    </div>
-                    <p>Party</p>
-                </div>
-                <div class="comperism-title">WHICH IS BETTER ?</div>
-                <div class="comperism-view">
-                    <p>View</p>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18.5 15.5L22 12L18.5 8.5L17.793 9.207L20.086 11.5H2V12.5H20.086L17.793 14.793L18.5 15.5Z" fill="#2E3A59"></path>
-                    </svg>
-                </div>
-            </div>
+
+
+
+<!-- Blog -->
+<h2 style="margin-left: 0px; margin-top: 50px; background-color: aliceblue; height: 70px;text-align: center;">
+    <div style="margin: 30px auto; width: 200px;padding-top: 20px; background-color: rgb(20, 20, 41); height: 50px;color: aliceblue;" >BLOG FEEDS</div>
+</h2>
+<div class="blog">
+    <div class="blog-post">
+        <img src="{% static 'images/messi.jpg' %}" alt="" class="blog-image">
+        <div class="blog-info">
+            <h3>Why Messi is the Best</h3>
+            <p>After a long rivary between messi and other players
+                i think the only problems were....
+            </p>
         </div>
-        <div>
-            <div class="comperism">
-                <div class="comperism-box-a">
-            
-                   <div class="pic-box-a">
-                    <img src="{% static 'images/ronaldo.jpg' %}" alt="Awards" >
-                    
-                   </div>
-                   <p>Ronaldo</p>
-                </div>
-                <div class="comperism-box-b">
-                    <div class="pic-box-b">
-                        <img src="{% static 'images/messi.jpg' %}" alt="Awards" >
-                    </div>
-                    <p>Messi</p>
-                </div>
-                <div class="comperism-title">WHO IS THE GOAT ?</div>
-                <div class="comperism-view">
-                    <p>View</p>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18.5 15.5L22 12L18.5 8.5L17.793 9.207L20.086 11.5H2V12.5H20.086L17.793 14.793L18.5 15.5Z" fill="#2E3A59"></path>
-                    </svg>
-                </div>
-            </div>
-            
-        </div>
-        <div>
-            <div class="comperism">
-                <div class="comperism-box-a">
-            
-                   <div class="pic-box-a">
-                    <img src="{% static 'images/9ja-party2.jpg' %}" alt="Awards">
-                    
-                   </div>
-                   <p>Ronaldo</p>
-                </div>
-                <div class="comperism-box-b">
-                    <div class="pic-box-b">
-                        <img src="{% static 'images/9ja-party.jpg' %}" alt="Awards">
-                    </div>
-                    <p>Messi</p>
-                </div>
-                <div class="comperism-title">WHO IS THE GOAT ?</div>
-                <div class="comperism-view">
-                    <p>View</p>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18.5 15.5L22 12L18.5 8.5L17.793 9.207L20.086 11.5H2V12.5H20.086L17.793 14.793L18.5 15.5Z" fill="#2E3A59"></path>
-                    </svg>
-                </div>
-            </div>
+        <div class="blog-button">
+            <p>Explore</p>
         </div>
     </div>
 
+    <div class="blog-post">
+        <img src="{% static 'images/9ja-party2.jpg' %}" alt="" class="blog-image">
+        <div class="blog-info">
+            <h3>This party was rated 3rd</h3>
+            <p>this party was a mind blowing event that actually shock the economy of the country....
+            </p>
+        </div>
+        <div class="blog-button">
+            <p>Explore</p>
+        </div>
+    </div>
+
+    <div class="blog-post">
+        <img src="{% static 'images/ronaldo.jpg' %}" alt="" class="blog-image">
+        <div class="blog-info">
+            <h3>Will ronaldo rise again</h3>
+            <p>After a long rivary between ronaldo and other players
+                i think the only problems were....
+            </p>
+        </div>
+        <div class="blog-button">
+            <p>Explore</p>
+        </div>
+    </div>
 </div>
 <div>
     <div style=" width: 35vw; height: 50px; margin: 10px auto; text-align: center; position: relative;">
@@ -352,75 +244,44 @@
         </div>
     </div>
 </div>
-<div style="background-color: grey; position: relative; top: -1px; height: 1px; margin: 20px 50px; "></div>
 
-<div class="others"> 
-    <div class="others-box-a">
-        <div style="display: flex;flex-direction: row;">
-            <img src="{% static 'images/events.png' %}" alt="" class="img-event-add">
-            <div class="how-to-event">
-                <h4>HOW TO ADD AN EVENT</h4>
-                <p> Prepare all the neccesssary files</p>
-                <p> Send those detials to our mail</p>
-                <p> we will contact you on your request</p>
-                <p> check if all requirements are met</p>
+<div style="width: 90%; background-color: rgb(140, 140, 140); position: relative; top: 10px; height: 1px; margin: 20px auto;"></div>
+
+<div class="others">
+
+    <div class="others-a">
+        <div style="width: 100%; background-color: #AED6DC; border-radius: 10px 10px 0px 0px;height: 50px;">
+            <div style="font-weight: 900; color: rgb(255, 255, 255);padding-top: 10px;text-align: center;">HOW TO </div>
+            <div style="padding: 10px; font-size: small;margin-top: 10px;">
+                <div style="margin-top: 20px;margin-bottom: 7px;"><span style="font-weight: 900; text-align: left;">1)</span> send a request mail to our email</div>
+                <div style="margin-bottom: 7px;"><span style="font-weight: 900; text-align: left;-bottom: 30px;">2)</span> we will send you all the required details</div>
+                <div><span style="font-weight: 900; text-align: left;">3)</span> actvate and send back to us all the required details</div>
             </div>
         </div>
     </div>
-    <div class="others-box-a" style="border-radius: 10px;">
-        <div style="height: 125px;display: flex; flex-direction: row;">
-            <img src="{% static 'images/face-anambra.jpg' %}" alt="" class="subscribe-img">
-            <div class="subscribe-text">
-                <h3>
-                    Don't miss out!!!
-                </h3>
-                <p>
-                    subscribe and receive the
-                    lastest updates and promo 
-                </p>
-            </div>
-        </div>
-        <div style="height: 75px; display: flex; flex-direction: row;" class="sub-form">
-            <input type="text" >
-            <input type="submit" value="subscribe" style="color: white; background-color:rgb(21, 16, 49); width: 100px; border: none; border-radius: 0px 10px 10px 0px; height: 42px; margin: 10px 0px; font-weight: 800; font-family: poppins;">
-        
-        </div>        
-
-
-    </div>
-    <div class="others-box-b" style="border-radius:10px; background-color: white;">
-        <div class="about-us">
-            <div style="height:150px; padding: 10px; padding-left: 15px; ">
-                <h3 style="margin-top: 5px;"><u>ABOUT US</u></h3>
-                <p>
-                    we give you the best platform to carry
-                    out your contest, voting, surveying and
-                    event ticket sales
-                </p>
-            </div>
-            <img src="{% static 'images/coin-box.jpg' %}" alt="">
+    <div class="others-a">
+        <div style="width: 100%; background-color: #838383; border-radius: 10px 10px 0px 0px; text-align: center;height: 50px;">
+       <div style="font-weight: 900; color:white;padding-top: 10px;">ABOUT</div>
+       <div class="about-content">
+           we offer the best services for organsing your pagentries, parties and events. we take over all the complex part of your and all 
+           you need to do is to relax.
+       </div>
         </div>
     </div>
-    <div class="others-box-b">
-        <div class="others-box-b-sub">
-            <div style="height: 200px; display: flex; flex-direction: row; margin-bottom: 20px; background-color: white;">
-                <img src="{% static 'images/election.png' %}" alt="" height="200px"  style="clip-path: polygon(0 0, 100% 0, 80% 100%, 0px 100%);">
-                <div class="why-fibblebox">
-                    <h4>WHY FIBBLEBOX ?</h4>
-                    <p>customers first</p>
-                    <p>lowest rates/ charges</p>
-                    <p>we are fast and reliable</p>
-                    <p> customer care services 24/7</p>
-                   
+    <div class="others-a">
+        <div style="width: 100%; background-color: #4A536B; border-radius: 10px 10px 0px 0px; text-align: center;height: 50px;">
+            <div style="font-weight: 900; color: aliceblue;padding-top: 10px;">NEWSLETTER</div>
+                <div style="padding: 20px;">Get our best offers and discounts</div>
+                <div class="subscribe">
+                    <form action="" method="post" style="display: block;">
+                        <div ><input class="subscribe-email" type="email" placeholder="Add Email.." ></div>
+                        <div><input class="subscribe-submit" type="submit" value="subscribe"></div>
+                    </form>
                 </div>
             </div>
-            </div>
-            <div style="height: 100px; font-size: large; font-weight: 700; background-color: rgba(122, 255, 244, 0.356); border-radius: 10px;  height: 60px; margin: 0px 20px; display: flex; flex-direction: row; box-shadow: rgba(128, 128, 128, 0.185) 2px 2px 30px;">
-                <p class="telegram-channel-text">Join our telegram channel</p>
-                <img src="{% static 'images/telegram-logo.png' %}" alt="" class="telegram-channel-logo">
-            </div>
-        </div>
     </div>
+
 </div>
+
 
 {% endblock content %}

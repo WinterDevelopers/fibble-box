@@ -7,10 +7,9 @@
 }
 
 @media screen and (max-width:600px) {
+
     .no-display{
         display: none;
-        background-color: yellow;
-        
     }
     .categories-img{
         width: 40px;
@@ -27,8 +26,8 @@
     }
 
     .nav-bar-search > input[type=search]{
-        padding: 5px;
-        width: 150px;
+        padding: 7px;
+        width: 170px;
         font-size: small;
         font-weight: 400;
     }
@@ -60,6 +59,8 @@
     .nav-bar-mobile >div{
         margin-inline-end: 13vw;
         text-align: center;
+        
+    
         
     }
     
@@ -98,6 +99,7 @@
     }
     .home-image > img{
         width: 80px;
+        object-fit: cover;
     }
     
     .sponsors{
@@ -154,18 +156,32 @@
         margin-left: 0px;  
         
     }
+    .party{
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0px auto;
+    }
+    .blog{
+        display: grid;
+        grid-template-columns: auto;
+        
+    
+    }
+    .blog-post{
+        margin: 12px auto;
+    }
     .head-banner{
         height: 150px;
     }
     .head-banner-text{
         font-size: medium;
     }
-    .event-office{
+    .pageantry-office{
         grid-template-columns: auto;
         display: block;
         
     }
-    .event-office > div{
+    .pageantry-office > div{
         margin-left: auto;
         margin-right: auto;
         height: 380px;
@@ -188,7 +204,7 @@
     }
     .candidate{
         margin: 6vw auto;
-        height: 750px;
+        height: 830px;
         width: 300px;
         
     }
@@ -235,81 +251,30 @@
     .candidate-vote{
         margin-left: 35px;
     }
-    .others{  
+    .candidate_amount{
+        margin-left: 20%;
+    }
+    .others{
         display: grid;
-        grid-template-columns: 80vw; 
-        margin-top: 60px;
-        margin-bottom: 50px;
-        height: 1300px;
+        grid-template-columns: auto;
+        gap:20px 50px;
+        width:90%;
+        margin: 20px 5%;
+    
     }
-    .others-box-a{
-        width: 95vw;
-        margin-left: 3vw;
-    }
-    .how-to-event > h4{
-        margin-top: 40px;
-        font-size: x-small;
-    }
-    .how-to-event > p{
-        font-size: x-small;
-    }
-    .img-event-add{
-        height:200px;
-        width: 45vw;
-        clip-path: polygon(0 0, 100% 0, 80% 100%, 0px 100%);
-    }
-    .subscribe-img{
-        height:70px; 
-        width:70px; 
-        border-radius: 50%; 
-        margin: 15px 10px;
-    }
-    .subscribe-text > p{
-        font-size: small;
-    }
-    .sub-form > input[type=text]{
-        margin-left: 25px;
-        border: none; 
-        border-radius: 10px 0px 0px 10px; 
-        height: 40px; 
-        width:45vw; 
-        margin-top: 10px; 
-        background-color: rgba(122, 255, 244, 0.356);
-    }
-    .others-box-b{
-        width: 95vw;
-        margin-left: 2vw;
-    }
-    .about-us{
-        width: 95vw;
-    }
-    .about-us > img {
-        height: 230px;
-    }
-    .why-text{
-        font-size: x-small; 
-        margin-top: -15px;
-    }
-    .telegram-channel-text{
-        font-size: x-small;
-        margin-left: 20px;
-        margin-top: 20px;
-    }
-    .telegram-channel-logo{
-        height:50px; 
-        width:80px; 
-        border-radius: 50%; 
-        margin: 5px 0px;
-        margin-left: 20px;
-    }
-    .others-box-b-sub > div > img{
-        width: 150px;
+    .others-a{
+        background-color: white;
+        border-radius: 10px;
+        height: 200px;
+        width: 100%;
+        padding: 0px;
     }
     .candidate-share{
         background-color: white;
         padding: 5px;
         margin-left: 13vw;
         margin-bottom: 30px;
+        margin-top: 0px;
         height: 45px;
         width: 45px;
         border-radius: 50%;
@@ -320,7 +285,8 @@
         margin: 5px;
     }
     .candidate-share-container{
-        margin-left:10px;
+        margin: 0px;
+        margin-left:8px;
         display: flex;
         flex-direction: row;
     }
@@ -346,4 +312,76 @@
         display: ruby;
         background-color: yellow;
     }
+    .payment-email-field[type=email]{
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 1px;
+    }
+    .submit-email{
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 1px;
+
+    }
+    .payment-submit{
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 1px;
+    }
+    .coupon_div_center{
+        margin: 50px auto;
+        width: 75%;
+        margin-bottom: 200px;
+    }
+    .coupon_top_text{
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .coupon_email{
+        height: 50px;
+        width: 250px;
+        border: 2px white solid;
+        border-radius: 10px;
+        background-color:rgb(244, 252, 255);
+        text-align: center;
+        font-weight: 900;
+        padding: 0px;
+        margin: 20px auto;
+        margin-left: 5vw;
+    }
+    .coupon_submit{
+        height: 50px;
+        width: 250px;
+        border:none;
+        border-radius: 10px;
+        background-color:var(--background-color-dark);
+        color: var(--background-color-form-input);
+        text-align: center;
+        font-weight: 900;
+        padding: 0px;
+        margin: 20px auto;
+        margin-left: 5vw;
+    }
+    .coupon_payment_card{
+        width: 80%;
+        height: 250px;
+    }
+    .btn-hollow{
+        border:solid var(--background-color-dark) 1px ;
+        border-radius: 10px;
+        width: 100px;
+        height: 30px;
+        color: var(--background-color-dark);
+        margin-top:20px;
+        text-align: center;
+        margin-left:40vw;
+        padding-top: 5px;
+        font-size: 15px;
+    }
+    .btn-hollow:hover{
+        background-color: var(--background-color-form-input);
+        border: rgba(255, 255, 255, 0.097);
+       
+    }
+    
 }

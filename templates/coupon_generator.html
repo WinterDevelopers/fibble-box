@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div class="coupon_div_center">
+        <div class="coupon_top_text">
+        Please select the number of coupons you will be needing
+        </div>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="coupon_amount_selection">
+                <button type="button" class="minus_btn" id="minus_btn"> -</button>
+                <div><input type="number" class="coupon_num_input" id="coupon_num_input" value="0" name="coupon_num_input" required></div>
+                <button type="button"  class="add_btn" id="add_btn">+</button>
+            </div>
+            <div style="text-align: center; margin-bottom: 40px;">This would cost: &#8358; <span id="coupon_cost"> 0</span></div>
+            <div><input type="email" placeholder="Input Email..." class="coupon_email" required id="coupon_email"></div>
+            <div><input type="submit"  value="purchase coupons" class="coupon_submit" onclick="coupon_fetch()"></div>
+            <div><input style="display: none;" id="token" type="text" name="token"></div>
+        </form>
+    </div>
+
+<script>
+    var coupon_number = 0
+    var minus_btn, add_btn, coupon_num_input
+    minus_btn = document.getElementById('minus_btn')
+    add_btn = document.getElementById('add_btn')
+   
+    add_btn.addEventListener("click", function(){
+        coupon_number += 10
+        coupon_num_input = document.getElementById('coupon_num_input').value = coupon_number
+
+        var cost = coupon_number * 100
+        cost_display = document.getElementById("coupon_cost").innerHTML = cost
+    })
+
+    minus_btn.addEventListener("click", function(){
+
+        if(coupon_number<=0){
+            coupon_number = 0
+        }
+        else{
+            coupon_number -= 10
+        }
+
+        coupon_num_input = document.getElementById('coupon_num_input').value = coupon_number
+
+        var cost = coupon_number * 100
+        cost_display = document.getElementById("coupon_cost").innerHTML = cost
+    })
+    
+    function coupon_fetch(){
+        let number_of_coupons = document.getElementById('coupon_num_input').value;
+        let email = document.getElementById('coupon_email').value;
+        let token = new Date().getTime()
+        document.getElementById('token').value = token
+
+        const url = '/coupon-processing'
+        data = {'email':email, 'number_of_coupons':number_of_coupons, 'token':token}
+        fetch(url, {
+            method:'POST',
+            headers : {
+                'Content-Type':'application/json',
+                'X-CSRFToken':csrftoken
+            },
+            body:JSON.stringify(data)
+        })
+        .then((res)=>{
+            return res.json()
+        })
+        .then((info)=>
+        console.log(info)
+        )
+        console.log('coupon fetch worked')
+        }
+
+</script>
+{% endblock %}

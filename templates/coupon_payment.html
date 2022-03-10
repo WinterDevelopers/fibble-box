@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<body onunload="delete_fetch()">
+    <div class="coupon_payment_card" >
+
+        <div class="coupon_order">
+            <div>Total : {{votes}} votes</div>
+            <div> Cost : &#8358; {{cost}} </div>
+            <div>Email : {{email}}</div>
+        </div>
+        <div class="make_coupon_payment" >
+            <button type="button" onclick="payWithPaystack()"> Make paymnet </button>
+            <script src="https://js.paystack.co/v1/inline.js"></script>
+        </div>
+    
+    </div>
+</body>
+
+<script>
+    function payWithPaystack(){
+      var handler = PaystackPop.setup({
+        key: '{{public_key}}',
+        email: '{{email}}',
+        amount: "{{coupon.amount_value}}",
+        currency: "NGN",
+        ref: "{{coupon.reference}}",
+        metadata: {
+           custom_fields: [
+              {
+                  display_name: "Mobile Number",
+                  variable_name: "mobile_number",
+                  value: "+2348012345678"
+              }
+           ]
+        },
+        callback: function(response){
+            
+            window.location.href="{% url 'Pageantry:coupon_verification' coupon.token %}";
+        },
+        onClose: function(){
+            alert('window closed');
+        }
+      });
+      handler.openIframe();
+    }
+
+    function delete_fetch(){
+        const url = '/delete-coupon'
+        let data = {'token':'{{coupon.token}}'}
+        fetch(url,{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json',
+                'X-CSRFToken':csrftoken
+            },
+            body:JSON.stringify(data)
+
+        })
+        .then((resonse)=>{
+            return resonse.json()
+        })
+        .then((info)=>
+            console.log(info)
+        )
+        console.log('fetch delete request sent')
+    }
+</script>
+
+{% endblock %}
