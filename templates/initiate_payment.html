@@ -4,23 +4,24 @@
 {% block content %}
 
 
-    <div style="text-align: center; font-weight: 700; margin-top: 20px;"> your vote(s) would cost  = <span id="candidate-vote_cost">&#8358; {{payment.amount}}</span></div>
+    <body onunload="delete_payment()">
+        <div style="text-align: center; font-weight: 700; margin-top: 20px;"> your vote(s) would cost  = <span id="candidate-vote_cost">&#8358; {{payment.amount}}</span></div>
 
-    <div style="margin: 50px 100px;">
-        <form method="post">
-            {% csrf_token %}
-            
-                <button type="button" onclick="payWithPaystack()" class="payment-submit" id="paystack-btn">Make Payment </button>
-            
-            <script src="https://js.paystack.co/v1/inline.js"></script>
-        </form>
-    </div>
+        <div style="margin: 50px 100px;">
+            <form method="post">
+                {% csrf_token %}
+                
+                    <button type="button" onclick="payWithPaystack()" class="payment-submit" id="paystack-btn">Make Payment </button>
+                
+                <script src="https://js.paystack.co/v1/inline.js"></script>
+            </form>
+        </div>
+    </body>
 
 
 
 
 <script>
-    const url = '/'
 
     function payWithPaystack(){
       var handler = PaystackPop.setup({
@@ -48,6 +49,25 @@
       });
       handler.openIframe();
     }
+
+    function delete_payment(){
+        const url = '/payment-deleting'
+        data = {'ref':"{{payment.reference}}"}
+
+        fetch(url,{
+            method:'POST',
+            headers:{'Content-Type':'application/json',
+                    'X-CSRFToken':csrftoken },
+            body:JSON.stringify(data)
+        })
+        .then((res)=>{
+            return res.json()
+        })
+        .then((info)=>
+            console.log(info)
+        )
+        console.log('deleted the payment')
+        }
   </script>
 
 {% endblock %}

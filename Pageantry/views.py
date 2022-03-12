@@ -1,3 +1,4 @@
+from bcrypt import re
 from django.conf import settings
 
 from django.http.request import HttpRequest
@@ -214,7 +215,7 @@ def sending_coupon_codes(request, token):
             file.write('%s \n'% a)
 
     send_email = SendEmail()
-    sending_email = send_email.sending_email()
+    sending_email = send_email.sending_email(customer_email)
     if sending_email:
         return redirect('Pageantry:home')
     return redirect('Pageantry:login')
@@ -269,4 +270,13 @@ def coupon_delete(request):
     return JsonResponse('deleted the coupon', safe=False)
 
 def payment_delete(request):
+    data = json.loads(request.body)
+    ref = data['ref']
+    print(ref)
+    payment = get_object_or_404(Payment, reference=ref)
+    if not payment.verification_status:
+        payment.delete()
+    else:
+        pass
+
     return JsonResponse('deleted successfully', safe=False)

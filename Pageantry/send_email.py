@@ -8,13 +8,12 @@ from email.mime.text import MIMEText
 
 
 class SendEmail():
-    def sending_email(self):
+    def sending_email(self, receiver_email):
         condition = False
 
-        subject = "An email with attachment from Python"
-        body = "This is an email with attachment sent from Python"
+        subject = "An email with attachment from Fibble Box"
+        body = "This is an email with attachment of your coupon codes sent from Fibblebox"
         sender_email = "christianezekwem101@gmail.com"
-        receiver_email = "davidnwokeabia@gmail.com"
         password = "gipymqhbsghieelq"
 
         # Create a multipart message and set headers
