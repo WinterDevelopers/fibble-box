@@ -101,7 +101,7 @@ else:
             'PORT': '',
             }   
         }
-
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -144,6 +144,7 @@ STATICFILES_DIRS = [
     STATIC_DIR,
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 #SECRET_KEY = os.environ.get('secret_key')
 SECRET_KEY = 'sk_test_9b966cca4e253f6c3cf4394df21957b30990d882'
