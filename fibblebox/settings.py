@@ -29,7 +29,7 @@ STATIC_DIR = BASE_DIR/ 'static'
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = False 
 
 ALLOWED_HOSTS = ["178.62.97.24","fibblebox.com","127.0.0.1"]
 if not DEBUG:
