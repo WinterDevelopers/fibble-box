@@ -28,6 +28,7 @@ MEDIA_DIR = BASE_DIR/'media'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = False
 
 ALLOWED_HOSTS = ["178.62.97.24","fibblebox.com","127.0.0.1"]
@@ -153,6 +154,6 @@ SECRET_KEY = 'sk_test_9b966cca4e253f6c3cf4394df21957b30990d882'
 PUBLIC_KEY = 'pk_test_d62d0abc9b452417dcded834b109dfe257cd425a'
 
 
-MEDIA_URL = ''
+MEDIA_URL = 'media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
