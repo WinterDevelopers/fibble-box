@@ -49,6 +49,8 @@ def purchase_coupon(request):
     template_name = 'coupon_generator.html'
 
     if request.method == 'POST':
+        number_of_coupons = request.POST.get('coupon_num_input')
+        email = request.POST.get('email')
         token = request.POST.get('token')
 
         return redirect('Pageantry:coupon_payment', token)
@@ -242,19 +244,16 @@ def coupon_processor(request):
     email = data['email']
     number_of_coupons = data['number_of_coupons']
     token = data['token']
-    amount = 100*int(number_of_coupons)
-    print(token)
-    print(email)
-    coupon_payment = couponPayment.objects.create(email = email)
-    coupon_payment.number_of_coupons=number_of_coupons
-    print('pass creating')
-    print('pass email')
-    coupon_payment.token = token
-    print('pass token')
-    coupon_payment.amount = amount
-    print('pass amount')
-    coupon_payment.save()
-    print('saved')
+    amount = int(number_of_coupons)*100
+   
+    if not int(number_of_coupons ) <= 0:
+        coupon_payment = couponPayment.objects.create(number_of_coupons=number_of_coupons)
+        coupon_payment.email = email
+        coupon_payment.token = token
+        coupon_payment.amount = amount
+        coupon_payment.save()
+    else:
+        pass
 
     return JsonResponse('sent the coupon data', safe=False)
 
