@@ -247,11 +247,12 @@ def coupon_processor(request):
     amount = 100*int(number_of_coupons)
     print(amount)
     print(email)
-    coupon_payment = couponPayment.objects.create(token = token)
+    coupon_payment = couponPayment.objects.create(email = email)
     coupon_payment.number_of_coupons=number_of_coupons
     print('pass creating')
-    coupon_payment.email = email
     print('pass email')
+    coupon_payment.token = token
+    print('pass token')
     coupon_payment.amount = amount
     print('pass amount')
     coupon_payment.save()
