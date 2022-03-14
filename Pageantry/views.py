@@ -254,6 +254,7 @@ def coupon_processor(request):
         coupon_payment.amount = amount
         coupon_payment.number_of_coupons=number_of_coupons
         coupon_payment.save()
+        print('saved')
     else:
         pass
 
