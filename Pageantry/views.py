@@ -244,11 +244,11 @@ def coupon_processor(request):
     email = data['email']
     number_of_coupons = data['number_of_coupons']
     token = data['token']
-    amount = int(number_of_coupons)*100
+    amount = 100*int(number_of_coupons)
     print(amount)
     print(email)
-
     coupon_payment = couponPayment.objects.create(number_of_coupons=number_of_coupons)
+    print('pass creating')
     coupon_payment.email = email
     coupon_payment.token = token
     coupon_payment.amount = amount
