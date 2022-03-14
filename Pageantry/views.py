@@ -49,16 +49,12 @@ def purchase_coupon(request):
     template_name = 'coupon_generator.html'
 
     if request.method == 'POST':
-        print('PIST worked')
         number_of_coupons = request.POST.get('coupon_num_input')
         email = request.POST.get('email')
         token = request.POST.get('token')
-        print(token)
 
         return redirect('Pageantry:coupon_payment', token)
         
-
-    
     context = {'winter':'winter'}
 
     return render(request, template_name, context)
@@ -243,6 +239,7 @@ def payment_processor(request):
     return JsonResponse('i worked', safe=False)
 
 def coupon_processor(request):
+    print('was called')
     data = json.loads(request.body)
     email = data['email']
     number_of_coupons = data['number_of_coupons']
@@ -251,11 +248,12 @@ def coupon_processor(request):
     print(amount)
     print(email)
     if not int(number_of_coupons ) <= 0:
-        coupon_paymnet = couponPayment.objects.create(number_of_coupons=number_of_coupons)
-        coupon_paymnet.amount = amount
-        coupon_paymnet.email = email
-        coupon_paymnet.token = token
-        coupon_paymnet.save()
+        coupon_payment = couponPayment.objects.create(token=token)
+        coupon_payment.email = email
+        coupon_payment.token = token
+        coupon_payment.amount = amount
+        coupon_payment.number_of_coupons=number_of_coupons
+        coupon_payment.save()
     else:
         pass
 

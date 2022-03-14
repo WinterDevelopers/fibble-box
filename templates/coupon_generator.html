@@ -49,20 +49,20 @@
         var cost = coupon_number * 100
         cost_display = document.getElementById("coupon_cost").innerHTML = cost
     })
-    
+    const url = '/coupon-processing'
     function coupon_fetch(){
         let number_of_coupons = document.getElementById('coupon_num_input').value;
         let email = document.getElementById('coupon_email').value;
         let token = new Date().getTime()
         document.getElementById('token').value = token
 
-        const url = '/coupon-processing'
+        
         data = {'email':email, 'number_of_coupons':number_of_coupons, 'token':token}
         fetch(url, {
             method:'POST',
             headers : {
                 'Content-Type':'application/json',
-                'X-CSRFToken':csrftoken
+                'X-CSRFToken':csrftoken,
             },
             body:JSON.stringify(data)
         })
