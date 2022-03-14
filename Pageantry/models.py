@@ -154,7 +154,7 @@ class couponPayment(models.Model):
     number_of_coupons = models.PositiveIntegerField(null=True)
     email = models.EmailField(null=True)
     amount = models.PositiveIntegerField(null=True)
-    token = models.IntegerField(null=True)
+    token = models.CharField(max_length=200,null=True)
     verification = models.BooleanField(default=False)
     reference = models.CharField(max_length=100, null=True)
 

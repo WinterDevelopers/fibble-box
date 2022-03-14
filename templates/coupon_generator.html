@@ -16,10 +16,10 @@
             </div>
             <div style="text-align: center; margin-bottom: 40px;">This would cost: &#8358; <span id="coupon_cost"> 0</span></div>
             <div><input type="email" placeholder="Input Email..." class="coupon_email" required id="coupon_email"></div>
-            <div><input type="submit"  value="purchase coupons" class="coupon_submit" ></div>
+            <div><input type="submit"  value="purchase coupons" class="coupon_submit" onclick="coupon_fetch()"></div>
             <div><input style="display: none;" id="token" type="text" name="token"></div>
         </form>
-        <button onclick="coupon_fetch()">fetch</button>
+    
     </div>
 
 <script>
