@@ -247,16 +247,14 @@ def coupon_processor(request):
     amount = int(number_of_coupons)*100
     print(amount)
     print(email)
-    if not int(number_of_coupons ) <= 0:
-        coupon_payment = couponPayment.objects.create(token=token)
-        coupon_payment.email = email
-        coupon_payment.token = token
-        coupon_payment.amount = amount
-        coupon_payment.number_of_coupons=number_of_coupons
-        coupon_payment.save()
-        print('saved')
-    else:
-        pass
+    
+    coupon_payment = couponPayment.objects.create(token=token)
+    coupon_payment.email = email
+    coupon_payment.token = token
+    coupon_payment.amount = amount
+    coupon_payment.number_of_coupons=number_of_coupons
+    coupon_payment.save()
+    print('saved')
 
     return JsonResponse('sent the coupon data', safe=False)
 
