@@ -158,7 +158,10 @@ class couponPayment(models.Model):
     verification = models.BooleanField(default=False)
     reference = models.CharField(max_length=100, null=True)
 
-    def save(self, *args, **kwargs):
+    class Meta:
+        ordering =['-token']
+
+    def save(self, *args, **kwargs)->None:
         while not self.reference:
             reference = secrets.token_urlsafe(40)
             similiar_ref = couponPayment.objects.filter(reference=reference)
