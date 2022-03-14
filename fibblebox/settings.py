@@ -156,4 +156,4 @@ PUBLIC_KEY = 'pk_test_d62d0abc9b452417dcded834b109dfe257cd425a'
 
 MEDIA_URL = ''
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
