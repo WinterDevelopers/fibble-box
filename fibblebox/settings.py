@@ -149,9 +149,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 #SECRET_KEY = os.environ.get('secret_key')
-SECRET_KEY = 'sk_live_bb0941bdeaa66b2306f3d1049d03e8380759c363'
+SECRET_KEY = 'sk_test_9b966cca4e253f6c3cf4394df21957b30990d882'
 #PUBLIC_KEY = os.environ.get('public_key')
-PUBLIC_KEY = 'pk_live_162b4ab06dcb111cfabd77588fdb0223f43c08be'
+PUBLIC_KEY = 'pk_test_d62d0abc9b452417dcded834b109dfe257cd425a'
 
 
 MEDIA_URL = 'media/'
