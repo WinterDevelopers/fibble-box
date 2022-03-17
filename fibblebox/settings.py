@@ -29,7 +29,7 @@ STATIC_DIR = BASE_DIR/ 'static'
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["178.62.97.24","fibblebox.com","127.0.0.1", "www.fibblebox.com"]
 if not DEBUG:
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'fibblebox.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-if not DEBUG:
+if DEBUG:
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -148,9 +148,10 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-SECRET_KEY = os.environ.get('secret_key')
-PUBLIC_KEY = os.environ.get('public_key')
-
+#SECRET_KEY = os.environ.get('secret_key')
+SECRET_KEY = 'sk_test_9b966cca4e253f6c3cf4394df21957b30990d882'
+#PUBLIC_KEY = os.environ.get('public_key')
+PUBLIC_KEY = 'pk_test_d62d0abc9b452417dcded834b109dfe257cd425a'
 
 
 MEDIA_URL = 'media/'
