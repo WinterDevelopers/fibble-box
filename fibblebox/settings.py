@@ -155,5 +155,5 @@ PUBLIC_KEY = os.environ.get('public_key')
 
 
 MEDIA_URL = 'media/'
-#wasn't ignore vvv
+#wasn't ignore ggg
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
