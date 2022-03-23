@@ -17,7 +17,7 @@
         margin: 1px;
     }
     .categories-item{
-        justify-content: center;
+        justify-content:start;
     }
 
     .summary-content{
@@ -178,7 +178,7 @@
         margin-top: 0px;
     }
     .head-banner-text{
-        font-size: 12px;
+        font-size: 15px;
     }
     .pageantry-office{
         grid-template-columns: auto;
