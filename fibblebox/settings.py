@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
+from re import T
 from django.core.management.utils import get_random_secret_key
 
 from pathlib import Path
@@ -29,7 +30,7 @@ STATIC_DIR = BASE_DIR/ 'static'
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["178.62.97.24","fibblebox.com","127.0.0.1", "www.fibblebox.com"]
 if not DEBUG:
@@ -156,4 +157,4 @@ PUBLIC_KEY = 'pk_test_d62d0abc9b452417dcded834b109dfe257cd425a'
 
 MEDIA_URL = 'media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
