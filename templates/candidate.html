@@ -12,7 +12,17 @@
         </div>
     </a>
 </div>
+{% for message in messages %}
 
+{% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+<div class="messages-success"><h3>{{message}}</h3></div>
+{% endif %}
+
+{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+<div class="messages-failed"><h3>{{message}}</h3></div>
+{% endif %}
+
+{% endfor %}
 <div class="candidate">
     <img src="{{candidate.background_image_URL}}" alt='image'>
     <img class="candidate-img" src="{{candidate.personal_image_URL}}" alt="personal-image">
@@ -128,6 +138,14 @@
     </div>
    
 </div>
+<h2 style="text-align: center;">SPONSORS</h2>
+    <div class="sponsors">
+        {% for sponsor in sponsors %}
+        <div >
+            <img src="{{sponsor.imageURL}}" alt="sponsors" class="sponsor-img">
+        </div>
+        {% endfor %}
+    </div>
 <div id="candidate-id" style="display: none;">{{candidate.id}}</div>
 <script>
 

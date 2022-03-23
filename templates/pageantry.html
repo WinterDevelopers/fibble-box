@@ -36,10 +36,17 @@
     
     {% endfor %}
         </div>
-        <div style="background-color: grey; position: relative; top: -1px; height: 1px; margin: 20px 20px; "></div>
+    <div style="background-color: grey; position: relative; top: -1px; height: 1px; margin: 20px 20px; "></div>
     {% endfor %}
-
-
+    <h2 style="text-align: center;">SPONSORS</h2>
+    <div class="sponsors">
+        {% for sponsor in sponsors %}
+        <div >
+            <img src="{{sponsor.imageURL}}" alt="sponsors" class="sponsor-img">
+        </div>
+        {% endfor %}
+    </div>
+    
 
 <div class="summary">
     <div class="summary-content" >

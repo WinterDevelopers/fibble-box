@@ -6,6 +6,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
+from django.contrib import messages
 
 from Pageantry.send_email import SendEmail
 
@@ -80,9 +81,12 @@ def pageantry(request, slug):
     office  = pageantry.pageantry_office.all()
     percentage_votes = pageantry.total_votes
     date = pageantry.date
+    sponsors = pageantry.pageantry_sponsor.all()
    
 
-    context = { 'pageantry':pageantry, 'candidate':candidate, 'office':office, 'percentage_votes':percentage_votes, 'date':date}
+    context = { 'pageantry':pageantry, 'candidate':candidate,
+                'office':office, 'percentage_votes':percentage_votes, 
+                'date':date, 'sponsors':sponsors}
    
     return render(request, template_name, context)
 
@@ -91,6 +95,8 @@ def candidate(request, id):
     
     candidate = get_object_or_404(Candidate, id=id)
     date = candidate.pageantry.date
+    pageantry = candidate.pageantry
+    sponsors = pageantry.pageantry_sponsor.all()
     coupon_code = votingCode.objects.all()
     share_string = 'vote me'
     coupon_list = []
@@ -111,8 +117,10 @@ def candidate(request, id):
                 coupon_code.save()
                 candidate.votes +=1
                 candidate.save()
+                messages.success(request,"vote was added")
             else:
-                pass
+                messages.error(request,"coupon invalid")
+                
             return redirect('Pageantry:candidate', candidate.id)
 
         elif input_vote:
@@ -130,7 +138,7 @@ def candidate(request, id):
         else:
             print('code wrong')
 
-    context = {'candidate':candidate, 'share_string':share_string, 'date':date}
+    context = {'candidate':candidate, 'share_string':share_string, 'date':date, 'sponsors':sponsors}
     template_name = 'candidate.html'
 
     return render(request, template_name, context)
@@ -171,7 +179,7 @@ def verify_payment(request:HttpRequest, reference):
         votes = amount/100
         candidate.votes += votes 
         candidate.save()
-        messages.success(request, "verification successful")
+        messages.success(request, f"verification successful, your {votes} vote(s) was added")
     else:
         messages.error(request, "verification failed")
 

@@ -113,7 +113,7 @@
                         </p>
                     </div>
                 </div>
-                <div style="position: absolute; top: 80%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 5px 10px; font-size: small; border-radius: 5px; font-weight: 600;">
+                <div style="position: absolute; top: 80%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 5px 10px; font-size: x-small; border-radius: 5px; font-weight: 600;">
                     <a href="{% url 'Pageantry:pageantry' pageantry.slug %}" style="color: white; text-decoration: none; ">VIEW</a>
                 </div>
             </div>
@@ -151,16 +151,22 @@
 </h2>
 <div class="party">
     <div class="party-box">
-        <img src="{% static 'images/cafe.jpg' %}" alt="party-image" class="party-image">
+    <img src="{% static 'images/cafe.jpg' %}" alt="party-image" class="party-image">
         <div class="party-info">
             <h2>Coal flex </h2>
             <h5>9 days to go</h5>
             <p>this party is for anyone that needs to fill the vibe of coal city</p>
         </div>
         <div class="party-footer">
-            <div class="party-footer-others" style="font-size: small;">All night</div>
+            <div class="party-footer-others">
+                <h4>Time</h4>
+                <p>9:00 PM</p>
+            </div>
             <div class="party-button"><p>Let's party</p></div>
-            <div class="party-footer-others">Enugu</div>
+            <div class="party-footer-others">
+                <h4>Location</h4>
+                <p>Enugu</p>
+            </div>
         </div>
     </div>
     <!--  -->
@@ -172,26 +178,44 @@
             <p>this party is for anyone that needs to fill the vibe of coal city</p>
         </div>
         <div class="party-footer">
-            <div class="party-footer-others" style="font-size: small;">All night</div>
+            <div class="party-footer-others">
+                <h4>Time</h4>
+                <p>1:00 AM</p>
+            </div>
             <div class="party-button"><p>Let's party</p></div>
-            <div class="party-footer-others">Owerri</div>
+            <div class="party-footer-others">
+                <h4>Location</h4>
+                <p>Owerri</p>
+            </div>
         </div>
     </div>
     <div class="party-box">
-        <img src="{% static 'images/cafe.jpg' %}" alt="party-image" class="party-image">
+        <img src="{% static 'images/mbgn.jpg' %}" alt="party-image" class="party-image">
         <div class="party-info">
-            <h2>Coal flex </h2>
+            <h2> Awka splash</h2>
             <h5>9 days to go</h5>
-            <p>this party is for anyone that needs to fill the vibe of coal city</p>
+            <p>this party is for anyone that needs to fill the vibe of awka twon</p>
         </div>
         <div class="party-footer">
-            <div class="party-footer-others" style="font-size: small;">All night</div>
+            <div class="party-footer-others">
+                <h4>Time</h4>
+                <p>11:00 PM</p>
+            </div>
             <div class="party-button"><p>Let's party</p></div>
-            <div class="party-footer-others">Enugu</div>
+            <div class="party-footer-others">
+                <h4>Location</h4>
+                <p>Awka</p>
+            </div>
         </div>
     </div>
 </div>
-
+<div>
+    <div style=" width: 35vw; height: 50px; margin: 10px auto; text-align: center; position: relative;">
+        <div class="content-viewmore">
+            View more
+        </div>
+    </div>
+</div>
 
 
 <!-- Blog -->

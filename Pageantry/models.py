@@ -1,4 +1,6 @@
+from distutils.command.upload import upload
 import email
+from email.mime import image
 from lib2to3.pgen2 import token
 from pyexpat import model
 from attr import attr
@@ -233,3 +235,20 @@ class Payment(models.Model):
 
     def __str__(self) -> str:
         return f"payment of:{self.amount} for {self.candidate}"
+
+
+class pageantrySponsor(models.Model):
+    pageantry = models.ForeignKey(Pageantry, on_delete=models.CASCADE, null=True, related_name="pageantry_sponsor")
+    name = models.CharField(max_length=30)
+    image = models.ImageField(upload_to='media/sponsors')
+
+    @property
+    def imageURL(self):
+        try:
+            image = self.image.url
+        except:
+            image = ''
+        return image
+
+    def __str__(self) -> str:
+        return self.name
