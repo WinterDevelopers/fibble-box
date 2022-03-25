@@ -202,6 +202,7 @@ class Payment(models.Model):
     reference = models.CharField(max_length=100, null=True)
     verification_status  = models.BooleanField(default=False)
     date_of_transaction = models.DateTimeField(auto_now_add=True)
+    token = models.CharField(max_length=300, null=True)
 
     class Meta:
         ordering =['-date_of_transaction']

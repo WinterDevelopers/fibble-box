@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h3 style="margin: 5px;">{{pageantry.name}}</h3>
 
 <div class="pageantry">
     <img src="{{pageantry.pageantryBanner}}" alt="" style="object-fit:fill; background-position: center;">
+    <h3 style="margin: 5px; text-align: center;">{{pageantry.name}}</h3>
     <div style="margin: 5px;">
         <span style="font-weight: 700;">{{pageantry.intro_text}} </span>
     </div> 
@@ -14,7 +14,7 @@
     <h3 class="pageantry-office-name">{{candy.office_name}}</h3>
     <div class="pageantry-office">
     
-    {% for cap in candidate %}
+    {% for cap in candidate %} 
     
     {% if cap.office_name == candy.office_name %}  
 

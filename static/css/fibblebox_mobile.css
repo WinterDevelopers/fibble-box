@@ -180,6 +180,10 @@
     .head-banner-text{
         font-size: 15px;
     }
+    .pageantry > img{
+        width: 100%;
+        height: 400px;
+    }
     .pageantry-office{
         grid-template-columns: auto;
         display: block;

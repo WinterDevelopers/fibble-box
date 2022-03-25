@@ -125,13 +125,14 @@ def candidate(request, id):
 
         elif input_vote:
             payment_email = request.POST.get('email')
+            token = request.POST.get('token')
             print(payment_email)
             input_vote_int = int(input_vote)
 
             if input_vote_int > 0:
                 vote_amount = input_vote_int * 100
             
-                return redirect('Pageantry:payment', candidate.id, 'manny' )
+                return redirect('Pageantry:payment', candidate.id, token )
 
             return redirect('Pageantry:candidate', candidate.id)
 
@@ -148,11 +149,11 @@ from .payment_form import PaymentForm
 import json
 
 
-def payment(request, id, x):
+def payment(request, id, token):
     template_name = 'initiate_payment.html'
     public_key = settings.PUBLIC_KEY
     candidate = Candidate.objects.get(id=id)
-    payment = Payment.objects.get(candidate=candidate, verification_status=False)
+    payment = Payment.objects.get(candidate=candidate, verification_status=False, token=token)
 
     if request.method == 'POST':
         
@@ -232,6 +233,7 @@ def payment_processor(request):
     email = data['email']
     number_votes = data['votes']
     candidate_id = int(data['candidate_id'])
+    token = data['token']
     amount = 100*int(number_votes)
     amount_int = int(amount)
     print(number_votes,'can id: ',amount)
@@ -241,6 +243,7 @@ def payment_processor(request):
     print('candidate :',the_customer)
     the_customer.amount = amount_int
     the_customer.email = email
+    the_customer.token = token
     the_customer.save()
     print("i saved the amount")
     

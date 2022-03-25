@@ -21,6 +21,7 @@
         </form>
     
     </div>
+<script src="{% static 'js/coupon_fetch.js' %}" type="text/javascript"></script>
 
 <script>
     var coupon_number = 0
@@ -50,31 +51,6 @@
         var cost = coupon_number * 100
         cost_display = document.getElementById("coupon_cost").innerHTML = cost
     })
-    const url = '/coupon-processing'
-    function coupon_fetch(){
-        let number_of_coupons = document.getElementById('coupon_num_input').value;
-        let email = document.getElementById('coupon_email').value;
-        let token = new Date().getTime()
-        document.getElementById('token').value = token
-
-        
-        data = {'email':email, 'number_of_coupons':number_of_coupons, 'token':token}
-        fetch(url, {
-            method:'POST',
-            headers : {
-                'Content-Type':'application/json',
-                'X-CSRFToken':csrftoken,
-            },
-            body:JSON.stringify(data)
-        })
-        .then((res)=>{
-            return res.json()
-        })
-        .then((info)=>
-        console.log(info)
-        )
-        console.log('coupon fetch worked')
-        }
-
+   
 </script>
 {% endblock %}

@@ -85,6 +85,7 @@
                 <input style="width: 95%;" type="email" class="payment-email-field" placeholder="Email..." name="email" id="email-field">
                 <button style="width: 95%;"  id="email-button" class="submit-email" type="submit"  onclick="my_fetch()">add Email</button>
             </div>
+            <div><input style="display: none;" id="token" type="text" name="token"></div>
            </form>
         </div>
         <div style="position: relative; height: 150px;">
@@ -97,7 +98,7 @@
     </div>
 </div>
 
-
+<script src="{% static 'js/voting_fetch.js' %}"></script>
 <div style="display: flex; flex-direction: row;" >
     <div id="candidate-share" class="candidate-share">
         <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -208,30 +209,7 @@
     });
     //console.log(vote_count.value)
 
-    //fetch
-    
-    const url = '/processing-payment'
-    function my_fetch(){
-        
-        var counts = document.getElementById('candidate-vote-count').value
-        var candidate_id = document.getElementById('candidate-id').innerHTML
-        var email_value = document.getElementById('email-field').value
-        var data_to_be_sent = {"votes":counts, "candidate_id":candidate_id, 'email':email_value}
-        console.log(candidate_id)
-        fetch(url,{
-            method:'POST',
-            headers:{
-                "Content-Type":"application/json",
-                "X-CSRFToken":csrftoken,
-            },
-            body:JSON.stringify(data_to_be_sent)
-        }).then((res)=>{
-            return res.json()
-
-        }).then((text)=>
-            console.log(text))
-        console.log('fetch worked')
-    }
+   
     
     var date = new Date('{{date|date:"Y-m-d"}}').getTime();
     var now = new Date().getTime();
@@ -242,5 +220,6 @@
     }
 
 </script>
+
 
 {% endblock %}
