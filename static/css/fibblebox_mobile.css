@@ -391,5 +391,9 @@
         border: rgba(255, 255, 255, 0.097);
        
     }
+    .intro_text{
+        font-weight: 500;
+        margin-left: 5vw;
+    }
     
 }

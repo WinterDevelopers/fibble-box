@@ -111,7 +111,8 @@ body{
     justify-content: space-evenly;
 }
 .pageantry-office-name{
-    padding-left: 25px;
+    text-align: center;
+    text-transform: uppercase;
 }
 .pageantry-office > div{
     margin-left: 10px;
@@ -1039,4 +1040,10 @@ height: 50%;
     width: 100vw;
     height: 40px;
 }
+.intro_text{
+    font-weight: 600;
+    width: 50px;
+    margin-left: 5vw;
+}
+
 
