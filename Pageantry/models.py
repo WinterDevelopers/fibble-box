@@ -103,8 +103,8 @@ class Candidate(models.Model):
     office = models.ForeignKey(Office, on_delete=models.CASCADE, related_name='candidate_office', null=True)
     name = models.CharField(max_length=100)
     quote = models.CharField(max_length=250)
-    background_image = models.ImageField()
-    personal_image = models.ImageField()
+    background_image = models.ImageField(upload_to = 'media/candidates')
+    personal_image = models.ImageField(upload_to = 'media/candidates')
     votes = models.IntegerField()
 
     @property
