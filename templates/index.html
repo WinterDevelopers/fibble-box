@@ -31,7 +31,7 @@
             </div>
         </a>
         
-            <div onclick="my_fetch()">
+            <div>
                 <a href="#event" class="categories-link">
                 <div class="circle"><img style="width: 50px; height: 50px;" src="{% static 'logos/event-logo.png' %}" alt="events-logo"></div>
                 <p>Events</p>
@@ -53,15 +53,11 @@
     </div>
 </div>
 <div class="ads1">
-    <img src="{% static 'images/mbgn.jpg' %}" alt="advertisment" style="object-fit: cover;">
+    <img src="{% static 'images/mike.jpg' %}" alt="advertisment" style="object-fit: cover;">
     <div class="ads1-text">
-        <h1 style="margin-bottom: -5px;">MBGN Awards</h1>
-        <p>Most beautiful girl in Nigeria</p>
+        <h1 style="margin-bottom: -5px;">MIKE VENTURES</h1>
+        <p>Most Trusted electronic dealer</p>
     </div>
-    <p class="ads1-button">
-        Start voting
-    </p>
-
 </div>
 <div id="top-events" style="padding-bottom: 20px;">
     <h3 style="margin-left: 15px;">Top Events</h3>
@@ -93,9 +89,12 @@
 
 <!-- pagentry -->
 <div id="content">
-    <h2 style="margin-left: 0px; margin-top: 50px; background-color: aliceblue; height: 70px;text-align: center;">
-        <div style="margin: 30px auto; width: 200px;padding-top: 20px; background-color: rgb(20, 20, 41); height: 50px;color: aliceblue;" >PAGEANTRIES</div>
-    </h2>
+    <div style="position: relative; margin-bottom: 30px;">
+        <img src="{% static 'images/event1 (5).jpg' %}" alt="" style="width: 100vw; height: 400px; object-fit: cover;">
+        <div style="position: absolute; top: 45;left: 50; font-size: 50px; font-weight: 900; color: rgb(198, 159, 29);"> PAGEANTRY </div>
+        <div style="position: absolute; top: 85%;left: 15%; font-size: 20px; font-weight: 100; color: rgb(243, 243, 243);"> Who will be the next crowned... </div>
+
+    </div>
     <div class="content">
         {% for pageantry in pageantries %}
         <div>
@@ -139,16 +138,17 @@
         <h1 style="margin-bottom: -5px;">MBGN Awards</h1>
         <p>Most beautiful girl in Nigeria</p>
     </div>
-    <p class="ads1-button">
-        Start voting
-    </p>
+    
 </div>
 
 
 <!--Events-->
-<h2 style="margin-left: 0px; margin-top: 50px; background-color: aliceblue; height: 70px;text-align: center;">
-    <div style="margin: 30px auto; width: 200px;padding-top: 20px; background-color: rgb(20, 20, 41); height: 50px;color: aliceblue;" >EVENTS</div>
-</h2>
+<div style="position: relative; margin-bottom: 30px;">
+    <img src="{% static 'images/event1 (1).jpg' %}" alt="" style="width: 100vw; height: 400px; object-fit: cover;">
+    <div style="position: absolute; top: 20%;left: 25%; font-size: 60px; font-weight: 900; color: rgb(186, 247, 255);"> EVENTS </div>
+    <div style="position: absolute; top: 85%;left: 5%; font-size: 20px; font-weight: 100; color: rgb(243, 243, 243); text-align: center;"> looking for the hootest event or party? <br> we got you covered </div>
+
+</div>
 <div class="party">
     <div class="party-box">
     <img src="{% static 'images/cafe.jpg' %}" alt="party-image" class="party-image">
@@ -162,7 +162,9 @@
                 <h4>Time</h4>
                 <p>9:00 PM</p>
             </div>
-            <div class="party-button"><p>Let's party</p></div>
+            <a href="{% url 'Events:event' %}" class="event-btn">
+                <div class="party-button"><p>Let's party</p></div>
+            </a>
             <div class="party-footer-others">
                 <h4>Location</h4>
                 <p>Enugu</p>
@@ -182,7 +184,9 @@
                 <h4>Time</h4>
                 <p>1:00 AM</p>
             </div>
-            <div class="party-button"><p>Let's party</p></div>
+            <a href="{% url 'Events:event' %}" class="event-btn">
+                <div class="party-button"><p>Let's party</p></div>
+            </a>
             <div class="party-footer-others">
                 <h4>Location</h4>
                 <p>Owerri</p>
@@ -201,7 +205,9 @@
                 <h4>Time</h4>
                 <p>11:00 PM</p>
             </div>
-            <div class="party-button"><p>Let's party</p></div>
+            <a href="{% url 'Events:event' %}" class="event-btn">
+                <div class="party-button"><p>Let's party</p></div>
+            </a>
             <div class="party-footer-others">
                 <h4>Location</h4>
                 <p>Awka</p>
@@ -219,9 +225,10 @@
 
 
 <!-- Blog -->
-<h2 style="margin-left: 0px; margin-top: 50px; background-color: aliceblue; height: 70px;text-align: center;">
-    <div style="margin: 30px auto; width: 200px;padding-top: 20px; background-color: rgb(20, 20, 41); height: 50px;color: aliceblue;" >BLOG FEEDS</div>
-</h2>
+<div style="position: relative; margin-top: 10px;">
+    <img src="{% static 'images/event1 (6).jpg' %}" alt="" style="width: 100vw; height: 400px; object-fit: cover;">
+    <div style="position: absolute; top: 55;left: 40; font-size: 80px; font-weight: 900; color: rgb(250, 250, 250);"> FEEDS </div>
+</div>
 <div class="blog">
     <div class="blog-post">
         <img src="{% static 'images/messi.jpg' %}" alt="" class="blog-image">
@@ -272,26 +279,6 @@
 <div style="width: 90%; background-color: rgb(140, 140, 140); position: relative; top: 10px; height: 1px; margin: 20px auto;"></div>
 
 <div class="others">
-
-    <div class="others-a">
-        <div style="width: 100%; background-color: #AED6DC; border-radius: 10px 10px 0px 0px;height: 50px;">
-            <div style="font-weight: 900; color: rgb(255, 255, 255);padding-top: 10px;text-align: center;">HOW TO </div>
-            <div style="padding: 10px; font-size: small;margin-top: 10px;">
-                <div style="margin-top: 20px;margin-bottom: 7px;"><span style="font-weight: 900; text-align: left;">1)</span> send a request mail to our email</div>
-                <div style="margin-bottom: 7px;"><span style="font-weight: 900; text-align: left;-bottom: 30px;">2)</span> we will send you all the required details</div>
-                <div><span style="font-weight: 900; text-align: left;">3)</span> actvate and send back to us all the required details</div>
-            </div>
-        </div>
-    </div>
-    <div class="others-a">
-        <div style="width: 100%; background-color: #838383; border-radius: 10px 10px 0px 0px; text-align: center;height: 50px;">
-       <div style="font-weight: 900; color:white;padding-top: 10px;">ABOUT</div>
-       <div class="about-content">
-           we offer the best services for organsing your pagentries, parties and events. we take over all the complex part of your and all 
-           you need to do is to relax.
-       </div>
-        </div>
-    </div>
     <div class="others-a">
         <div style="width: 100%; background-color: #4A536B; border-radius: 10px 10px 0px 0px; text-align: center;height: 50px;">
             <div style="font-weight: 900; color: aliceblue;padding-top: 10px;">NEWSLETTER</div>

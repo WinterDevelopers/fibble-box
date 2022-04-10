@@ -108,12 +108,9 @@
     .sponsors{
         color: #aed6dc9f;
     }
-    
-    .ads1-button{
-        left: 35% ;
-    }
+   
     .ads1-text{
-        left: 15%;
+        left: 20%;
     }
     .content{
         flex-direction: column;
@@ -395,5 +392,4 @@
         font-weight: 500;
         margin-left: 5vw;
     }
-    
 }

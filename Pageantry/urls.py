@@ -9,7 +9,7 @@ from .views import (home, base, login, register, pageantry, candidate, payment, 
 app_name = 'Pageantry'
 
 urlpatterns = [
-    path('', home, name='home'),
+    
     path('base' ,base, name='base'),
     path('login' ,login, name='login'),
     path('register', register, name='register'),

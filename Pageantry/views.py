@@ -1,4 +1,3 @@
-from bcrypt import re
 from django.conf import settings
 
 from django.http.request import HttpRequest

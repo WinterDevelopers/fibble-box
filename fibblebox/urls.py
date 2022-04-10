@@ -19,10 +19,13 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+from Pageantry.views import home
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('Pageantry.urls')),
- 
+    path('', home, name='home' ),
+    path('pageantry/', include('Pageantry.urls')),
+    path('events/', include('Events.urls')),
 ]
 
 

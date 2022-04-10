@@ -5,32 +5,13 @@
         <meta name="theme-color" content="#D4F9FF">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />    
         <link rel="shortcut icon" href="{% static 'logos/fibble_box_logo.png' %}" type="image/x-icon">
-        <link rel="stylesheet" href="{% static 'css/fibblebox.css' %}">
-        <link rel="stylesheet" href="{% static 'css/fibblebox_mobile.css' %}">
+        <link rel="stylesheet" href="{% static 'css/events.css' %}">
+        <link rel="stylesheet" href="{% static 'css/events_mobile.css' %}">
+        
         
     </head>
     <body>
-    <div class="nav-bar">
-        <div class="nav-bar-head">
-            <img src="{% static 'logos/fibble_box_logo.png' %}" alt="">
-            <a style="text-decoration:none; padding: 0px; margin-left: 5px; margin-top: 6px;" href="{% url 'home' %}"><span style="color: #AED6DC;"> Fibble</span> <span style="color: #4A536B;">Box</span></a>
-        </div>
-        <div class="nav-bar-links">
-            <div>home</div>
-            <div>category</div>
-            <div>about us</div>
-            <div>contact</div>
-            <div>login</div>
-        </div>
-        <div class="nav-bar-search">
-            <input type='search' placeholder="  search..." id="search" onkeyup="simple_search()">
-        </div>
-    </div>
-    <div class="search_item">
-        <li class="search_list" >nuesa</li>
-        <li class="search_list">fassa</li>
-        <li class="search_list">lawsa</li>
-    </div>     
+    
     <script type="text/javascript">
        function getCookie(name) {
         let cookieValue = null;
@@ -56,6 +37,7 @@
 
     {% endblock content %}
     <!-- the navbar mobile -->
+    
         <div class="nav-bar-mobile">
             <div>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,5 +91,6 @@
     
                 <div><p style="color: rgba(205, 205, 235, 0.842);text-align: center;">2021 copyright(c) developed by winterdevelopers </p></div>
         </footer>
-        <script type="text/javascript" src="{% static 'js/fibblebox.js' %}"></script>
+     
+        <script type="text/javascript" src="{% static 'js/events.js' %}"></script>
     </body>

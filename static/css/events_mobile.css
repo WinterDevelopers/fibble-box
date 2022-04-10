@@ -1,0 +1,137 @@
+:root{
+    --font-color: #4A536B;
+    --background-color: rgb(236, 236, 236);
+    --background-color-dark: #4A536B;
+    --background-color-form-input: #D4F9FF;
+}
+
+@font-face {
+    font-family: party ;
+    src: url(../fonts/PartyConfettiRegular-eZOn3.ttf);
+}
+
+@media screen and (max-width:600px){
+    .nav-bar-desktop{
+        display: none;
+    }
+    .nav-bar-mobile-icon{
+        display: block;
+        margin-left: auto;
+        margin-right: 5vw;
+        margin-top: 20px;
+    }
+    .nav-bar-mobile{
+        position:fixed;
+        bottom: 0px;
+        width: 100vw;
+        padding: 2vw 0px;
+        display: flex;
+        font-size: xx-small;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px 10px 0px 0px;
+    
+    }
+    
+    .nav-bar-mobile >div{
+        margin-inline-end: 13vw;
+        text-align: center;
+        
+    
+        
+    }
+    
+    .nav-bar-mobile >div:first-child{
+        margin-inline-start: 13vw;
+    }
+    .back-img{
+      height: 1000px; 
+    }
+    footer{
+        
+        background-color: #4A536B;
+        font-size: x-small;
+        padding-bottom: 100px;
+    }
+    .footer-item{
+        display:grid;
+        grid-template-columns: auto auto auto;
+        color: #AED6DC;
+        padding-inline-start: 10px;
+        text-align: center;
+    }
+    .footer-item > div > img{
+        width: 50px;
+        height: 50px;
+    }
+    .footer-item>div{
+        text-align: start;
+    }
+    .footer-item >div> p{
+        color: #aed6dc9f;
+        text-align: start;
+        
+    }
+    .footer-box{
+        margin-top: 40px;
+        margin-left: 10px;
+        
+    }
+    .mobile-menu-content{
+        position: fixed;
+        display: block;
+        top: 0px;
+        width: 80vw;
+        height: 100vh;
+        font-size: medium;
+        background-color: rgb(85, 85, 85);
+        opacity: 0.9;
+        color: white;
+        z-index: 1;
+        padding-top: 80px;
+        animation-name: mobile-menu;
+        animation-duration: 1s;
+        animation-timing-function:cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    @keyframes mobile-menu {
+        from {width:0vw;
+             }
+        to {width: 80vw;
+            }
+    }
+    .mobile-menu-item{
+        padding: 10px;
+        border-bottom: 1px solid white ;
+        margin-right: auto;
+        font-size: large;
+        margin-bottom: 25px;
+    }
+    
+    .none{
+        display: none;
+        width: 100%;
+        animation-name: none-;
+        animation-duration: 1s;
+        
+    }
+    @keyframes none- {
+        from{width: 100%;}
+        to{width: 0%;}
+    }
+    .gallery{
+        background-color: white;
+        width: 100vw;
+        position: relative;
+    }
+    .gallery-view{
+        display: flex; flex-direction: row;
+        overflow: scroll;
+        scroll-snap-type:x mandatory;
+    }
+    .gallery-img{
+        height: 400px;
+        width: 100vw;
+        object-fit: cover;
+        scroll-snap-align: start;
+    }
+}
+    

@@ -1,0 +1,292 @@
+:root{
+    --font-color: #4A536B;
+    --background-color: rgb(236, 236, 236);
+    --background-color-dark: #4A536B;
+    --background-color-form-input: #D4F9FF;
+}
+@font-face {
+    font-family: party ;
+    src: url(../fonts/PartyConfettiRegular-eZOn3.ttf);
+}
+
+body{
+    margin: 0px;
+    font-family: 'party';
+}
+.nav-bar{
+    display: flex; flex-direction: row; 
+    background-color: rgb(246, 253, 251); opacity:0.8 ; 
+    position:fixed; width: 100%; z-index: 1;
+    margin-bottom: 100px; top: 0px;
+}
+.nav-bar-desktop{
+    padding: 20px 10px; 
+    margin-left: auto; 
+    margin-right: 8%;
+    display: flex; flex-direction: row;
+}
+.nav-bar-desktop > div{
+    padding: 0px 10px;
+}
+.nav-bar-mobile-icon{
+    display: none;
+}
+.nav-bar-mobile{
+    display: none;
+}
+footer{
+    background-color: var(--background-color-dark);
+}
+.footer-item{
+    display:grid;
+    grid-template-columns: auto auto auto;
+    color: #AED6DC;
+    padding-inline-start: 10px;
+    text-align: center;
+}
+.footer-item > div > img{
+    width: 100px;
+    height: 100px;
+}
+.footer-item>div{
+    text-align: start;
+}
+.footer-item >div> p{
+    color: #aed6dc9f;
+    text-align: start;   
+}
+.footer-box{
+    margin-top: 100px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+}
+.sponsors{
+
+    background-color: rgb(85, 85, 85); padding: 20px; text-align: center; color: white;
+}
+.sponsors-header{
+    text-transform: uppercase; margin-top: 0px;
+}
+.sponsor-items{
+    margin: 10px;
+}
+.sponsors-content{
+    display:flex; flex-direction: row; overflow-x: auto; white-space: nowrap;
+    justify-content: space-between;
+}
+.back-img{
+    width: 100vw; position: fixed;
+    z-index: -1; top: -1px; 
+    height: 760px; 
+    background-repeat: no-repeat; 
+    background-position: center; background-size:cover;
+}
+.mobile-menu-content{
+    display: none;
+}
+.none{
+    display: none;
+}
+.major-text{
+    margin-top: 150px;
+    font-size: 55;
+    text-align: center; 
+    text-transform:uppercase;
+}
+.minor-text{
+    margin-top: 50px; 
+    font-size: 20;
+    font-weight: 100; 
+    text-align: center; 
+    text-transform:capitalize;
+}
+.ticket-btn{
+    padding: 10px; 
+    border: solid 3px rgb(243, 243, 243); 
+    color: white;
+    width: 160px; 
+    margin:100px auto; 
+    border-radius: 30px;
+    font-size: 25px; 
+    text-align: center;
+    font-family: roboto;
+    background-color: #8a8a8a7c;
+    transition: all 0.5s;
+}
+.ticket-btn:hover{
+    background-color: white;
+    color: black;
+    border-color: black;
+}
+.ticket-btn-click{
+    padding: 10px; 
+    border: solid 3px rgb(0, 0, 0); 
+    color: rgb(0, 0, 0);
+    width: 160px; 
+    margin:100px auto; 
+    border-radius: 30px;
+    font-size: 25px; 
+    text-align: center;
+    font-family: roboto;
+    background-color: #ffffff;
+}
+.count-down{
+    background-color: rgb(247, 255, 255); width: 100vw; 
+    z-index: 0; 
+    height:1200px ;
+    padding-bottom: 100px;
+    margin-top: 300px; 
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%); 
+    position: relative;
+   
+}
+.count-down-header{
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+}
+.info{
+    color: black; 
+    position: absolute; 
+    top: 60%; 
+    width: 100vw
+}
+.info-event{
+    margin: 50px auto; 
+    width: 80vw; 
+    font-weight: 500; 
+    font-size:20px; 
+    text-align: center;
+}
+.gallery-header{
+    position: absolute; text-align: center; color: white;
+    background-color: #4a536b8c; width: 100vw; height: 40px; padding-top: 20px;margin-top: 0px;
+}
+.activity-header{
+    text-align: left;
+    color: #4A536B;
+    font-size: 30px;
+}
+.activity{
+    height: auto; background-color: rgb(255, 255, 255); text-align: center; padding: 50px;
+}
+.activity-title{
+    font-size:35px; font-weight: 600;
+    margin-bottom: 50px;
+}
+.special-guest{
+    background-color:rgb(255, 255, 255) ;
+    width: 100vw; 
+    height: auto;
+    padding:20px 0px;
+}
+.how-to-ticket{
+    background-color: rgb(85, 85, 85); 
+    text-align: center; 
+    padding: 20px;
+    color: white;
+}
+.ticket-border{
+    border-width: 3px ;
+    border-style: solid;
+    border-radius: 10px;
+    border-image:linear-gradient(to right, rgb(0, 229, 255),rgb(15, 26, 85)) 1; 
+    height: 200px; 
+    margin-bottom: 20px; 
+    padding: 10px;
+}
+.get-ticket{
+    border: 2px solid rgb(213, 254, 255);
+    border-radius: 15px;padding: 10px; 
+    width: 200px; margin: 50px auto;
+    font-family: roboto;
+    background-color: rgba(0, 0, 0, 0.213);
+    transition: all 0.5s;
+}
+.get-ticket:hover{
+    background-color: white;
+    color: black;
+}
+.get-ticket-click{
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 15px;padding: 10px; 
+    width: 200px; margin: 50px auto;
+    font-family: roboto;
+    color:black;
+    background-color: rgba(255, 255, 255, 0.213);
+}
+.contact{
+    background-color: rgb(226, 78, 78); 
+    padding: 5px; text-align: center;
+    color: white;
+}
+.contact-header{
+    font-size:30px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    
+}
+.contact-phone{
+    padding: 5px;
+    border: solid 2px white;
+    border-left:none ;
+    border-right:none ;
+}
+.contact-phone-1{
+    margin-right:30vw ;
+    font-family: roboto;
+    font-size: 20px;
+    
+}
+.contact-phone-2{
+    margin-left:30vw;
+    font-size: 30px;
+}
+.contact-phone-item{
+    padding:15px 5px;
+    border: solid 2px white;
+    border-left:none ;
+    border-right:none ;
+    border-top: none;
+    font-size: large;
+}
+.contact-email{
+    padding: 5px;
+    border: solid 2px white;
+    border-left:none ;
+    border-right:none ;
+    border-top:none ;
+}
+.contact-email-1{
+    margin-right:30vw ;
+    font-family: roboto;
+    font-size: 20px;
+    
+}
+.contact-email-2{
+    margin-left:30vw;
+    font-size: 30px;
+}
+.contact-email-item{
+    padding:15px 5px;
+    border: solid 2px white;
+    border-left:none ;
+    border-right:none ;
+    border-top: none;
+    font-size: large;
+}
+.social-header{
+    font-size: 30px;
+    padding: 30px 0px;
+}
+.social-icon-header{
+    display: flex; flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}
+.social-icon-header div{
+    justify-content: space-evenly;
+}
+
+

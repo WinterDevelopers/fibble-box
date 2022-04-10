@@ -1,0 +1,215 @@
+{% extends 'event_base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div>
+        <div class="nav-bar">
+            <h3 style="margin-left: 5%;">
+                DPULEX PARTY
+            </h3>
+            <div class="nav-bar-desktop">
+                <div>About</div>
+                <div>Ticket Prices</div>
+                <div>Special Guest</div>
+                <div>Contact</div>
+            </div>
+            <div class="nav-bar-mobile-icon" id="hamburger-icon" onclick="menuToggel()"> 
+                <svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="32px" height="32px"><path d="M7 29v5l50 1v-7L7 29zM7 11v6h50v-6H7zM7 46v7l50-1v-5L7 46z"/></svg>
+                <?xml version="1.0" standalone="no"?>
+                
+            </div>
+            <div class="none" id="cancle-icon" onclick="menuToggel()">
+                <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+                "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+                <svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="32px" height="32px"><path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"/></svg>
+            
+            </div>
+        </div>
+        <div class="none" id="mobile-menu-content">
+            <div class="mobile-menu-item" style="border-top: 1px solid white; padding-top:30px; margin-top: -15px;">
+                About
+            </div>
+            <div class="mobile-menu-item">
+                Ticket Pricing
+            </div>
+            <div class="mobile-menu-item">
+                Special Artist
+            </div>
+            <div class="mobile-menu-item">
+                Contact
+            </div>
+        </div>
+        <div class="major-text"> the winters edition</div>
+        <div class="minor-text"> By transcrop group</div>
+
+        <div class="ticket-btn" id="ticket-btn">
+            <span style="font-weight: 400;align-items: baseline;">Buy Tickets</span>
+            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                width="15.000000pt" height="15.000000pt" viewBox="0 0 100.000000 100.000000"
+                preserveAspectRatio="xMidYMid meet">
+
+                <g transform="translate(0.000000,100.000000) scale(0.100000,-0.100000)"
+                fill="#000000" stroke="none">
+                <path d="M90 737 c0 -87 2 -95 25 -117 52 -49 52 -125 0 -180 -24 -25 -26 -32
+                -23 -116 l3 -89 405 0 405 0 3 89 c3 83 1 91 -22 115 -55 57 -55 130 -1 181
+                23 22 25 30 25 117 l0 93 -410 0 -410 0 0 -93z"/>
+                <path d="M515 139 c175 -32 322 -55 326 -51 3 4 9 28 12 53 l6 46 -241 6
+                c-133 4 -282 7 -332 6 -90 -1 -89 -1 229 -60z"/>
+                </g>
+            </svg>
+            
+        </div>
+       
+        <div style="background-image: url({% static 'images/9ja-party.jpg' %});" class="back-img"></div>
+        <div class="count-down">
+            <div style="color: black; position: absolute; top: 35%; left:10%; right: 10%; margin: 10px auto; width: 80%; ">
+                <div class="count-down-header"> COUNTING DOWN</div>
+                <div style="display: flex; flex-direction: row;justify-content: center;"> 
+                    <div style = "padding-right: 30px;">
+                        <h1 id="days">0</h1>
+                         Days
+                    </div>
+                    <div style = "padding-right: 30px;">
+                        <h1 id="hours">0</h1>
+                            Hours
+                    </div>
+                    <div style = "padding-right: 30px;">
+                        <h1 id="mins">0</h1>
+                            Mins
+                    </div>
+                    <div>
+                        <h1 id="secs">0</h1>
+                        Secs
+                    </div>
+                </div>
+            </div>
+            <div class="info">
+               <div class="info-event">
+                <h2>What is Event ?</h2>
+                <p>i Know i fucked up, but who never fuck up hands in the air, i see no hands. I rest my case.
+                    if i say i did it i did no problem. the funny reality is that one is making out of life alive.
+                    this is the best event you would not want to miss for anything in the world
+                </p>
+               </div>
+
+               <div style=" margin: 0px auto; width: 80vw; font-weight: 500; font-size:20px; text-align: center;">
+                <h2>Location @</h2>
+                <p>nwoke udi, Awka</p>
+               </div>
+            </div>
+        </div>
+        <div class="gallery">
+            <div class="gallery-header">Event Gallery</div>
+            <div class="gallery-view">
+                <div ><img src="{% static 'images/face-abj.jpg' %}" alt="" class="gallery-img"></div>
+                <div><img src="{% static 'images/face-anambra.jpg' %}" alt="" class="gallery-img"></div>
+                <div><img src="{% static 'images/ebony.jpg' %}" alt="" class="gallery-img"></div>
+            </div>
+        </div>
+        <div class="activity">
+            <div class="activity-title">Events Activities </div>
+            <div>
+                <div class="activity-header">Devils Basket</div>
+                <p>this a very very bad game and will advice that one should play if you 
+                    don't have the heart of stone..... but it's sha very enjoyable
+                </p>
+            </div>
+            <div >
+                <div class="activity-header">7 swordsman</div>
+                <p>this a very intensive game that would need about 7 people to play it requires more 
+                    mind games than you think and is very emotional when of you get's left behind
+                    after a draw
+                </p>
+            </div>
+            <div >
+                <div class="activity-header">getting an Autograph</div>
+                <p> be among those that would get their clothe signed by their favourite artist of the day
+                    this may require the person to be fully active duriing the show/party to get noticed
+                    and this also comes with money price 
+                </p>
+            </div>     
+        </div>
+        <div  class="special-guest">
+            <div>
+                <h2 style="margin: 0px; text-align: center;">Special Guests</h2>
+                <video src="south_park.mp4" style="width: 90vw; margin: 10px 5vw;"  controls></video>
+            </div>
+        </div>
+        <div>
+            <div class="how-to-ticket">
+                <h2>How to get Your Ticket</h2>
+                <div class="ticket-border">
+                    <p>The get your ticket for this event, simply click the button below to
+                        checkout the avaliable tickets for the Event
+                    </p>
+                    
+                    <div class="get-ticket" id="get-ticket">Get Ticket</div>
+                </div>
+            </div>
+        </div>
+        <div class="sponsors">
+            <h2 class="sponsor-header">Sponsors</h2>
+            <div class="sponsors-content">
+                <div class="sponsor-items">
+                    mike ventures
+                </div>
+                <div class="sponsor-items">
+                    Eze deals
+                </div>
+                <div class="sponsor-items">
+                    bakers point
+                </div>
+                <div class="sponsor-items">
+                    winterdevelopers
+                </div>
+                <div class="sponsor-items">
+                    all4grubs
+                </div>
+            </div>
+        </div>
+        <div class="contact">
+            <div class="contact-header">contact us</div>
+
+            <div class="contact-phone"> <span class="contact-phone-1">Phone</span> <span class="contact-phone-2" id="contact-phone">+</span></div>
+            <div class="none" id="contact-phone-item"> 08034129834</div>
+            <div class="contact-email"> <span class="contact-email-1">E-mail</span> <span class="contact-email-2" id="contact-email">+</span></div>
+            <div class="none" id="contact-email-item">winterdevelopers@gmail.com</div>
+           
+            <div class="social-header">Social media</div>
+            <div class="social-icon-header">
+                <div>
+                    <svg fill="white" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="40px" height="40px"><path d="M 32 6 C 26.568583 6 22.160643 10.388731 22.042969 15.792969 C 17.240727 15.216998 14.113589 13.421507 12.195312 11.652344 C 10.067982 9.6903754 9.3945312 7.9472656 9.3945312 7.9472656 A 1.50015 1.50015 0 0 0 6.8007812 7.5996094 C 6.8007812 7.5996094 5 10 5 13.5 C 5 15.500985 5.6317952 16.981554 6.3847656 18.236328 C 6.3570276 18.223338 6.1699219 18.158203 6.1699219 18.158203 A 1.50015 1.50015 0 0 0 4.0058594 19.636719 C 4.0058594 19.636719 4.5832039 23.856843 8.5507812 26.941406 L 8.1367188 27.044922 A 1.50015 1.50015 0 0 0 7.1972656 29.244141 C 7.1972656 29.244141 7.8700527 30.382221 9.2792969 31.580078 C 10.11485 32.290298 11.34227 33.023169 12.789062 33.701172 C 11.012271 34.35044 8.362818 35 4.5 35 A 1.50015 1.50015 0 0 0 3.3710938 37.488281 C 3.3710938 37.488281 4.5173251 38.751002 6.7832031 39.849609 C 9.0490812 40.948217 12.539474 42 17.5 42 C 26.219697 42 32.484656 37.817151 36.394531 32.515625 C 40.304407 27.214099 42 20.861111 42 16 C 42 15.691547 41.980739 15.387437 41.953125 15.085938 C 44.064371 13.051602 44.856626 11.522235 44.894531 11.447266 C 45.084531 11.066266 45.01375 10.608688 44.71875 10.304688 C 44.42475 9.9996875 43.969031 9.9137969 43.582031 10.091797 L 43.419922 10.166016 C 43.280922 10.230016 43.141953 10.294422 43.001953 10.357422 C 43.408953 9.7084219 43.730125 9.014875 43.953125 8.296875 C 44.077125 7.900875 43.943234 7.4669375 43.615234 7.2109375 C 43.287234 6.9549375 42.835469 6.9275312 42.480469 7.1445312 C 41.258221 7.8873594 40.086652 8.40739 38.867188 8.7558594 C 37.072578 7.0534724 34.656873 6 32 6 z M 32 9 C 35.883178 9 39 12.116822 39 16 C 39 20.138889 37.445593 26.035901 33.980469 30.734375 C 30.515344 35.432849 25.280303 39 17.5 39 C 13.7348 39 11.230189 38.318942 9.3535156 37.582031 C 11.319341 37.276755 13.011947 36.869367 14.228516 36.398438 C 16.338182 35.581792 17.476563 34.638672 17.476562 34.638672 A 1.50015 1.50015 0 0 0 16.863281 32.044922 C 14.140556 31.364241 12.394328 30.263307 11.298828 29.345703 L 12.863281 28.955078 A 1.50015 1.50015 0 0 0 13.039062 26.099609 C 9.7939415 24.851486 8.4312292 23.086373 7.734375 21.607422 C 8.5823538 21.782967 9.3718961 22 10.5 22 A 1.50015 1.50015 0 0 0 11.169922 19.158203 C 11.169922 19.158203 8 17.7 8 13.5 C 8 12.745947 8.2088435 12.268355 8.3613281 11.697266 C 8.884507 12.400354 9.3156815 13.07859 10.160156 13.857422 C 12.734824 16.231954 16.990366 18.653154 23.419922 18.998047 A 1.50015 1.50015 0 0 0 25 17.5 L 25 16 C 25 12.116822 28.116822 9 32 9 z"/></svg>                </div>
+                <div>
+                    <?xml version="1.0"?><svg fill="white" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="40px" height="40px">    <path d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z"/></svg>                </div>
+                <div>
+                    <svg fill="white" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="40px" height="40px"><path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.014467 17.065322 19.313017 13.21875 19.898438 L 13.21875 14.384766 L 15.546875 14.384766 L 15.912109 12.019531 L 13.21875 12.019531 L 13.21875 10.726562 C 13.21875 9.7435625 13.538984 8.8710938 14.458984 8.8710938 L 15.935547 8.8710938 L 15.935547 6.8066406 C 15.675547 6.7716406 15.126844 6.6953125 14.089844 6.6953125 C 11.923844 6.6953125 10.654297 7.8393125 10.654297 10.445312 L 10.654297 12.019531 L 8.4277344 12.019531 L 8.4277344 14.384766 L 10.654297 14.384766 L 10.654297 19.878906 C 6.8702905 19.240845 4 15.970237 4 12 C 4 7.5698774 7.5698774 4 12 4 z"/></svg>                </div>
+            </div>
+        </div>
+        
+            
+    </div>
+</body>
+<script>
+
+    var event_time = new Date("june 24, 2022").getTime();
+
+    setInterval(function(){
+
+        var today_time = new Date().getTime();
+
+        var count_down_time = event_time - today_time
+
+        var days = Math.floor(count_down_time/(24*60*60*1000))
+        var hours = Math.floor((count_down_time%(24*60*60*1000))/(60*60*1000))
+        var mins = Math.floor((count_down_time%(60*60*1000))/(60*1000))
+        var secs = Math.floor((count_down_time%(60*1000))/(1000))
+
+        document.getElementById('days').innerHTML = days
+        document.getElementById('hours').innerHTML = hours
+        document.getElementById('mins').innerHTML = mins
+        document.getElementById('secs').innerHTML = secs
+
+    },1000)
+
+</script>
+{% endblock %}
