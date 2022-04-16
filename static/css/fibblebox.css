@@ -96,9 +96,7 @@ body{
 .category-header{
     position: relative; margin-bottom: 30px;
 }
-.category-img{
-    width: 100vw; height: 400px; object-fit: cover;
-}
+
 .category-text1{
     position: absolute; top: 20%;left: 20vw; font-size: 30px; font-weight: 900; right: 20vw; width: 60vw; text-align: center;
 }
