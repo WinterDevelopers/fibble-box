@@ -93,7 +93,18 @@ body{
     padding: 10px;
     margin-top: 10px;
 }
-
+.category-header{
+    position: relative; margin-bottom: 30px;
+}
+.category-img{
+    width: 100vw; height: 400px; object-fit: cover;
+}
+.category-text1{
+    position: absolute; top: 20%;left: 20vw; font-size: 30px; font-weight: 900; right: 20vw; width: 60vw; text-align: center;
+}
+.category-text2{
+    position: absolute; top: 85%;left: 10%; font-size: 15px; font-weight: 100; color: rgb(243, 243, 243); right: 10%;width: 80%; text-align: center;
+}
 .pageantry > img{
     width: 100%;
     height: 500px;
@@ -381,6 +392,7 @@ footer{
     flex-flow: row wrap; 
     font-size: x-small; 
     text-align: center;
+    justify-content: space-evenly;
 }
 .categories-item > div{
     margin-left: 8vw;
@@ -969,9 +981,7 @@ height: 50%;
     width: 100%;
     box-shadow: #7f839280 5px 5px 10px;
 }
-.subscribe >form > div> input[input=email]{
-    background-color: #49935d;
-}
+
 .subscribe-email{
     background-color: #d9fcfb;
     border: none;
@@ -980,7 +990,8 @@ height: 50%;
     width: 300px;
     margin-bottom: 15px;
     padding: 5px;
-    font-size: 20px;
+    padding-left: 10px;
+    font-size: 15px;
 }
 .subscribe-submit{
     background-color: var(--background-color-dark);

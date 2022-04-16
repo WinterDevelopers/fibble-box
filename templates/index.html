@@ -14,13 +14,8 @@
     </div>
 </div>
 
-
-
-
-
-
 <div class="categories" >
-    <h4>Categories</h4>
+    <h4 style="text-align: center;text-transform:uppercase;">Categories</h4>
     <div class="categories-item">
         <a href="#pagentry" class="categories-link">
             <div>
@@ -41,7 +36,7 @@
         <div>
             <a href="#comperism" class="categories-link">
             <div class="circle"><img src="{% static 'logos/comperism-logo.png' %}" alt="Comperism-logo" class="categories-img" style="margin-top: 4px;"></div>
-            <p>reality posts</p>
+            <p>Feeds</p>
             </a>
         </div>
         <div>
@@ -88,11 +83,11 @@
 </div>
 
 <!-- pagentry -->
-<div id="content">
-    <div style="position: relative; margin-bottom: 30px;">
-        <img src="{% static 'images/event1 (5).jpg' %}" alt="" style="width: 100vw; height: 400px; object-fit: cover;">
-        <div style="position: absolute; top: 45;left: 50; font-size: 50px; font-weight: 900; color: rgb(198, 159, 29);"> PAGEANTRY </div>
-        <div style="position: absolute; top: 85%;left: 15%; font-size: 20px; font-weight: 100; color: rgb(243, 243, 243);"> Who will be the next crowned... </div>
+<div id="pageantry">
+    <div class="category-header">
+        <img src="{% static 'images/event1 (5).jpg' %}" alt="" class="category-img">
+        <div class="category-text1" style="color: rgb(198, 159, 29);"> PAGEANTRY </div>
+        <div class="category-text2"> Who will be the next crowned... </div>
 
     </div>
     <div class="content">
@@ -145,8 +140,8 @@
 <!--Events-->
 <div style="position: relative; margin-bottom: 30px;">
     <img src="{% static 'images/event1 (1).jpg' %}" alt="" style="width: 100vw; height: 400px; object-fit: cover;">
-    <div style="position: absolute; top: 20%;left: 25%; font-size: 60px; font-weight: 900; color: rgb(186, 247, 255);"> EVENTS </div>
-    <div style="position: absolute; top: 85%;left: 5%; font-size: 20px; font-weight: 100; color: rgb(243, 243, 243); text-align: center;"> looking for the hootest event or party? <br> we got you covered </div>
+    <div style="color: rgb(186, 247, 255);" class="category-text1"> EVENTS </div>
+    <div class="category-text2"> looking for the hootest event? <br> we got you covered </div>
 
 </div>
 <div class="party">
@@ -226,8 +221,8 @@
 
 <!-- Blog -->
 <div style="position: relative; margin-top: 10px;">
-    <img src="{% static 'images/event1 (6).jpg' %}" alt="" style="width: 100vw; height: 400px; object-fit: cover;">
-    <div style="position: absolute; top: 55;left: 40; font-size: 80px; font-weight: 900; color: rgb(250, 250, 250);"> FEEDS </div>
+    <img src="{% static 'images/event1 (6).jpg' %}" alt="" style="width: 100vw; height: 400px; object-fit: cover;margin-top: 20px;">
+    <div class="category-text1" style="color: white;"> FEEDS </div>
 </div>
 <div class="blog">
     <div class="blog-post">
@@ -281,8 +276,8 @@
 <div class="others">
     <div class="others-a">
         <div style="width: 100%; background-color: #4A536B; border-radius: 10px 10px 0px 0px; text-align: center;height: 50px;">
-            <div style="font-weight: 900; color: aliceblue;padding-top: 10px;">NEWSLETTER</div>
-                <div style="padding: 20px;">Get our best offers and discounts</div>
+            <div style="font-weight: 900; color: aliceblue;padding-top: 0.5px;"><p>NEWSLETTER</p></div>
+                <div style="padding: 1px;"><p>Get our best offers and discounts</p></div>
                 <div class="subscribe">
                     <form action="" method="post" style="display: block;">
                         <div ><input class="subscribe-email" type="email" placeholder="Add Email.." ></div>
