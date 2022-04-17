@@ -108,9 +108,20 @@
     .sponsors{
         color: #aed6dc9f;
     }
-   
+    .ads1 > img{
+        height:300px;
+        object-fit:cover;
+    }
     .ads1-text{
+      
+        top: 25%; 
+        width: 60%;
         left: 20%;
+        right: 20%; 
+      
+    }
+    .category-text1{
+        font-size: 30px; font-weight: 700;
     }
     .content{
         flex-direction: column;
@@ -155,6 +166,9 @@
     .content > div:first-child{
         margin-left: 0px;  
         
+    }
+    .category-header > img{
+        width: 100vw; height: 400px; object-fit: cover;
     }
     .party{
         display: grid;
@@ -391,5 +405,11 @@
     .intro_text{
         font-weight: 500;
         margin-left: 5vw;
+    }
+    .container-1{
+        grid-template-columns: 100%
+    }
+    .container-2{
+        grid-template-columns: 100%
     }
 }

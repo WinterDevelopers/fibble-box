@@ -154,26 +154,34 @@ footer{
 }
 .info-event{
     margin: 50px auto; 
-    width: 80vw; 
+    width: 50vw; 
     font-weight: 500; 
     font-size:20px; 
     text-align: center;
+
 }
 .gallery-header{
     position: absolute; text-align: center; color: white;
     background-color: #4a536b8c; width: 100vw; height: 40px; padding-top: 20px;margin-top: 0px;
 }
 .activity-header{
-    text-align: left;
+    text-align: center;
     color: #4A536B;
-    font-size: 30px;
+    font-size: 35px;
+
 }
 .activity{
     height: auto; background-color: rgb(255, 255, 255); text-align: center; padding: 50px;
 }
+.activity > div{
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
 .activity-title{
     font-size:35px; font-weight: 600;
     margin-bottom: 50px;
+   
 }
 .special-guest{
     background-color:rgb(255, 255, 255) ;
@@ -182,7 +190,7 @@ footer{
     padding:20px 0px;
 }
 .how-to-ticket{
-    background-color: rgb(85, 85, 85); 
+    background-color: rgb(126, 126, 126); 
     text-align: center; 
     padding: 20px;
     color: white;
@@ -192,7 +200,9 @@ footer{
     border-style: solid;
     border-radius: 10px;
     border-image:linear-gradient(to right, rgb(0, 229, 255),rgb(15, 26, 85)) 1; 
-    height: 200px; 
+    height: 200px;
+    width: 70%;
+    margin: 0 auto;
     margin-bottom: 20px; 
     padding: 10px;
 }
@@ -201,7 +211,7 @@ footer{
     border-radius: 15px;padding: 10px; 
     width: 200px; margin: 50px auto;
     font-family: roboto;
-    background-color: rgba(0, 0, 0, 0.213);
+    background-color: rgb(126, 126, 126);
     transition: all 0.5s;
 }
 .get-ticket:hover{
@@ -217,7 +227,7 @@ footer{
     background-color: rgba(255, 255, 255, 0.213);
 }
 .contact{
-    background-color: rgb(226, 78, 78); 
+    background-color: rgb(51, 0, 0); 
     padding: 5px; text-align: center;
     color: white;
 }
@@ -232,6 +242,8 @@ footer{
     border: solid 2px white;
     border-left:none ;
     border-right:none ;
+    width: 80%;
+    margin: 0 auto;
 }
 .contact-phone-1{
     margin-right:30vw ;
@@ -257,9 +269,11 @@ footer{
     border-left:none ;
     border-right:none ;
     border-top:none ;
+    width: 80%;
+    margin: 0 auto;
 }
 .contact-email-1{
-    margin-right:30vw ;
+    margin-right:30vw;
     font-family: roboto;
     font-size: 20px;
     
@@ -287,6 +301,23 @@ footer{
 }
 .social-icon-header div{
     justify-content: space-evenly;
+}
+.gallery{
+    background-color: white;
+    width: 100vw;
+    position: relative;
+}
+.gallery-view{
+    display: flex; flex-direction: row;
+    overflow: scroll;
+    scroll-snap-type:x mandatory;
+}
+
+.gallery-img{
+    height: 650px;
+    width: 50vw;
+    object-fit: fill;
+    scroll-snap-align: start;
 }
 
 

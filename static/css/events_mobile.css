@@ -127,11 +127,50 @@
         overflow: scroll;
         scroll-snap-type:x mandatory;
     }
+
     .gallery-img{
         height: 400px;
         width: 100vw;
         object-fit: cover;
         scroll-snap-align: start;
+    }
+    .info-event{
+        margin: 50px auto; 
+        width: 80vw; 
+        font-weight: 500; 
+        font-size:20px; 
+        text-align: center;
+    }
+    .activity-header{
+        text-align: left;
+        color: #4A536B;
+        font-size: 30px;
+    }
+    .activity-title{
+        font-size:30px; 
+    }
+    .activity > div{
+        width: 100%;
+    }
+    .ticket-border{
+        border-width: 3px ;
+        border-style: solid;
+        border-radius: 10px;
+        border-image:linear-gradient(to right, rgb(0, 229, 255),rgb(15, 26, 85)) 1; 
+        height: 200px; 
+        width: 90%;
+        margin-bottom: 20px; 
+        padding: 10px;
+    }
+    .contact-phone{
+        width: 100%;
+      
+        padding: 0;
+    }
+    .contact-email{
+        width: 100%;
+      
+        padding: 0;
     }
 }
     
