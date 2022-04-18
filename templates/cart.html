@@ -1,50 +1,78 @@
-<div style="padding: 10px;background-color: darkgray;">
-    <div style="background-color: white;margin-bottom: 10px;">
-        <div style="padding: 10px;display: flex;flex-direction: row;">
-            <div>
-                <p>A Night for all knight</p>
-                <p>VIP</p>
+{% extends 'event_base.html' %}
+{% load static %}
+{% block content %}
+<div style="background-color: whitesmoke;">
+    <div class="cart-container">
+        <div class="cart-summary">
+            <div class="cart-summary-container">
+                <div>
+                    <p>A Night for all knight</p>
+                    <p>VIP</p>
+                </div>
+                <div style="margin-left: auto;">
+                    <p>#3400</p>
+                </div>
             </div>
-            <div style="margin-left: auto;">
-                <p>#3400</p>
-            </div>
-        </div>
-        <div style="padding: 10px;display: flex;flex-direction: row; border-top:1px black solid ;">
-            <div>
-                <p>- 2 +</p>
-            </div>
-            <div style="margin-left: auto;">
-                <h3>X</h3>
-            </div>
-        </div>
-    </div>
-    <div style="background-color: white;padding: 10px;">
-        <div style="display: flex; flex-direction: row; border-bottom: 1px solid black;">
-            <div>
-                Sub-Total
-            </div>
-            <div style="margin-left: auto;">
-                #67890
-            </div>
-        </div>
-        <div style="display: flex; flex-direction: row; border-bottom: 1px solid black;">
-            <div>
-                VAT
-            </div>
-            <div style="margin-left: auto;">
-                #0.23
-            </div>
-        </div>
-        <div style="display: flex; flex-direction: row;">
-            <div>
-                Total
-            </div>
-            <div style="margin-left: auto;">
-                #787980
-            </div>
-        </div>
-    </div>
-
-    <div>checkout</div>
+            <div class="cart-summary-container2">
+                <div style="display: flex;">
+                    <div class="ticket-minus">
+                        <?xml version="1.0" standalone="no"?>
+                        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+                        "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                        width="18.000000pt" height="17.000000pt" viewBox="0 0 96.000000 96.000000"
+                        preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)"
+                            fill="blue" stroke="none">
+                            <path d="M120 480 l0 -40 360 0 360 0 0 40 0 40 -360 0 -360 0 0 -40z"/>
+                            </g>
+                        </svg>
+                        
+                    </div>
+                    <div class="ticket-number">0</div>
+                    <div class="ticket-plus">
+                        <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg style="margin-top:5px;" enable-background="new 0 0 50 50" height="25px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect fill="none" height="20" width="20"/><line fill="none" stroke="white" stroke-miterlimit="10" stroke-width="5" x1="9" x2="41" y1="25" y2="25"/>
+                            <line fill="white" stroke="white" stroke-miterlimit="10" stroke-width="5" x1="25" x2="25" y1="9" y2="41"/></svg>
+                    </div>
     
+                </div>
+                <div style="margin-left: auto;">
+                    <h3>X</h3>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="cart-total">
+            <div class="cart-total-item">
+                <div class="cart-total-item-list">
+                    Sub-Total
+                </div>
+                <div style="margin-left: auto;">
+                    #67890
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row; border-bottom: 1px solid rgb(133, 133, 133);padding: 10px 5px;">
+                <div>
+                    VAT
+                </div>
+                <div style="margin-left: auto;">
+                    #0.23
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row; padding: 5px 10px;margin-top: 30px;">
+                <div>
+                    Total
+                </div>
+                <div style="margin-left: auto;">
+                    #787980
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 100px; margin: 1px auto; padding: 2px 5px; background-color: white;text-align: center; margin-bottom: 20px; border-radius: 20px; height: 30px;"><p style="margin: 6px;">checkout</p></div>
+    
+    
+
 </div>
+{% endblock %}

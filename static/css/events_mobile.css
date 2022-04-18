@@ -172,5 +172,59 @@
       
         padding: 0;
     }
+    .Ticket-info{
+        inline-size: 270px; 
+        text-align:start ; 
+        padding: 10px;
+        width: 270px;
+        margin: auto;
+    }
+    .ticket-img-container >img{
+        width: 300px;
+    }
+    .ticket-container{
+        width: 300px;
+    }
+    .ticket-img-container{
+        width: 300px;
+    }
+    .ticket-bottom{
+        width: 300px;
+    }
+    .add-ticket{
+        width: 80px;
+        margin-left: 35px;
+    }
+    .get-ticket-btn{
+        font-size: x-small;
+    }
+    .Ticket-header{
+        height: 180px;
+        padding-left: 30px;
+    }
+    .ticket-dots{
+        height: 200px;
+    }
+    .ticket-clip-top{
+        
+        left: 13%;top: -3.5%;
+    }
+    .ticket-clip-bottom{
+      
+        left: 13%;top: 96%;
+    }
+    .cart-container{
+      
+        display: grid;
+        grid-template-columns: auto;
+    }
+    .cart-summary-container{
+        padding: 15px;
+        display: flex;
+        flex-direction: row;
+    }
+    .cart-summary{
+        width:100%;
+    }
 }
     

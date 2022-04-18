@@ -1,99 +1,99 @@
-<div style="font-family: roboto;">
-    <div style="background-color: rgb(0, 0, 0); color: rgb(255, 115, 0); padding: 10px;height: 180px;">
-        <div style="font-size: larger; font-weight: 800; font-family: roboto; margin-top: 30px;">OUR AVALIABLE TICKET</div> 
+{% extends 'event_base.html'%}
+{% load static %}
+{% block content %}
 
-        <div style="text-align: start; font-size: small; display: block; color: white; margin-top: 20px;">
-            <div style="font-size: large;">10:00 <span style="font-size: smaller;">pm</span></div> 
+<div style="font-family: roboto;">
+    <div class="Ticket-header">
+        <div class="Ticket-header-text">OUR AVALIABLE TICKET</div> 
+
+        <div class="Ticket-header-text2">
+            <div><span  style="font-size: large;" >10:00 </span><span style="font-size: smaller;">pm</span></div> 
             <div>Owerri mall</div> 
         
         </div>
 
-        <div style="background-color: rgb(255, 115, 0);color: white; text-align: center; width: 100px; margin: auto; padding: 5px; border-radius: 5px; margin-top: 20px;"> GET TICKET</div>
-
+        <div class="get-ticket-btn"> GET TICKET</div>
         
     </div>
-    <div style="margin-top: 30px;">
-        <div style="text-align: center; font-size: large;font-weight: 600; margin-bottom: 10px;">REGULAR</div>
-        <div style="position: relative; margin-bottom: 30px; width: 300px; margin: auto;">
-            <img src="event1 (6).jpg" alt="" height="" width="300px" style="margin: 0px auto;">
-            <div style="height: 200px; border-style: dotted; border-top: none; border-bottom: none; border-right: none;
-             border-color: rgb(255, 255, 255); position: absolute; left: 15%;top: 0;"></div>
-            <div style="background-color: rgb(255, 255, 255); border-radius: 50%; height: 15px; width: 15px;position: absolute; left: 13%;top: -3.5%;"></div>
-            <div style="background-color: rgb(255, 255, 255); border-radius: 50%; height: 15px; width: 15px;position: absolute; left: 13%;top: 97%;"></div>
-        </div>
-        <div>
-        <div style="inline-size: 300px; text-align:start ; padding: 20px;">
-            This ticket category comes with staying outside the excusive side but still under the lime light
-        </div>
-        <div>#2,000</div>
-        <div style="display: flex; flex-direction: row;">
-            <div style="padding: 5px;border-radius: 50%; width: 24px;height: 24px; border:solid 3px blue; justify-content: center;margin: 10px;
-            font-size: x-large;margin-top: 15px; margin-left: 20px;">
-                <?xml version="1.0" standalone="no"?>
-                <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
-                 "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
-                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                 width="18.000000pt" height="17.000000pt" viewBox="0 0 96.000000 96.000000"
-                 preserveAspectRatio="xMidYMid meet">
-                
-                <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)"
-                fill="blue" stroke="none">
-                <path d="M120 480 l0 -40 360 0 360 0 0 40 0 40 -360 0 -360 0 0 -40z"/>
-                </g>
-                </svg>
-                
-            </div>
-            <div style="padding: 5px;border-radius: 50%; width: 32px;height: 32px; border:solid 3px rgb(255, 255, 255); text-align: center; 
-                background-color: white;margin: 10px; font-size: x-large; box-shadow: inset rgb(173, 173, 173) 1px 1px 2px;">0</div>
-            <div style="padding: 1px;border-radius: 50%; width: 35px;height: 35px;color: white;background-color: blue;
-            margin: 10px; font-size: x-large;margin-top: 15px;text-align: center;">
-                <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg style="margin-top:5px;" enable-background="new 0 0 50 50" height="25px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect fill="none" height="20" width="20"/><line fill="none" stroke="white" stroke-miterlimit="10" stroke-width="5" x1="9" x2="41" y1="25" y2="25"/>
-                    <line fill="white" stroke="white" stroke-miterlimit="10" stroke-width="5" x1="25" x2="25" y1="9" y2="41"/></svg>
-            </div>
-            <div style="border-radius: 2px; font-weight: 700; background-color: blue;padding: 5px;color: white;width: 80px; height: 30px; margin-left:35px;text-align: center; margin-top: 15px;box-shadow: 1px 2px 3px rgb(118, 118, 118);">Add</div>
-        
-        </div>
 
-        <div style="margin-top: 30px;">
-            <div style="text-align: center; font-size: large;font-weight: 600; margin-bottom: 10px;">VIP</div>
-            <div style="position: relative; margin-bottom: 30px; width: 300px; margin: auto;">
-                <img src="event1 (2).jpg" alt="" height="" width="300px" style="margin: 0px auto;">
-                <div style="height: 200px; border-style: dotted; border-top: none; border-bottom: none; border-right: none;
-                 border-color: rgb(255, 255, 255); position: absolute; left: 15%;top: 0;"></div>
-                <div style="background-color: rgb(255, 255, 255); border-radius: 50%; height: 15px; width: 15px;position: absolute; left: 13%;top: -3.5%;"></div>
-                <div style="background-color: rgb(255, 255, 255); border-radius: 50%; height: 15px; width: 15px;position: absolute; left: 13%;top: 97%;"></div>
+        <div class="ticket-container">
+            <div class="ticket-type">REGULAR</div>
+            <div class="ticket-img-container">
+                <img src="{% static 'images/9ja-party.jpg' %}" alt="ticket-view" >
+                <div class="ticket-dots"></div>
+                <div class="ticket-clip-top"></div>
+                <div class="ticket-clip-bottom"></div>
             </div>
             <div>
-            <div style="inline-size: 300px; text-align:start ; padding: 20px;">
+            <div class="Ticket-info">
                 This ticket category comes with staying outside the excusive side but still under the lime light
+                <div class="Ticket-price">#2,000</div>
             </div>
-            <div>#5,000</div>
-            <div style="display: flex; flex-direction: row;">
-                <div style="padding: 5px;border-radius: 50%; width: 24px;height: 24px; border:solid 3px blue; justify-content: center;margin: 10px;
-                font-size: x-large;margin-top: 15px; margin-left: 20px;">
+           
+            <div class="ticket-bottom">
+                <div class="ticket-minus">
                     <?xml version="1.0" standalone="no"?>
                     <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
                      "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                      width="18.000000pt" height="17.000000pt" viewBox="0 0 96.000000 96.000000"
                      preserveAspectRatio="xMidYMid meet">
-                    
-                    <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)"
-                    fill="blue" stroke="none">
-                    <path d="M120 480 l0 -40 360 0 360 0 0 40 0 40 -360 0 -360 0 0 -40z"/>
-                    </g>
+                        <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)"
+                        fill="blue" stroke="none">
+                        <path d="M120 480 l0 -40 360 0 360 0 0 40 0 40 -360 0 -360 0 0 -40z"/>
+                        </g>
                     </svg>
                     
                 </div>
-                <div style="padding: 5px;border-radius: 50%; width: 32px;height: 32px; border:solid 3px rgb(255, 255, 255); text-align: center; 
-                    background-color: white;margin: 10px; font-size: x-large; box-shadow: inset rgb(173, 173, 173) 1px 1px 2px;">0</div>
-                <div style="padding: 1px;border-radius: 50%; width: 35px;height: 35px;color: white;background-color: blue;
-                margin: 10px; font-size: x-large;margin-top: 15px;text-align: center;">
+                <div class="ticket-number">0</div>
+                <div class="ticket-plus">
                     <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg style="margin-top:5px;" enable-background="new 0 0 50 50" height="25px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect fill="none" height="20" width="20"/><line fill="none" stroke="white" stroke-miterlimit="10" stroke-width="5" x1="9" x2="41" y1="25" y2="25"/>
                         <line fill="white" stroke="white" stroke-miterlimit="10" stroke-width="5" x1="25" x2="25" y1="9" y2="41"/></svg>
                 </div>
-                <div style="border-radius: 2px; font-weight: 700; background-color: blue;padding: 5px;color: white;width: 80px; height: 30px; margin-left:35px;text-align: center; margin-top: 15px;box-shadow: 1px 2px 3px rgb(118, 118, 118);">Add</div>
+                <div class="add-ticket">Add</div>
             
             </div> 
-    
+        </div>
+
+        <div class="ticket-container">
+            <div class="ticket-type">VIP</div>
+            <div class="ticket-img-container">
+                <img src="{% static 'images/9ja-party.jpg' %}" alt="ticket-view" >
+                <div class="ticket-dots"></div>
+                <div class="ticket-clip-top"></div>
+                <div class="ticket-clip-bottom"></div>
+            </div>
+            <div>
+                <div class="Ticket-info">
+                    This ticket category comes with staying outside the excusive side but still under the lime light
+                    <div class="Ticket-price">#5,000</div>
+                </div>
+            
+                <div class="ticket-bottom">
+                    <div class="ticket-minus">
+                        <?xml version="1.0" standalone="no"?>
+                        <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+                        "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                        width="18.000000pt" height="17.000000pt" viewBox="0 0 96.000000 96.000000"
+                        preserveAspectRatio="xMidYMid meet">
+                            <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)"
+                            fill="blue" stroke="none">
+                            <path d="M120 480 l0 -40 360 0 360 0 0 40 0 40 -360 0 -360 0 0 -40z"/>
+                            </g>
+                        </svg>
+                        
+                    </div>
+                    <div class="ticket-number">0</div>
+                    <div class="ticket-plus">
+                        <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg style="margin-top:5px;" enable-background="new 0 0 50 50" height="25px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect fill="none" height="20" width="20"/><line fill="none" stroke="white" stroke-miterlimit="10" stroke-width="5" x1="9" x2="41" y1="25" y2="25"/>
+                            <line fill="white" stroke="white" stroke-miterlimit="10" stroke-width="5" x1="25" x2="25" y1="9" y2="41"/></svg>
+                    </div>
+                    <div class="add-ticket">Add</div>
+                
+                </div> 
+            </div>
+        </div>
     </div>
+
+{% endblock %}

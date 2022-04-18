@@ -319,5 +319,185 @@ footer{
     object-fit: fill;
     scroll-snap-align: start;
 }
+.ticket-container{
+    margin: 30px auto;
+    width:auto;
+}
+.Ticket-header{
+    background-color: rgb(0, 0, 0); 
+    color: rgb(255, 115, 0); 
+    padding: 10px;
+    height: 200px;
+    padding-left: 60px;
+}
+.Ticket-header-text{
+    font-size: larger; 
+    font-weight: 800; 
+    font-family: roboto; 
+    margin-top: 30px;
+}
+.Ticket-header-text2{
+    text-align: start; 
+    font-size: small; 
+    display: block; 
+    color: white; 
+    margin-top: 20px;
+}
+.get-ticket-btn{
+    background-color: rgb(255, 115, 0);
+    color: white; 
+    text-align: center; 
+    width: 100px; 
+    margin: auto; 
+    padding: 5px; 
+    border-radius: 5px; 
+    margin-top: 20px;
+    font-size: smaller;
 
+}
+.ticket-type{
+    text-align: center; 
+    font-size: large;
+    font-weight: 600; 
+    margin-bottom: 10px;
+}
+.ticket-img-container{
+    position: relative; 
+    margin-bottom: 30px; 
+    width: 500px; 
+    margin:0px auto;
+}
+.ticket-img-container >img{
+    margin: 0px auto;
+    width: 500px;
+}
+.ticket-dots{
+    height: 300px; border-style: dotted; 
+    border-top: none; 
+    border-bottom: none; 
+    border-right: none;
+    border-color: rgb(255, 255, 255); 
+    position: absolute; 
+    left: 15%;top: 0;
+}
+.ticket-clip-top{
+    background-color: rgb(255, 255, 255); 
+    border-radius: 50%; 
+    height: 15px; 
+    width: 15px;
+    position: absolute; 
+    left: 13.5%;top: -3%;
+}
+.ticket-clip-bottom{
+    background-color: rgb(255, 255, 255); 
+    border-radius: 50%; 
+    height: 15px; width: 15px;
+    position: absolute; 
+    left: 13.5%;top: 97%;
+}
+.Ticket-info{
+    inline-size: 450px; 
+    text-align:start ; 
+    padding: 10px;
+    width: 450px;
+    margin: auto;
+}
+.Ticket-price{
+    inline-size: 100px; 
+    text-align:start ; 
+    font-size: larger;
+    font-weight: 600;
+    padding: 15px 2px;
+}
+.ticket-bottom{
+    display: flex; 
+    flex-direction: row;
+    width: 500px;
+    margin: auto;
+}
+.ticket-minus{
+    padding: 5px;
+    border-radius: 50%; 
+    width: 24px;
+    height: 24px; 
+    border:solid 3px blue; 
+    justify-content: center;
+    margin: 10px;
+    font-size: x-large;
+    margin-top: 15px; 
+    margin-left: 10px;
+}
+.ticket-number{
+    padding: 5px;
+    border-radius: 50%; 
+    width: 32px;
+    height: 32px; 
+    border:solid 3px rgb(255, 255, 255); 
+    text-align: center; 
+    background-color: white;
+    margin: 10px; 
+    font-size: x-large; 
+    box-shadow: inset rgb(173, 173, 173) 1px 1px 2px;
+}
+.ticket-plus{
+    padding: 1px;
+    border-radius: 50%; 
+    width: 35px;
+    height: 35px;
+    color: white;
+    background-color: blue;
+    margin: 10px; font-size: x-large;margin-top: 15px;text-align: center;
+}
+.add-ticket{
+    border-radius: 2px; 
+    font-weight: 700; 
+    background-color: blue;
+    padding: 5px;
+    color: white;
+    width: 80px; 
+    height: 30px; 
+    margin-left: 40%;
+    text-align: center; 
+    margin-top: 15px;
+    box-shadow: 1px 2px 3px rgb(118, 118, 118);
+}
+.cart-container{
+    padding: 10px;
+    background-color: rgba(243, 243, 243, 0);
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+.cart-summary{
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+    border-radius:10px ;
+    width:88%;
+}
+.cart-summary-container{
+    padding:20px 30px;
+    display: flex;
+    flex-direction: row;
+}
+.cart-summary-container2{
+    padding:2px 10px;
+    display: flex;
+    flex-direction: row;
+    border-top:1px rgb(133, 133, 133) solid ;
+    width: 90%; 
+    margin: auto;
+}
+.cart-total{
+    background-color: white;
+    padding: 10px; 
+    border-radius: 10px;
+    padding: 20px;
+}
+.cart-total-item{
+    display: flex; 
+    flex-direction: row; 
+    border-bottom: 1px solid rgb(133, 133, 133);
+}
+.cart-total-item-list{
+    padding: 10px 5px;
+}
 
