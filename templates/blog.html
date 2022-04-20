@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="blog-page">
+    <div>
+        <div class="blog-image">
+            <img src="{% static 'images/event1 (2).jpg' %}" alt="" width="100%">
+        </div>
+        <div class="blog-title">
+            This is my blog title
+        </div>
+        <div class="blog-details">
+            <div>Date: 12/4/2020</div>
+            <div>Authors: mike ventures</div>
+            <div>Views: 2.4k</div>
+        </div>
+        <div class="blog-content">
+            One World IT Rental is an international brand with 9 Locations across 7 Countries. A fast growing company with ambitions to become the largest short term IT rental company in the world for business and social events. OWR provides technology for corporate events and is looking for a friendly, proactive Sales administrator, who has good experience working with international, corporate clients in a very fast paced office environment. Our vast client list include leading financial institutes, UN, NATO, Glastonbury, NHS, Disney, Formula 1 and many more.
+        </div>
+        <div class="blog-add-comment">
+            <h2>Add Comment</h2>
+            <input type="name" placeholder="username">
+            <input type="email" name="" id="" placeholder="email">
+            <input type="text" placeholder="your comment">
+            <input type="submit" value="send">
+        </div>
+        <div class="blog-comment">
+            <h2>Comments</h2>
+            <div class="comment-title">
+                <div class="blog-comment-name">
+                    okafor ola
+                </div>
+                <div class="blog-comment-date">
+                    Date: 05/9/2023
+                </div>
+            </div>
+            <div class="blog-comment-content">
+                Yes this very true i agree, but sometimes things should be done with pity
+            </div>
+
+            <div class="comment-title">
+                <div class="blog-comment-name">
+                    David ali
+                </div>
+                <div class="blog-comment-date">
+                    Date: 03/5/2022
+                </div>
+            </div>
+            <div class="blog-comment-content">
+                Yes this very true i agree, but sometimes things should be done with pity
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="blog-ads">
+            <img src="{% static 'images/event1 (5).jpg' %}" alt="">
+        </div>
+        <div class="blog-others">
+            <h4>Other Articels</h4>
+            <div>
+                <img src="{% static 'images/event1 (2).jpg' %}" alt="" width="30%">
+                <div style="margin-left: 5px;">how many men came to africa</div>
+            </div>
+
+            <div>
+                <img src="{% static 'images/event1 (1).jpg' %}" alt="" width="30%">
+                <div style="margin-left: 5px;">why to party on fridays</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
