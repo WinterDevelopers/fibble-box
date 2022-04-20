@@ -228,6 +228,7 @@ def sending_coupon_codes(request, token):
 #///////////////////////////////////////////////////////////////////////////////////////////
 
 def payment_processor(request):
+    print('look')
     data = json.loads(request.body)
     email = data['email']
     number_votes = data['votes']

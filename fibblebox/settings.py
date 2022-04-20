@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Pageantry',
     'Events',
+    'Blog',
 ]
 
 MIDDLEWARE = [

@@ -1,4 +1,4 @@
-from re import template
+
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
@@ -19,5 +19,11 @@ def Ticket(request):
 def Cart(request):
 
     template_name = 'cart.html'
+
+    return render(request, template_name)
+
+def Shipping(request):
+
+    template_name = 'shipping.html'
 
     return render(request, template_name)

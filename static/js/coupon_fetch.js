@@ -1,5 +1,6 @@
-const url = '/coupon-processing'
+const url = '/pageantry/coupon-processing'
 function coupon_fetch(){
+   
     let number_of_coupons = document.getElementById('coupon_num_input').value;
     let email = document.getElementById('coupon_email').value;
     let token = new Date().getTime()

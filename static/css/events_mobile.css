@@ -226,5 +226,27 @@
     .cart-summary{
         width:100%;
     }
+    .your-order-item{
+        display: block;
+        text-align: left;
+        margin-left: 25px;
+        font-size: small;
+    }
+    .your-order-item>div{
+        margin-bottom: 10px;
+    }
+    .customer-form >input[type=submit]{
+        background-color: var(--background-color-dark);
+        color: #AED6DC;
+        width: 80%;
+    }
+    .customer-details{
+       
+        width: 80%;
+    }
+    .make-payment{
+        width: 60%;
+    }
+    
 }
     

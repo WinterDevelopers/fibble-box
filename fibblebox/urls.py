@@ -26,6 +26,7 @@ urlpatterns = [
     path('', home, name='home' ),
     path('pageantry/', include('Pageantry.urls')),
     path('events/', include('Events.urls')),
+    path('blog/', include('Blog.urls')),
 ]
 
 

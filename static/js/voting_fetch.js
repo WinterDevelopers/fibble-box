@@ -1,6 +1,6 @@
  //fetch
     
- const url = '/processing-payment'
+ const url = '/pageantry/processing-payment'
  function my_fetch(){
      
      var counts = document.getElementById('candidate-vote-count').value
@@ -10,7 +10,7 @@
      document.getElementById('token').value = token
      var data_to_be_sent = {"votes":counts, "candidate_id":candidate_id, 'email':email_value, 'token':token}
 
-     console.log(candidate_id)
+     console.log(token)
      fetch(url,{
          method:'POST',
          headers:{
@@ -19,6 +19,7 @@
          },
          body:JSON.stringify(data_to_be_sent)
      }).then((res)=>{
+    
          return res.json()
 
      }).then((text)=>
