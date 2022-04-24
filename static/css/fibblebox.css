@@ -197,7 +197,8 @@ body{
     background-color: var(--background-color-form-input);
     box-shadow: rgba(169, 169, 169, 0.638) 1px 1px 3px;
     width: 120px;
-    height: 35px;
+    height: 30px;
+    padding-top: 10px;
     color: var(--font-color);
     
 }
@@ -1060,5 +1061,6 @@ height: 50%;
 .event-btn{
     text-decoration: none;
     padding: 5px;
+    
 }
 

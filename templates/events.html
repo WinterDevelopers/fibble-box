@@ -1,11 +1,12 @@
 {% extends 'event_base.html' %}
 {% load static %}
 {% block content %}
-<body>
+
+<body style="padding: 0%;">
     <div>
   
-        <div class="major-text"> the winters edition</div>
-        <div class="minor-text"> By transcrop group</div>
+        <div class="major-text"> {{event.name}}</div>
+        <div class="minor-text"> {{event.phrase}}</div>
 
         <div class="ticket-btn" id="ticket-btn">
             <span style="font-weight: 400;align-items: baseline;">Buy Tickets</span>
@@ -25,7 +26,7 @@
             
         </div>
        
-        <div style="background-image: url({% static 'images/9ja-party.jpg' %});" class="back-img"></div>
+        <div style="background-image: url({{event.image_URL}});" class="back-img"></div>
         <div class="count-down">
             <div style="color: black; position: absolute; top: 35%; left:10%; right: 10%; margin: 10px auto; width: 80%; ">
                 <div class="count-down-header"> COUNTING DOWN</div>
@@ -50,35 +51,34 @@
             </div>
             <div class="info">
                <div class="info-event">
-                <h2>What is Event ?</h2>
-                <p>i Know i fucked up, but who never fuck up hands in the air, i see no hands. I rest my case.
-                    if i say i did it i did no problem. the funny reality is that one is making out of life alive.
-                    this is the best event you would not want to miss for anything in the world
+                <h2>What is {{event.name}} ?</h2>
+                <p>{{event.about}}
                 </p>
                </div>
 
                <div style=" margin: 0px auto; width: 80vw; font-weight: 500; font-size:20px; text-align: center;">
                 <h2>Location @</h2>
-                <p>nwoke udi, Awka</p>
+                <p>{{event.location}}</p>
                </div>
             </div>
         </div>
         <div class="gallery">
             <div class="gallery-header">Event Gallery</div>
             <div class="gallery-view">
-                <div ><img src="{% static 'images/face-abj.jpg' %}" alt="" class="gallery-img"></div>
-                <div><img src="{% static 'images/face-anambra.jpg' %}" alt="" class="gallery-img"></div>
-                <div><img src="{% static 'images/ebony.jpg' %}" alt="" class="gallery-img"></div>
+                {% for gallery in event_gallery %}
+                <div ><img src="{{ gallery.image_URL}}" alt="" class="gallery-img"></div>
+                {% endfor %}
             </div>
         </div>
         <div class="activity">
             <div class="activity-title">Events Activities </div>
+            {% for activity in event_activities %}
             <div>
-                <div class="activity-header">Devils Basket</div>
-                <p>this a very very bad game and will advice that one should play if you 
-                    don't have the heart of stone..... but it's sha very enjoyable
+                <div class="activity-header">{{activity.header}}</div>
+                <p>t{{activity.content}}
                 </p>
             </div>
+            {% endfor %}
             <div >
                 <div class="activity-header">7 swordsman</div>
                 <p>this a very intensive game that would need about 7 people to play it requires more 
@@ -97,7 +97,8 @@
         <div  class="special-guest">
             <div>
                 <h2 style="margin: 0px; text-align: center;font-size: x-large;">Special Guests</h2>
-                <video src="south_park.mp4" style="width: 90vw; margin: 10px 5vw;"  controls></video>
+                <video style="width: 90vw; margin: 10px 5vw;" controls src="{{event.video_URL}} ">
+                </video>
             </div>
         </div>
         <div>
@@ -108,37 +109,79 @@
                         checkout the avaliable tickets for the Event
                     </p>
                     
-                    <div class="get-ticket" id="get-ticket">Get Ticket</div>
+                   <a href="{% url 'Events:ticket' %}" style="text-decoration: none;"> <div class="get-ticket" id="get-ticket">Get Ticket</div></a>
                 </div>
             </div>
         </div>
         <div class="sponsors">
             <h2 class="sponsor-header">Sponsors</h2>
             <div class="sponsors-content">
-                <div class="sponsor-items">
-                    mike ventures
-                </div>
-                <div class="sponsor-items">
-                    Eze deals
-                </div>
-                <div class="sponsor-items">
-                    bakers point
-                </div>
-                <div class="sponsor-items">
-                    winterdevelopers
-                </div>
-                <div class="sponsor-items">
-                    all4grubs
-                </div>
+                {% for sponsor in sponsors %}
+                <img src="{{sponsor.image_URL}}" alt="" class="sponsors-items" width="100px">
+                {% endfor %}
             </div>
         </div>
         <div class="contact">
             <div class="contact-header">contact us</div>
 
-            <div class="contact-phone"> <span class="contact-phone-1">Phone</span> <span class="contact-phone-2" id="contact-phone">+</span></div>
-            <div class="none" id="contact-phone-item"> 08034129834</div>
-            <div class="contact-email"> <span class="contact-email-1">E-mail</span> <span class="contact-email-2" id="contact-email">+</span></div>
-            <div class="none" id="contact-email-item">winterdevelopers@gmail.com</div>
+            <div class="contact-phone"> <span class="contact-phone-1">Phone</span> <span class="contact-phone-2" id="contact-phone" >
+                <svg id="arrow"  version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 25.93 25.93" style="enable-background:new 0 0 25.93 25.93" xml:space="preserve" width="10px">
+                <g>
+                    <g id="c118_triangle">
+                        <path fill="white" d="M25.397,4.554h-2.042l-9.974,12.644c-0.101,0.124-0.256,0.197-0.416,0.197c-0.164,0-0.315-0.073-0.419-0.197L2.575,4.554
+                            H0.532c-0.206,0-0.392,0.115-0.479,0.299c-0.09,0.184-0.064,0.403,0.06,0.561l12.435,15.762c0.104,0.125,0.255,0.2,0.419,0.2
+                            c0.16,0,0.315-0.075,0.416-0.2L25.816,5.413c0.128-0.157,0.148-0.377,0.058-0.561C25.789,4.669,25.601,4.554,25.397,4.554z"/>
+                    </g>
+                </g>
+                </svg>
+            </span></div>
+            <div class="none" id="contact-phone-item"> 
+                <div>
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 53.942 53.942" style="enable-background:new 0 0 53.942 53.942;" xml:space="preserve" width="20px">
+                    <path fill="white" d="M53.364,40.908c-2.008-3.796-8.981-7.912-9.288-8.092c-0.896-0.51-1.831-0.78-2.706-0.78c-1.301,0-2.366,0.596-3.011,1.68
+                    c-1.02,1.22-2.285,2.646-2.592,2.867c-2.376,1.612-4.236,1.429-6.294-0.629L17.987,24.467c-2.045-2.045-2.233-3.928-0.632-6.291
+                    c0.224-0.309,1.65-1.575,2.87-2.596c0.778-0.463,1.312-1.151,1.546-1.995c0.311-1.123,0.082-2.444-0.652-3.731
+                    c-0.173-0.296-4.291-7.27-8.085-9.277c-0.708-0.375-1.506-0.573-2.306-0.573c-1.318,0-2.558,0.514-3.49,1.445L4.7,3.986
+                    c-4.014,4.013-5.467,8.562-4.321,13.52c0.956,4.132,3.742,8.529,8.282,13.068l14.705,14.705c5.746,5.746,11.224,8.66,16.282,8.66
+                    c0,0,0,0,0.001,0c3.72,0,7.188-1.581,10.305-4.698l2.537-2.537C54.033,45.163,54.383,42.833,53.364,40.908z">
+                </svg>
+                </div>
+                <div>
+                    08034129834
+                </div>
+            </div>
+            <div class="contact-email"> <span class="contact-email-1">E-mail</span> <span class="contact-email-2" id="contact-email">
+                <svg class="arrow" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 25.93 25.93" style="enable-background:new 0 0 25.93 25.93;" xml:space="preserve" width="10px">
+                <g>
+                    <g id="c118_triangle">
+                        <path fill="white" d="M25.397,4.554h-2.042l-9.974,12.644c-0.101,0.124-0.256,0.197-0.416,0.197c-0.164,0-0.315-0.073-0.419-0.197L2.575,4.554
+                            H0.532c-0.206,0-0.392,0.115-0.479,0.299c-0.09,0.184-0.064,0.403,0.06,0.561l12.435,15.762c0.104,0.125,0.255,0.2,0.419,0.2
+                            c0.16,0,0.315-0.075,0.416-0.2L25.816,5.413c0.128-0.157,0.148-0.377,0.058-0.561C25.789,4.669,25.601,4.554,25.397,4.554z"/>
+                    </g>
+                </g>
+                </svg>
+            </span></div>
+            <div class="none" id="contact-email-item">
+                <div >
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve" width="20px">
+                        <path id="Mail" fill="white" d="M58.0034485,8H5.9965506c-3.3136795,0-5.9999995,2.6862001-5.9999995,6v36c0,3.3137016,2.6863203,6,5.9999995,6
+                        h52.006897c3.3137016,0,6-2.6862984,6-6V14C64.0034485,10.6862001,61.3171501,8,58.0034485,8z M62.0034485,49.1108017
+                        L43.084549,30.1919994l18.9188995-12.0555992V49.1108017z M5.9965506,10h52.006897c2.2056007,0,4,1.7943001,4,4v1.7664003
+                        L34.4677505,33.3134003c-1.4902,0.9492989-3.3935013,0.9199982-4.8495998-0.0703011L1.9965508,14.4694996V14
+                        C1.9965508,11.7943001,3.7910507,10,5.9965506,10z M1.9965508,16.8852005L21.182251,29.9251003L1.9965508,49.1108017V16.8852005z
+                        M58.0034485,54H5.9965506c-1.6473999,0-3.0638998-1.0021019-3.6760998-2.4278984l20.5199013-20.5200024l5.6547985,3.843401
+                        c1.0859013,0.7383003,2.3418007,1.1083984,3.5995998,1.1083984c1.1953011,0,2.3925018-0.3339996,3.4463005-1.0048981
+                        l5.8423996-3.7230015l20.2961006,20.2961025C61.0673485,52.9978981,59.6508713,54,58.0034485,54z"/>
+                    </svg>
+                </div>
+                <div>
+                    winterdevelopers@gmail.com
+                </div>
+            </div>
            
             <div class="social-header">Social media</div>
             <div class="social-icon-header">
@@ -153,10 +196,87 @@
         
             
     </div>
+
+    <div class="none" id="cart-page">
+        <div style="background-color: whitesmoke; padding-top: 5px; padding-bottom: 5px;">
+            <div class="close-cart" id="close-cart">
+                <p style="margin: 6px;">close</p>
+            </div>
+            <div class="cart-container">
+                <div class="cart-summary">
+                    <div class="cart-summary-container">
+                        <div>
+                            <p>A Night for all knight</p>
+                            <p>VIP</p>
+                        </div>
+                        <div style="margin-left: auto;">
+                            <p>#3400</p>
+                        </div>
+                    </div>
+                    <div class="cart-summary-container2">
+                        <div style="display: flex;">
+                            <div class="ticket-minus">
+                                <?xml version="1.0" standalone="no"?>
+                                <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+                                "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+                                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                width="18.000000pt" height="17.000000pt" viewBox="0 0 96.000000 96.000000"
+                                preserveAspectRatio="xMidYMid meet">
+                                    <g transform="translate(0.000000,96.000000) scale(0.100000,-0.100000)"
+                                    fill="blue" stroke="none">
+                                    <path d="M120 480 l0 -40 360 0 360 0 0 40 0 40 -360 0 -360 0 0 -40z"/>
+                                    </g>
+                                </svg>
+                                
+                            </div>
+                            <div class="ticket-number">0</div>
+                            <div class="ticket-plus">
+                                <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg style="margin-top:5px;" enable-background="new 0 0 50 50" height="25px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect fill="none" height="20" width="20"/><line fill="none" stroke="white" stroke-miterlimit="10" stroke-width="5" x1="9" x2="41" y1="25" y2="25"/>
+                                    <line fill="white" stroke="white" stroke-miterlimit="10" stroke-width="5" x1="25" x2="25" y1="9" y2="41"/></svg>
+                            </div>
+            
+                        </div>
+                        <div style="margin-left: auto;">
+                            <h3>X</h3>
+                        </div>
+                    </div>
+                </div>
+            
+            
+                <div class="cart-total">
+                    <div class="cart-total-item">
+                        <div class="cart-total-item-list">
+                            Sub-Total
+                        </div>
+                        <div style="margin-left: auto;">
+                            #67890
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row; border-bottom: 1px solid rgb(133, 133, 133);padding: 10px 5px;">
+                        <div>
+                            VAT
+                        </div>
+                        <div style="margin-left: auto;">
+                            #0.23
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: row; padding: 5px 10px;margin-top: 30px;">
+                        <div>
+                            Total
+                        </div>
+                        <div style="margin-left: auto;">
+                            #787980
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100px; margin: 1px auto; padding: 2px 5px; background-color: rgb(0, 0, 0);text-align: center; margin-bottom: 20px; border-radius: 20px; height: 30px;color: white;"><p style="margin: 6px;">checkout</p></div>
+        </div>
+    </div>
 </body>
 <script>
 
-    var event_time = new Date("june 24, 2022").getTime();
+    var event_time = new Date("{{event.date}}").getTime();
 
     setInterval(function(){
 

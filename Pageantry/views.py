@@ -6,6 +6,7 @@ from django.shortcuts import redirect, render
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.contrib import messages
+from Events.models import Event
 
 from Pageantry.send_email import SendEmail
 
@@ -39,9 +40,10 @@ def register(request):
 
 def home(request):
     pageantries = Pageantry.objects.all()[:3]
+    events  = Event.objects.all()[:3]
     
     template_name = 'index.html'
-    context = {'pageantries':pageantries}
+    context = {'pageantries':pageantries, 'events':events}
 
     return render(request, template_name, context)
 

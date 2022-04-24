@@ -7,8 +7,9 @@ const contact_phone = document.getElementById('contact-phone');
 const contact_phone_item = document.getElementById('contact-phone-item');
 const contact_email = document.getElementById('contact-email');
 const contact_email_item = document.getElementById('contact-email-item');
-
-
+const cart_page = document.getElementById('cart-page');
+const cart_bag = document.getElementById('cart-bag');
+const cart_close = document.getElementById('close-cart');
 
 function menuToggel(){
 
@@ -54,3 +55,16 @@ contact_email.addEventListener('click', function(){
         contact_email_item.className = "none"
     }
 });
+
+function cart(){
+    if (cart_page.className != "cart-page"){
+        cart_page.className = "cart-page"
+    }
+    else{
+        cart_page.className = "none"
+    }
+}
+cart_close.addEventListener('click', cart)
+cart_bag.addEventListener('click',cart);
+
+

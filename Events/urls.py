@@ -1,12 +1,12 @@
-from .views import Event, Ticket, Cart, Shipping
+from .views import Event_index, Ticket, Shipping, Event_nav
 from django.urls import URLPattern, path
 
 
 app_name = 'Events'
 
 urlpatterns = [
-    path('winter', Event, name='event'),
+    path('event_nav/', Event_nav, name='event_nav'),
     path('ticket', Ticket, name='ticket'),
-    path('cart', Cart, name='cart'),
     path('shipping', Shipping, name='shipping'),
+    path('<slug:name>/', Event_index, name='event'),
 ]

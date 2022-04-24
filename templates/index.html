@@ -157,8 +157,8 @@
                 <h4>Time</h4>
                 <p>9:00 PM</p>
             </div>
-            <a href="{% url 'Events:event' %}" class="event-btn">
-                <div class="party-button"><p>Let's party</p></div>
+            <a href="" class="event-btn">
+                <div class="party-button">Let's party</div>
             </a>
             <div class="party-footer-others">
                 <h4>Location</h4>
@@ -167,27 +167,29 @@
         </div>
     </div>
     <!--  -->
+    {% for event in events %}
     <div class="party-box">
-        <img src="{% static 'images/ebony.jpg' %}" alt="party-image" class="party-image">
+        <img src="{{event.image_URL}}" alt="party-image" class="party-image">
         <div class="party-info">
-            <h2>Owerri flex </h2>
-            <h5>13 days to go</h5>
-            <p>this party is for anyone that needs to fill the vibe of coal city</p>
+            <h2>{{event.name}}</h2>
+            <h5>{{event.date}}</h5>
+            <p>{{event.phrase}}</p>
         </div>
         <div class="party-footer">
             <div class="party-footer-others">
                 <h4>Time</h4>
-                <p>1:00 AM</p>
+                <p>{{event.time}}</p>
             </div>
-            <a href="{% url 'Events:event' %}" class="event-btn">
-                <div class="party-button"><p>Let's party</p></div>
+            <a href="{% url 'Events:event' event.name %}" class="event-btn">
+                <div class="party-button">Let's party</div>
             </a>
             <div class="party-footer-others">
                 <h4>Location</h4>
-                <p>Owerri</p>
+                <p>{{event.location}}</p>
             </div>
         </div>
     </div>
+    {% endfor %}
     <div class="party-box">
         <img src="{% static 'images/mbgn.jpg' %}" alt="party-image" class="party-image">
         <div class="party-info">
@@ -200,8 +202,8 @@
                 <h4>Time</h4>
                 <p>11:00 PM</p>
             </div>
-            <a href="{% url 'Events:event' %}" class="event-btn">
-                <div class="party-button"><p>Let's party</p></div>
+            <a href="" class="event-btn">
+                <div class="party-button">Let's party</div>
             </a>
             <div class="party-footer-others">
                 <h4>Location</h4>
