@@ -42,7 +42,7 @@ class Ticket_processing():
                             print(code)
 
                     for tick in ticket:
-                        img = Image.open(tick.image_URL[:])
+                        img = Image.open(tick.image_URL[12:])
                         img_edit = ImageDraw.Draw(img)
                         img_edit.rectangle((5,40,1000,200), fill="white")
                         font = ImageFont.truetype('FreeMono.ttf', 100)
