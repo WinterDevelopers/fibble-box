@@ -14,17 +14,6 @@ import secrets
 import qrcode
 
 
-qr = qrcode.QRCode(
-    version=1,
-    box_size=15,
-    border=5
-)
-
-data = 'https://www.fibblebox.com'
-qr.add_data(data)
-qr.make(fit=True)
-
-ixm = qr.make_image(fill='black', back_color='white')
 
 class Ticket_processing():
     def ticket_image(self, customer):
