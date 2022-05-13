@@ -94,7 +94,7 @@ def ticket_payment_verification(request, token):
     verified = payment.verification()
     if verified:
         ticket_processing = Ticket_processing()
-        ticket = ticket_processing.ticket_image(customer)
+        ticket_processing.ticket_image(customer)
         print(order.completed)
         order.completed = True
         order.save()
