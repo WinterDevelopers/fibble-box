@@ -8,13 +8,14 @@
        LOGIN
    </div>
    <form class="login-form" action="" method="post">
+       {% csrf_token %}
     <label for="username"> Username</label>   
     <input type="text" name="username">
     <label for="password"> Password</label>
-    <input type="password">
+    <input type="password" name="password">
     <input type="submit" value="Login">
    </form>
-   <div style="font-size:xx-small; margin-left: 5%;">Don't have an account, click here to <span>sign up</span></div>
+   <div style="font-size:xx-small; margin-left: 5%;">Don't have an account, click here to <a href="{% url 'Pageantry:register' %}"><span>sign up</span></a></div>
 </div>
 
 {% endblock %}

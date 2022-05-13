@@ -51,6 +51,7 @@
         background-color: #4A536B;
         font-size: x-small;
         padding-bottom: 100px;
+        padding: 0px;
     }
     .footer-item{
         display:grid;
@@ -181,9 +182,10 @@
     }
     .ticket-img-container >img{
         width: 300px;
+        height: 185px;
     }
     .ticket-container{
-        width: 300px;
+        width: auto;
     }
     .ticket-img-container{
         width: 300px;

@@ -7,16 +7,16 @@
         <link rel="shortcut icon" href="{% static 'logos/fibble_box_logo.png' %}" type="image/x-icon">
         <link rel="stylesheet" href="{% static 'css/events.css' %}">
         <link rel="stylesheet" href="{% static 'css/events_mobile.css' %}">
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         
     </head>
     <body>
         <div class="nav-bar">
             <h3 style="margin-left: 5%;">
-                DPULEX PARTY
+                <a href="{% url 'Events:event' event.name %}" style="color: black;"> {{event.name}} </a>
             </h3>
             <div style="margin: 20px auto; position: relative;" id="cart-bag">
-                <div class="cart-item">{{item}}</div>
+                <div class="cart-item"></div>
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve" width="24px" >
             <g>
@@ -55,20 +55,22 @@
         </div>
         <div class="none" id="mobile-menu-content">
             <div class="mobile-menu-item" style="border-top: 1px solid white; padding-top:30px; margin-top: -15px;">
-                About
+                <a href="#event-about">About</a>
             </div>
             <div class="mobile-menu-item">
-                Ticket Pricing
+                <a href="{% url 'Events:ticket' event.name %}">Ticket Pricing</a>
             </div>
             <div class="mobile-menu-item">
-                Special Artist
+                <a href="#event-special-artist">Special Artist</a>
             </div>
             <div class="mobile-menu-item">
-                Contact
+                <a href="#event-contact"> Contact</a>
             </div>
         </div>
     <script type="text/javascript">
-       function getCookie(name) {
+        var user = '{{request.user}}'
+
+       function getToken(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
             const cookies = document.cookie.split(';');
@@ -83,7 +85,32 @@
         }
         return cookieValue;
     }
-    const csrftoken = getCookie('csrftoken');
+    const csrftoken = getToken('csrftoken');
+
+    function getCookies(name){
+
+        var cookieArr = document.cookie.split(";");
+
+        for(var i = 0;i < cookieArr.length; i++) {
+            var cookiePair = cookieArr[i].split("=");
+
+            if(name == cookiePair[0].trim()){
+                
+                return decodeURIComponent(cookiePair[1])
+            }
+        }
+
+        return null;
+    }
+
+    var my_cart = JSON.parse(getCookies('cart'))
+
+    if(my_cart == undefined){
+        my_cart = {}
+        console.log('the cart was created')
+        document.cookie = 'cart=' + JSON.stringify(my_cart) +";domain=;path=/"
+    }
+    console.log('Cart', my_cart)
     </script>
     <div style="height: 60px; background-color: none;"></div>
 
@@ -145,7 +172,6 @@
                 <div><p style="color: rgba(205, 205, 235, 0.842);text-align: center;">Terms and condition </p></div>
     
                 <div><p style="color: rgba(205, 205, 235, 0.842);text-align: center;">2021 copyright(c) developed by winterdevelopers </p></div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         </footer>
-     
-        <script type="text/javascript" src="{% static 'js/events.js' %}"></script>
     </body>

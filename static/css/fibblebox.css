@@ -467,7 +467,7 @@ footer{
 
 .login-form > input{
     display: block;
-    width: 90%;
+    width: 100%;
     padding:5%;
     border-radius: 10px;
     border : none;
@@ -610,7 +610,7 @@ footer{
 .submit-email{
     box-shadow: rgba(128, 128, 128, 0.371) 2px 2px 5px;
     border: none;
-    padding: 10px; 
+    padding: 10px 5px; 
     background-color: rgb(177, 247, 240); 
     width: 40%;
     color: white; 
@@ -1062,5 +1062,17 @@ height: 50%;
     text-decoration: none;
     padding: 5px;
     
+}
+.add-coupon-email{
+    text-align: center;
+    background-color: #4A536B;
+    color: var(--background-color-form-input);
+    font-weight: 500;
+    font-size: small;
+    padding: 10px;
+    height: 25px;
+    width: 95%;
+    margin: 1px auto;
+    border-radius: 10px;
 }
 

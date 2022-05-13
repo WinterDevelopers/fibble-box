@@ -2,7 +2,7 @@ from unicodedata import name
 from django.urls import path
 from django.urls.resolvers import URLPattern
 
-from .views import (home, base, login, register, pageantry, candidate, payment, payment_processor,
+from .views import (base, Login, register, pageantry, candidate, payment, payment_processor,
                     verify_payment, purchase_coupon, payment_coupon, coupon_delete, coupon_processor,
                     coupon_verify_payment, sending_coupon_codes,payment_delete)
 
@@ -11,7 +11,7 @@ app_name = 'Pageantry'
 urlpatterns = [
     
     path('base' ,base, name='base'),
-    path('login' ,login, name='login'),
+    path('login' ,Login, name='login'),
     path('register', register, name='register'),
     path('coupon-processing', coupon_processor, name='coupon_processor'),
     path('processing-payment', payment_processor, name='payment_processor'),

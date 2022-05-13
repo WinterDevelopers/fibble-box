@@ -1,6 +1,5 @@
 import email, smtplib, ssl
 from multiprocessing import Condition
-
 from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart

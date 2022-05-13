@@ -11,6 +11,7 @@ const cart_page = document.getElementById('cart-page');
 const cart_bag = document.getElementById('cart-bag');
 const cart_close = document.getElementById('close-cart');
 
+
 function menuToggel(){
 
     if(hamburger_icon.className == 'nav-bar-mobile-icon'){
@@ -67,4 +68,34 @@ function cart(){
 cart_close.addEventListener('click', cart)
 cart_bag.addEventListener('click',cart);
 
+setInterval(cartItem, 1000);
 
+
+function cartItem(){
+    if(user == 'AnonymousUser'){
+        $('.cart-item').text(10)
+    }
+    else{
+        $.ajax({
+            url:'/events/ajax',
+            type: 'get',
+            success: function(res){
+                $('.cart-item').text(res.number)
+               
+            },
+     
+        })
+    }
+}
+
+function cartContent(){
+    $.ajax({
+        url:'/events/cart-items',
+        type:'get',
+        success:function(res){
+            console.log(res.orderitem)
+        },
+    })
+}
+
+cartContent()

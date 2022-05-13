@@ -8,10 +8,10 @@
         <h1>Your order</h2>
         <div class="your-order-item">
             <div>
-                Number of Ticket: 3
+                Number of Ticket: {{order.total_quantity}}
             </div>
             <div>
-                Total cost of ticket: &#8358; 7,000
+                Total cost of ticket: &#8358; {{order.total_cost}}
             </div>
         </div>
     </div>
@@ -19,16 +19,105 @@
         customer details
         <form action="" method="" class="customer-form">
             {% csrf_token %}
-            <input type="text" placeholder="Name">
-            <input type="email" name="" id="" placeholder="Email">
-            <input type="tel" name="" id="" placeholder="phone number">
-            <input type="submit" value="submit">
+            <input type="text" placeholder="Name" name="name">
+            <input type="email" name="email" id="" placeholder="Email">
+            <input type="tel" name="phone" id="" placeholder="phone number">
+            <input type="submit" value="submit" id="submit-details">
 
         </form>
     </div>
-    <div class="make-payment">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <div class="none" id="make-payment" onclick="payWithPaystack()">
         make payment
     </div>
+    <div class="reference" style="display: none;"></div>
 </div>
 
+<script>
+
+    let name = document.querySelector('[name="name"]').value;
+    let email = document.querySelector('[name="email"]').value;
+    let phone = document.querySelector('[name="phone"]').value;
+    let submit_btn = document.querySelector('#submit-details');
+    let payment = document.querySelector('#make-payment');
+    
+    function fetch_payment(){
+        let name = document.querySelector('[name="name"]').value;
+        let email = document.querySelector('[name="email"]').value;
+        let phone = document.querySelector('[name="phone"]').value;
+        
+        fetch('/events/shipping_process',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+            'X-CSRFToken':csrftoken,
+        },
+        body:JSON.stringify({'name':name,'email':email,'order_amount':'{{order.total_cost}}',
+                             'phone':phone, 'order_number':'{{order.total_quantity}}', 'token':'{{order.transaction_id}}'})
+        }).then((res)=>{
+            return res.json
+        }).then((data)=>
+            console.log(data)
+        )
+        console.log('sent detials')
+        }
+
+
+    submit_btn.addEventListener('click', function(e){
+        e.preventDefault();
+
+        fetch_payment();
+        submit_btn.className = 'none';
+        setTimeout(reference_func, 2000)
+        
+
+
+    });
+    
+
+    function reference_func(){
+    $.ajax({
+        url:'/events/reference',
+        type: 'get',
+        success: function(res){
+            $('.reference').text(res.reference)
+        },
+    })
+    payment.className = 'make-payment'
+    }
+    
+    function payWithPaystack(){
+        let reference = document.querySelector('.reference').innerHTML;
+        let name = document.querySelector('[name="name"]').value;
+        let email = document.querySelector('[name="email"]').value;
+        let phone = document.querySelector('[name="phone"]').value;
+
+        console.log(reference)
+        var handler = PaystackPop.setup({
+        key: '{{public_key}}',
+        email: email,
+        amount: "{{order.total_cost_paystack}}",
+        currency: "NGN",
+        ref: reference,
+        metadata: {
+           custom_fields: [
+              {
+                  display_name: name,
+                  variable_name: "mobile_number",
+                  value: "+2348012345678"
+              }
+           ]
+        },
+        callback: function(response){
+            var token = document.querySelector('.token')
+            window.location.href="{% url 'Events:ticket_payment_verification' order.transaction_id %}";
+        },
+        onClose: function(){
+            alert('window closed');
+        }
+      });
+      handler.openIframe();
+    }
+
+</script>
 {% endblock %}

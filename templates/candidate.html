@@ -79,14 +79,16 @@
     
             <div class="candidate-submit" id="candidate-submit">
                <img src="{% static 'images/finger-print.png' %}" alt="" height="35px" width="35px">
-                <div style="font-size: 15px; font-weight: 500;"> Submit Vote</div>
+                <div style="font-size: 15px; font-weight: 500;"> Add Email</div>
             </div>
             <div class="no-display" id="email-div">
                 <input style="width: 95%;" type="email" class="payment-email-field" placeholder="Email..." name="email" id="email-field">
-                <button style="width: 95%;"  id="email-button" class="submit-email" type="submit"  onclick="my_fetch()">add Email</button>
+                <div style="width: 95%;"  id="done-button" class="submit-email" onclick="my_fetch()"  >Done</div>
             </div>
             <div><input style="display: none;" id="token" type="text" name="token"></div>
+            <button style="width: 95%;"  id="submit-button" class="none" type="submit">Submit Vote</button>
            </form>
+           
         </div>
         <div style="position: relative; height: 150px;">
             <div style="position: absolute; top:50%; left: 40%;"> Votes: {{candidate.votes}}</div>

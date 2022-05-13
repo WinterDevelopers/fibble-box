@@ -7,22 +7,18 @@
    <div class="login-header">
        Sign Up
    </div>
-   <form class="login-form" action="" method="post">
-    <label for="username"> First name</label>   
-    <input type="text" name="username">
-    <label for="username"> Last name</label>   
-    <input type="text" name="username">
-    <label for="username"> Email</label>   
-    <input type="email" name="username">
-    <label for="username"> Username</label>   
-    <input type="text" name="username">
-    <label for="password"> Password</label>
-    <input type="password">
-    <label for="password">Confirm Password</label>
-    <input type="password">
-    <input type="submit" value="Sign up">
-   </form>
-   <div style="font-size:x-small; margin-left: 5%;">Already registered click to <u>Login</u> </div>
+   
+   <form action="" class="login-form" method="post">
+        {% csrf_token %}
+        {% for form in forms %}
+            {{form.label_tag}}
+            {{form}}<br>
+            
+        {% endfor %}
+        <div style="color:red; background-color:rgba(250, 2, 2, 0.274); padding: 5px; font-size: small;">{{forms.errors}}</div>
+        <input type="submit" value="Sign up">
+    </form>
+    <div style="font-size:x-small; margin-left: 5%;">Already registered click to <a href="{% url 'Pageantry:login' %}"><span>login </span></a> </div>
 </div>
 
 {% endblock %}

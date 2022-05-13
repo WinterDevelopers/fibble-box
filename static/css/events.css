@@ -13,6 +13,10 @@ body{
     margin: 0px;
     font-family: 'party';
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 .nav-bar{
     display: flex; flex-direction: row; 
     background-color: rgb(246, 253, 251); opacity:0.8 ; 
@@ -359,7 +363,7 @@ footer{
     text-align: center; 
     width: 100px; 
     margin: auto; 
-    padding: 5px; 
+    padding: 10px; 
     border-radius: 5px; 
     margin-top: 20px;
     font-size: smaller;
@@ -380,6 +384,7 @@ footer{
 .ticket-img-container >img{
     margin: 0px auto;
     width: 500px;
+    height: 300px;
 }
 .ticket-dots{
     height: 300px; border-style: dotted; 
@@ -411,13 +416,17 @@ footer{
     padding: 10px;
     width: 450px;
     margin: auto;
+    
+}
+.Ticket-info >div{
+    display: flex;
 }
 .Ticket-price{
     inline-size: 100px; 
     text-align:start ; 
-    font-size: larger;
-    font-weight: 600;
-    padding: 15px 2px;
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: 25px;
 }
 .ticket-bottom{
     display: flex; 
@@ -426,7 +435,9 @@ footer{
     margin: auto;
 }
 .ticket-minus{
-    padding: 5px;
+    text-align: center;
+    padding:5px;
+    position: relative;
     border-radius: 50%; 
     width: 24px;
     height: 24px; 
@@ -439,7 +450,8 @@ footer{
 }
 .ticket-number{
     padding: 5px;
-    border-radius: 50%; 
+    border-radius: 50%;
+    position: relative;
     width: 32px;
     height: 32px; 
     border:solid 3px rgb(255, 255, 255); 
@@ -451,6 +463,8 @@ footer{
 }
 .ticket-plus{
     padding: 1px;
+    text-align: center;
+    position: relative;
     border-radius: 50%; 
     width: 35px;
     height: 35px;
@@ -460,7 +474,8 @@ footer{
 }
 .add-ticket{
     border-radius: 2px; 
-    font-weight: 700; 
+    font-weight: 700;
+    position: relative;
     background-color: blue;
     padding: 5px;
     color: white;
@@ -611,4 +626,15 @@ footer{
     box-shadow: #000000d7 2px 2px 5px;
 
 }
+.messages{
+    position: fixed;
+    top:150px;
+    left:10vw;
+    right: 10vw;
+    padding: 10px;
+    background-color: rgba(1, 173, 173, 0.699);
+    color: rgb(42, 255, 255);
+    border: #fdffff 1px solid;
+}
+
 

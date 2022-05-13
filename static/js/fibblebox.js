@@ -1,7 +1,13 @@
 console.log('fibbleBox');
 
-
+var done_btn = document.querySelector("#done-button")
+var submit_button = document.querySelector('#submit-button')
 var view_button = document.querySelector(".view-button");
+console.log(done_btn)
+done_btn.addEventListener('click',function(){
+    this.className = "none"
+    submit_button.className = "submit-email"
+})
 
 
 function view_button_func(){

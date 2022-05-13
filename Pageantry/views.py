@@ -1,16 +1,19 @@
 from django.conf import settings
-
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from django.http.request import HttpRequest
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.contrib import messages
-from Events.models import Event
+from Events.models import Customer, Event
 
 from Pageantry.send_email import SendEmail
+from .register_form import Registration
 
 from .models import *
+
 import json
 
 
@@ -21,21 +24,47 @@ def base(request):
     return render(request, template_name)
 
 
-def login(request):
+def Login(request):
     template_name = 'login.html'
 
     if request.method == 'POST':
-        code = request.POST.get('code')
-        print(code)
-
-
+       username = request.POST.get('username')
+       print(username)
+       password = request.POST.get('password')
+       print(password)
+       user = authenticate(username=username, password=password)
+       if user:
+        login(request, user)
+        print('login!!!')
+        return redirect('Events:event', 'LAMBA')
+       else:
+           print('failed!!!')
     return render(request, template_name)
 
 
 def register(request):
-    template_name = 'register.html'
+  
+    form = Registration()
+    if request.method == 'POST':
+        form = Registration(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            name = form.cleaned_data.get('first_name')
+            email = form.cleaned_data.get('email')
 
-    return render(request, template_name)
+            user = authenticate(username=username,password= raw_password)
+            print(user)
+            login(request, user)
+            my_user = request.user
+            Customer.objects.create(user=my_user, name=name, email=email)
+            
+            return redirect('Events:shipping')
+        
+    context = {'forms':form}
+    template_name = 'register.html'
+    return render(request, template_name, context)
 # Create your views here.
 
 def home(request):
@@ -223,7 +252,7 @@ def sending_coupon_codes(request, token):
     send_email = SendEmail()
     sending_email = send_email.sending_email(customer_email)
     if sending_email:
-        return redirect('Pageantry:home')
+        return redirect('home')
     return redirect('Pageantry:login')
 
 # MY FETCH VIEW FUNCTIONS////////////////////////////////////////////////////////////////////

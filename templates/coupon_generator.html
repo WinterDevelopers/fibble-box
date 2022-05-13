@@ -16,14 +16,23 @@
             </div>
             <div style="text-align: center; margin-bottom: 40px;">This would cost: &#8358; <span id="coupon_cost"> 0</span></div>
             <div><input type="email" placeholder="Input Email..." class="coupon_email" required id="coupon_email"></div>
-            <div><input type="submit"  value="purchase coupons" class="coupon_submit" onclick="coupon_fetch()"></div>
+            <div><div class="add-coupon-email" onclick="coupon_fetch()">Submit Email</div></div>
+            <button  class="none" id="coupon_submit"> purchase coupons</button>
             <div><input style="display: none;" id="token" type="text" name="token"></div>
         </form>
-    
+        
     </div>
 <script src="{% static 'js/coupon_fetch.js' %}" type="text/javascript"></script>
 
 <script>
+    var add_coupon_email = document.querySelector('.add-coupon-email')
+    var submit_coupon = document.querySelector('#coupon_submit')
+
+    add_coupon_email.addEventListener('click',function(){
+        this.className = 'none'
+        submit_coupon.className = 'coupon_submit'
+    })
+
     var coupon_number = 0
     var minus_btn, add_btn, coupon_num_input
     minus_btn = document.getElementById('minus_btn')
