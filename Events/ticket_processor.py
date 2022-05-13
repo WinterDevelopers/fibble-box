@@ -45,11 +45,11 @@ class Ticket_processing():
                         img = Image.open(tick.image_URL[1:])
                         img_edit = ImageDraw.Draw(img)
                         img_edit.rectangle((5,40,1000,200), fill="white")
-                        font = ImageFont.truetype('FreeMono.ttf', 100)
+                        #font = ImageFont.truetype('\FreeMono.ttf', 100)
                         
-                        img_edit.text((10,52), name,font=font, fill=(225,135,132))
-                        img_edit.text((20,52), email,font=font, fill=(225,135,132))
-                        img_edit.text((10,500), code,font=font, fill=(225,135,132))
+                        img_edit.text((10,52), name, fill=(225,135,132))
+                        img_edit.text((20,52), email, fill=(225,135,132))
+                        img_edit.text((10,500), code, fill=(225,135,132))
                         img.save("ticket.jpg")
 
 
