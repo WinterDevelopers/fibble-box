@@ -475,7 +475,7 @@ footer{
     font-size: x-large; 
     box-shadow: inset rgb(173, 173, 173) 1px 1px 2px;
 }
-.ticket-number{
+.cart-ticket-number{
     padding: 5px;
     border-radius: 50%;
     position: relative;
