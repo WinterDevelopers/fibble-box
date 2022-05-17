@@ -30,21 +30,25 @@
                 <div>
                     <div class="Ticket-price">&#8358; {{ticket.price}}</div>
                     <div class="ticket-bottom">
-                        <div class="ticket-minus" id="{{ticket.id}}"><span style="position: absolute; top: 1px; left:6.5px;">&#8722;</span></div>
-                        <div class="ticket-number" id="{{ticket.id}}"><span style="position: absolute; top: 6.5px; left:13px;">0</span></div>
-                        <div class="ticket-plus" id="{{ticket.id}}"><span style="position: absolute; top: 2px; left:8.5px;">&#43;</span></div>              
+                        <div class="ticket-minus" id="{{ticket.id}}"><span style="position: absolute; top: 14%; left:32%;">&#8722;</span></div>
+                        <div class="ticket-number" id="{{ticket.id}}"><span style="position: absolute; top: 20%; left:36%;">0</span></div>
+                        <div class="ticket-plus" id="{{ticket.id}}"><span style="position: absolute; top: 15%; left:33%;">&#43;</span></div>              
                     </div>
                 </div> 
             </div>
         </div>
         {% endfor %}
         {% csrf_token %}
+        <a href="{% url 'Events:shipping' %}">
+            <div style="width: 300px; margin: 5px auto; padding: 5px 5px; background-color: rgb(0, 0, 0);text-align: center; margin-top: 20px; border-radius: 5px; height: 30px;color: white;"><p style="margin: 6px; font-size: smaller;">proceed to checkout</p></div>
+        </a>
     </div>
     <div class="none" id="cart-page">
         <div style="background-color: whitesmoke; padding-top: 5px; padding-bottom: 5px;">
             <div class="close-cart" id="close-cart">
                 <p style="margin: 6px;">close</p>
             </div>
+            <div style="color:rgb(255, 0, 0);font-size: small; padding: 5px;">if you can't see your item or it isn't updated try reloading the page</div>
             <div class="cart-container">
                 <div class="cart-summary">
                     {% for item in item %}
@@ -60,9 +64,9 @@
                     
                     <div class="cart-summary-container2">
                         <div style="display: flex;">
-                            <div class="ticket-minus" id="{{item.ticket.id}}"><span style="position: absolute; top: 1px; left:6.5px;">&#8722;</span></div>
-                            <div class="ticket-number">{{item.quantity}}</div>
-                            <div class="ticket-plus" id="{{item.ticket.id}}"><span style="position: absolute; top: 2px; left:8.5px;">&#43;</span></div>              
+                            <div class="cart-ticket-minus" id="{{item.ticket.id}}"><span style="position: absolute; top: 14%; left:32%;">&#8722;</span></div>
+                            <div class="cart-ticket-number" id="{{item.ticket.id}}">{{item.quantity}}</div>
+                            <div class="cart-ticket-plus" id="{{item.ticket.id}}"><span style="position: absolute; top: 2px; left:8.5px;">&#43;</span></div>              
 
                         </div>
                         <div style="margin-left: auto;">

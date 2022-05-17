@@ -95,7 +95,7 @@ def ticket_payment_verification(request, token):
     if verified:
         ticket_processing = Ticket_processing()
         ticket_processing.ticket_image(customer)
-        print(order.completed)
+        #print(order.completed)
         order.completed = True
         order.save()
         messages.success(request, 'your ticket was sucessfully purchased and sent to your E-mail')
@@ -133,17 +133,20 @@ def cart_content_ajax(request):
         customer = request.user.customer
         order = get_object_or_404(Order,customer=customer, completed=False)
         orderitem = get_object_or_404(OrderItem, order=order)
+        items = {}
         for a in orderitem:
-            x = a.quantity
-            y = a.image_URL
+            content = {'quantity':a.quantity,'price':a.price}
+            items[a.name]=content
+
+
 
     else:
         try:
             cookies = json.loads(request.COOKIES['cart'])
         except:
             cookies = {}
-
-    return JsonResponse({'orderitem':x}, status=200)
+        items={'hey':2}
+    return JsonResponse({'orderitem':items}, status=200)
         
 
 def cart_arthemetics(request):

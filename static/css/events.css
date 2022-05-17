@@ -448,6 +448,20 @@ footer{
     margin-top: 15px; 
     margin-left: 10px;
 }
+.cart-ticket-minus{
+    text-align: center;
+    padding:5px;
+    position: relative;
+    border-radius: 50%; 
+    width: 24px;
+    height: 24px; 
+    border:solid 3px blue; 
+    justify-content: center;
+    margin: 10px;
+    font-size: x-large;
+    margin-top: 15px; 
+    margin-left: 10px;
+}
 .ticket-number{
     padding: 5px;
     border-radius: 50%;
@@ -461,7 +475,31 @@ footer{
     font-size: x-large; 
     box-shadow: inset rgb(173, 173, 173) 1px 1px 2px;
 }
+.cart-ticket-number{
+    padding: 5px;
+    border-radius: 50%;
+    position: relative;
+    width: 32px;
+    height: 32px; 
+    border:solid 3px rgb(255, 255, 255); 
+    text-align: center; 
+    background-color: white;
+    margin: 10px; 
+    font-size: x-large; 
+    box-shadow: inset rgb(173, 173, 173) 1px 1px 2px;
+}
 .ticket-plus{
+    padding: 1px;
+    text-align: center;
+    position: relative;
+    border-radius: 50%; 
+    width: 35px;
+    height: 35px;
+    color: white;
+    background-color: blue;
+    margin: 10px; font-size: x-large;margin-top: 15px;text-align: center;
+}
+.cart-ticket-plus{
     padding: 1px;
     text-align: center;
     position: relative;
@@ -506,6 +544,8 @@ footer{
     z-index: 5;
     animation-name: cart_page;
     animation-duration: 0.5s;
+    overflow-y: scroll;
+    height: 90vh;
 }
 @keyframes cart_page {
     from {top: -500px;}

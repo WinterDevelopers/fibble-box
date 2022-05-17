@@ -7,7 +7,7 @@ from django.shortcuts import redirect, render
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.contrib import messages
-from Events.models import Customer, Event
+from Events.models import Customer, Event,Order, OrderItem, Ticket
 
 from Pageantry.send_email import SendEmail
 from .register_form import Registration
@@ -58,8 +58,16 @@ def register(request):
             print(user)
             login(request, user)
             my_user = request.user
-            Customer.objects.create(user=my_user, name=name, email=email)
-            
+            customer = Customer.objects.create(user=my_user, name=name, email=email)
+            my_cookie = json.loads(request.COOKIES['cart'])
+            print(my_cookie)
+            if my_cookie:
+                order,created = Order.objects.get_or_create(customer=customer, completed = False)
+                for i in my_cookie:
+                    a = int(i)
+                    ticket =  Ticket.objects.get(id=a)
+                    OrderItem.objects.create(order=order, ticket=ticket, quantity=my_cookie[i]['quantity'])
+
             return redirect('Events:shipping')
         
     context = {'forms':form}

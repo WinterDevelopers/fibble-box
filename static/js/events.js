@@ -88,14 +88,14 @@ function cartItem(){
     }
 }
 
-function cartContent(){
+/*function cartContent(){
     $.ajax({
         url:'/events/cart-items',
         type:'get',
         success:function(res){
-            console.log(res.orderitem)
+            console.log(res.items)
         },
     })
 }
 
-cartContent()
+cartContent()*/
