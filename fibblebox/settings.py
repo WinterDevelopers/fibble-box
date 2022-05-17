@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'fibblebox.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-if  DEBUG:
+if not DEBUG:
     DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
