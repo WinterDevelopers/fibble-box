@@ -1,0 +1,38 @@
+:root{
+    --font-color: #4A536B;
+    --background-color: rgb(236, 236, 236);
+    --background-color-dark: #4A536B;
+    --background-color-form-input: #D4F9FF;
+}
+
+@font-face {
+    font-family: party ;
+    src: url(../fonts/PartyConfettiRegular-eZOn3.ttf);
+}
+@media screen and (max-width:600px) {
+    .blog-page{
+        margin-top: -15px;
+        display: grid;
+        grid-template-columns: auto;
+    }
+    .blog-title{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .blog-details{
+        font-size: xx-small;
+    }
+    .blog-content{
+        padding: 15px;
+    }
+    .blog-add-comment>input[type=name]{
+        width: 80%;
+        height: 35px;
+        padding: 10px;
+    }
+    .blog-add-comment>input[type=email]{
+        width: 80%;
+        height: 35px;
+        padding: 10px;
+    }
+}
