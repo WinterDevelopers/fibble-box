@@ -191,7 +191,10 @@ body{
     font-size: small;
 }
 .party-footer-others>h4{
-    margin: 1px 0px;
+    margin: 5px 0px;
+}
+.party-footer-others>p{
+    margin-top: 0px;
 }
 .party-button{
     background-color: var(--background-color-form-input);

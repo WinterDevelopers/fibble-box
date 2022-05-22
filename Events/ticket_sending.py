@@ -13,7 +13,7 @@ from .models import  Ticket, PurchasedTicket
 import secrets
 import qrcode
 
-def bex(quantities, type, name, email):
+def send_ticket(quantities, type, name, email):
     for quantity in range(quantities):
         ticket = Ticket.objects.filter(id=type)
         print('remmy',quantity)

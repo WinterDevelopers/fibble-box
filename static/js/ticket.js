@@ -1,10 +1,31 @@
 let num_ticket = document.getElementsByClassName('ticket-number')
 let minus = document.getElementsByClassName('ticket-minus')
 let plus = document.getElementsByClassName('ticket-plus')
-
 let cart_minus = document.getElementsByClassName('cart-ticket-minus')
 let cart_num_ticket = document.getElementsByClassName('cart-ticket-number')
 let cart_plus = document.getElementsByClassName('cart-ticket-plus')
+var hamburger_icon = document.getElementById('hamburger-icon');
+var cancel_icon = document.getElementById('cancle-icon');
+var menu_item = document.getElementById('mobile-menu-content');
+
+
+
+
+function menuToggel(){
+
+    if(hamburger_icon.className == 'nav-bar-mobile-icon'){
+        hamburger_icon.className = 'none';
+        cancel_icon.className = 'nav-bar-mobile-icon';
+        menu_item.className = 'mobile-menu-content';
+    }
+    else{
+        hamburger_icon.className = 'nav-bar-mobile-icon';
+        cancel_icon.className = 'none';
+        menu_item.className = 'none';
+
+    }
+
+};
 
 
 function cartItem(){

@@ -147,7 +147,12 @@ class Order(models.Model):
 
             if not similar_token:
                 self.transaction_id = token
+            
             super().save(self)
+
+    def completed_func(self, *args, **kwargs):
+        self.completed = True
+        super().save()
 
     def __str__(self):
 

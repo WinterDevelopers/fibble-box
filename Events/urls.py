@@ -1,5 +1,5 @@
 from .views import (Event_index, Ticket_view, Shipping, Event_nav,ajax, shipping_process,cart_content_ajax,
-                    reference, ticket_payment_verification, cart_arthemetics)
+                    reference, ticket_payment_verification, cart_arthemetics, shipping_delete)
 from django.urls import URLPattern, path
 
 
@@ -9,6 +9,7 @@ urlpatterns = [
     path('event_nav/', Event_nav, name='event_nav'),
     path('shipping/', Shipping, name='shipping'),
     path('ajax/', ajax, name='ajax'),
+    path('delete_shipping/', shipping_delete, name='delete_shipping'),
     path('cart-items',cart_content_ajax, name='cart-items' ),
     path('cart-arthemetics/', cart_arthemetics, name='cart-arthemetics'),
     path('reference/',reference,name='reference'),

@@ -11,6 +11,7 @@ from .models import Event, Event_activities, Event_gallery, Order, OrderItem, Sp
 
 from .ticket_processor import Ticket_processing
 # Create your views here.
+
 def Event_nav(request):
     template_name = 'event_base.html'
     context = {}
@@ -74,7 +75,7 @@ def Shipping(request):
     my_user = request.user
     print(my_user)
     customer = request.user.customer
-    order = get_object_or_404(Order, customer=customer)
+    order = get_object_or_404(Order, customer=customer, completed=False)
     public_key = settings.PUBLIC_KEY
     event = {'name':'LAMBA'}
     context = {'order':order, 'public_key':public_key, 'event':event}
@@ -88,16 +89,15 @@ def Shipping(request):
 
 def ticket_payment_verification(request, token):
     customer = request.user.customer
-    payment = get_object_or_404(shippingDetails, token=token)
-    order = get_object_or_404(Order, customer=customer)
+    payment = get_object_or_404(shippingDetails, token=token, verification_status=False)
+    order = get_object_or_404(Order, customer=customer, completed=False)
   
     verified = payment.verification()
     if verified:
         ticket_processing = Ticket_processing()
         ticket_processing.ticket_image(customer)
         #print(order.completed)
-        order.completed = True
-        order.save()
+        order.completed_func()
         messages.success(request, 'your ticket was sucessfully purchased and sent to your E-mail')
         
         return redirect('Events:event', "LAMBA")
@@ -200,4 +200,9 @@ def reference(request):
 
     return JsonResponse({'reference':reference, 'token':token} ,safe=False, status = 200)
 
+def shipping_delete(request):
+    
 
+    print('deleted that bitch')
+
+    return JsonResponse({'will delete':0}, safe=False)

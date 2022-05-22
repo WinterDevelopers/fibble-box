@@ -2,37 +2,58 @@
 {% load static %}
 
 {% block content %}
-
-<div style="background-color: rgb(236, 236, 236); padding-bottom: 30px;">
-    <div class="your-order">
-        <h1>Your order</h2>
-        <div class="your-order-item">
-            <div>
-                Number of Ticket: {{order.total_quantity}}
-            </div>
-            <div>
-                Total cost of ticket: &#8358; {{order.total_cost}}
+<body onload="shipping()">
+    <div style="background-color: rgb(236, 236, 236); padding-bottom: 30px;">
+        <div class="your-order">
+            <h1>Your order</h2>
+            <div class="your-order-item">
+                <div>
+                    Number of Ticket: {{order.total_quantity}}
+                </div>
+                <div>
+                    Total cost of ticket: &#8358; {{order.total_cost}}
+                </div>
             </div>
         </div>
+        <div class="customer-details">
+            customer details
+            <form action="" method="" class="customer-form">
+                {% csrf_token %}
+                <input type="text" placeholder="Name" name="name">
+                <input type="email" name="email" id="" placeholder="Email">
+                <input type="tel" name="phone" id="" placeholder="phone number">
+                <input type="submit" value="submit" id="submit-details">
+    
+            </form>
+        </div>
+        <script src="https://js.paystack.co/v1/inline.js"></script>
+        <div class="none" id="make-payment" onclick="payWithPaystack()">
+            make payment
+        </div>
+        <div class="reference" style="display: none;"></div>
     </div>
-    <div class="customer-details">
-        customer details
-        <form action="" method="" class="customer-form">
-            {% csrf_token %}
-            <input type="text" placeholder="Name" name="name">
-            <input type="email" name="email" id="" placeholder="Email">
-            <input type="tel" name="phone" id="" placeholder="phone number">
-            <input type="submit" value="submit" id="submit-details">
+    
 
-        </form>
-    </div>
-    <script src="https://js.paystack.co/v1/inline.js"></script>
-    <div class="none" id="make-payment" onclick="payWithPaystack()">
-        make payment
-    </div>
-    <div class="reference" style="display: none;"></div>
-</div>
+<script type="text/javascript" src="{% static 'js/ticket.js' %}"></script>
+<script>
+    function shipping(){
 
+        fetch('/events/delete_shipping',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json',
+                'X-CSRFToken':csrftoken,
+            },
+            body:JSON.stringify({'reference':reference})
+
+        }).then((res)=>{
+            return res.json
+        }).then((data)=>console.log(data));
+
+        console.log('deleting......we')
+}
+
+</script>
 <script>
 
     let name = document.querySelector('[name="name"]').value;
@@ -119,5 +140,8 @@
       handler.openIframe();
     }
 
-</script>
+
+   </script>
+
+</body>
 {% endblock %}
