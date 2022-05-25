@@ -273,21 +273,7 @@
     .candidate_amount{
         margin-left: 20%;
     }
-    .others{
-        display: grid;
-        grid-template-columns: auto;
-        gap:20px 50px;
-        width:90%;
-        margin: 20px 5%;
-    
-    }
-    .others-a{
-        background-color: white;
-        border-radius: 10px;
-        height: 250px;
-        width: 100%;
-        padding: 0px;
-    }
+  
     .candidate-share{
         background-color: white;
         padding: 5px;
@@ -411,5 +397,21 @@
     }
     .container-2{
         grid-template-columns: 100%
+    }
+    .others > div{
+        display: grid;
+        grid-template-columns:auto;
+        padding: 1px 1px;
+    }
+    .others-box{
+        background-color: white;
+        width: 85vw;
+        height: 250px;
+        margin: 20px auto;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+    .others{
+        height: 1230px;
     }
 }

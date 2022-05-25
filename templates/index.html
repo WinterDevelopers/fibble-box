@@ -235,18 +235,54 @@
 <div style="width: 90%; background-color: rgb(140, 140, 140); position: relative; top: 10px; height: 1px; margin: 20px auto;"></div>
 -->
 <div class="others">
-    <div class="others-a">
-        <div style="width: 100%; background-color: #4A536B; border-radius: 10px 10px 0px 0px; text-align: center;height: 50px;">
-            <div style="font-weight: 900; color: aliceblue;padding-top: 0.5px;"><p>NEWSLETTER</p></div>
-                <div style="padding: 1px;"><p>Get our best offers and discounts</p></div>
-                <div class="subscribe">
-                    <form action="" method="post" style="display: block;">
-                        <div ><input class="subscribe-email" type="email" placeholder="Add Email.." ></div>
-                        <div><input class="subscribe-submit" type="submit button" value="subscribe"></div>
-                    </form>
-                </div>
-            </div>
+    <div class="others-header">Want to know more about Fibblebox? </div>
+    <div>
+        <div class="others-box">
+            <img src="{% static 'images/about3.png' %}" alt="" width="70px" class="others-box-img">
+            <h4>About Us</h4>
+            <p>
+                This platform is designed for pagentry hosting and voting.. we also host events online and buy and sell tickets.
+                our platform aim is to make participation in pageantries and Events easier and fun.
+            </p>
+         </div>
+        <div class="others-box">
+           <img src="{% static 'images/ant2.png' %}" alt="" width="70px" class="others-box-img">
+           <h4>Organisation Owners</h4>
+           <p>
+               Whether you run a startup or an established organisation, we will help you get your 
+               pageantry or event up and running within minutes
+           </p>
+        </div>
+        <div class="others-box">
+            <img src="{% static 'images/glasses.png' %}" alt="" width="70px" class="others-box-img">
+           <h4>Agencies</h4>
+           <p>
+               When it comes to working with agencies, we have a platform where they can carry out their 
+               activities efficently and swiftly
+           </p>
+        </div>
+        <div class="others-box">
+            <img src="{% static 'images/affilate.png' %}" alt="" width="70px" class="others-box-img">
+            <h4>Affilate Program</h4>
+            <p>
+               our platform supports affilate marketing, therefore helping marketers to earn using this platforms
+            </p>
+        </div>
     </div>
+</div>
+<div class="newsletter-container">
+    <div class="newsletter-top">
+        <img src="{% static 'images/newsletter.png' %}" alt="">
+    </div>
+    <div class="newsletter-bottom">
+        <div>SUBSCRIBE!</div>
+        <p>subscribe to our newsletter to get the best activities directly to your inbox</p>
+        <form action="" class="subscribe-form">
+            {%csrf_token%}
+            <input type="email" name="" id="">
+            <input type="submit" value="subscribe">
+        </form>
+    </div> 
 </div>
 
 
