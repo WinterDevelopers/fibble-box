@@ -8,16 +8,16 @@
 
         {% for message in messages %}
             {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-            <div class="messages">{{message}}</div>
+            <div class="messages" id="messages">{{message}}</div>
             {% endif %}
         {% endfor %}
         <div class="major-text"> {{event.name}}</div>
         <div class="minor-text"> {{event.phrase}}</div>
-
-        <div class="ticket-btn" id="ticket-btn">
-            <span style="font-weight: 400;align-items: baseline;">Buy Tickets</span> &#8674;            
-        </div>
-       
+        <a href="{% url 'Events:ticket' event.name %}" style="text-decoration: none;"> 
+            <div class="ticket-btn" id="ticket-btn">
+                <span style="font-weight: 400;align-items: baseline;">Buy Tickets</span> &#8674;            
+            </div>
+        </a>
         <div style="background-image: url({{event.image_URL}});" class="back-img"></div>
         <div class="count-down">
             <div style="color: black; position: absolute; top: 35%; left:10%; right: 10%; margin: 10px auto; width: 80%; ">

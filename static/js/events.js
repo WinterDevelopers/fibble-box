@@ -99,3 +99,9 @@ function cartItem(){
 }
 
 cartContent()*/
+
+var messages = document.querySelector('#messages')
+
+messages.addEventListener('click',function(){
+    this.className = "none"
+})
