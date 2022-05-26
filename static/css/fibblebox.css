@@ -1142,6 +1142,8 @@ height: 50%;
     background-color: #4A536B;
     color: #a2d2ff;
     margin-left: 50px;
+    border: none;
+    padding: 5px;
 }
 .search-btn{
     width: 80vw;
