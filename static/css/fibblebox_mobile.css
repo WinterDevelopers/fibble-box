@@ -36,22 +36,28 @@
     }
     .nav-bar-head{
         font-size: medium;
-        margin-top: 7px;
-        
     }
-    .nav-bar-head > img{
-        width: 25px;
-        height: 25px;
+    .nav-bar-head >a{
+        display:block;
+        margin-top: 0px;
+        text-decoration:none;
     }
-    .nav-bar-head > p{
-        margin: 1px;
-        margin-left: 10px;
+    
+    .nav-bar-head >a>div{
+        margin-top: 1px;
+        margin-left: 5px;
+        font-size: smaller;
+    }
+    .nav-bar-head >a> img{
+        width: 8vw;
+        height: 8vw;
+        margin: 0px 39vw ;
     }
     .nav-bar-mobile{
         position:fixed;
         bottom: 0px;
         width: 100vw;
-        padding: 2vw 0px;
+        padding: 15px 0px;
         display: flex;
         font-size: xx-small;
         background-color: rgb(255, 255, 255);
@@ -60,7 +66,7 @@
     }
     
     .nav-bar-mobile >div{
-        margin-inline-end: 13vw;
+        margin-inline-end: 25vw;
         text-align: center;
         
     
@@ -68,7 +74,7 @@
     }
     
     .nav-bar-mobile >div:first-child{
-        margin-inline-start: 13vw;
+        margin-inline-start: 15vw;
     }
     footer{
         

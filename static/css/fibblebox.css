@@ -28,7 +28,7 @@ body{
     width: 100%;
     background-color: rgb(255, 255, 255);
     opacity: 0.9;
-    z-index: 1000;
+    z-index: 150;
    
 }
 .categories-img{
@@ -256,7 +256,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 11px;
+    padding: 6px;
     background-color:rgba(236, 236, 236, 0.713);
     text-align: center;
     border-bottom: solid rgba(194, 194, 194, 0.761) 0.2px;
@@ -272,30 +272,45 @@ body{
     display: flex;
     flex-direction: row;
 }
-.nav-bar-head > img{
-    width: 50px;
-    height: 50px;
+.nav-bar-head >a{
+    display: flex;
+    flex-direction: row;
+    text-decoration:none;
+    padding: 0px; 
+    margin-left: 0px; 
+    margin-top: 10px;
+}
+.nav-bar-head > a > img{
+    margin-top: 5px;
+    width: 40px;
+    height: 40px;
     
 }
-.nav-bar-head > p{
-    margin-left: 10px;
+.nav-bar-head >a>div{
+    margin-top: 20px;
+    margin-left: 5px;
 }
 .nav-bar-links{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-inline-start: 25vw;
-    margin-top: 10px;
+   
+    font-size: 15px;
     
 }
-.nav-bar-links>div{
+.nav-bar-links>div:last-child{
     padding-inline-end: 40px;
     padding-top: 10px;
 
 }
+.nav-bar-links>div{
+    padding-inline-end: 40px;
+    padding-top: 20px;
+}
 .nav-bar-search{
     margin-right: 20px;
-    margin-top: 5px;
+    margin-bottom: 10px;
 }
 .nav-bar-search > input[type=search]{
     background-color: rgba(247, 247, 247, 0.685);
@@ -1128,4 +1143,33 @@ height: 50%;
     color: #a2d2ff;
     margin-left: 50px;
 }
-
+.search-btn{
+    width: 80vw;
+    border-radius: 25px;
+    height: 50px;
+    border: none;
+    box-shadow: #00000028 3px 3px 5px;
+    padding: 20px;
+}
+.mobile-search{
+   font-size: medium;
+}
+.hide-search{
+    background-color: rgb(112, 112, 112); 
+    width:20px; 
+    height: 20px; 
+    border-radius: 50%; 
+    position: fixed; 
+    top: 92px; 
+    left:auto; 
+    right: 14vw; 
+    padding: 2px; 
+    text-align: center;
+    z-index: 11; 
+    color: white;
+}
+.search-background{
+    height:92vh;width: 100vw; z-index: 9; 
+    background-color: #3333337e; 
+    position: fixed; top: 0px;
+}

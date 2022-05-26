@@ -14,17 +14,12 @@
     .nav-bar-desktop{
         display: none;
     }
-    .nav-bar-mobile-icon{
-        display: block;
-        margin-left: auto;
-        margin-right: 5vw;
-        margin-top: 15px;
-    }
+
     .nav-bar-mobile{
         position:fixed;
         bottom: 0px;
         width: 100vw;
-        padding: 2vw 0px;
+        padding: 15px 0px;
         display: flex;
         font-size: xx-small;
         background-color: rgb(255, 255, 255);
@@ -33,7 +28,7 @@
     }
     
     .nav-bar-mobile >div{
-        margin-inline-end: 13vw;
+        margin-inline-end: 25vw;
         text-align: center;
         
     
@@ -41,7 +36,7 @@
     }
     
     .nav-bar-mobile >div:first-child{
-        margin-inline-start: 13vw;
+        margin-inline-start: 15vw;
     }
     .back-img{
       height: 1000px; 
@@ -249,6 +244,35 @@
     .make-payment{
         width: 60%;
     }
-    
+    .search-btn{
+        width: 80vw;
+        border-radius: 25px;
+        height: 50px;
+        border: none;
+        box-shadow: #00000028 3px 3px 5px;
+        padding: 20px;
+    }
+    .mobile-search{
+       font-size: medium;
+    }
+    .hide-search{
+        background-color: rgb(112, 112, 112); 
+        width:20px; 
+        height: 20px; 
+        border-radius: 50%; 
+        position: fixed; 
+        top: 92px; 
+        left:auto; 
+        right: 14vw; 
+        padding: 2px; 
+        text-align: center;
+        z-index: 11; 
+        color: white;
+    }
+    .search-background{
+        height:92vh;width: 100vw; z-index: 9; 
+        background-color: #3333337e; 
+        position: fixed; top: 0px;
+    }
 }
     
