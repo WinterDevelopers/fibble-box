@@ -420,4 +420,10 @@
     .others{
         height: 1230px;
     }
+    .user-container{
+        width: 80vw;
+    }
+    .check-ticket-background{
+        height: 40vh;
+    }
 }

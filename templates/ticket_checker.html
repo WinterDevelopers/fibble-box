@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="check-ticket-background" width="100px">
+
+    <div class="ticket-event-btn" >view event</div>
+
+</div>
+<div class="check-ticket-content">
+    <div class="ticket-event">
+        event name
+    </div>
+    <div class="ticket-detials">
+        <div>
+            <h3>Ticket Id</h3>
+            <p>9595f8f97c</p>
+        </div>
+        <div>
+            <h3>Name</h3>
+            <p>winter</p>
+        </div>
+        <div>
+            <h3>Type</h3>
+            <p>VIP</p>
+        </div>
+        <div>
+            <h3>Status</h3>
+            <div style="color: rgb(102, 255, 102);">valid</div>
+        </div>
+    </div>
+
+    <div style="text-align: center; text-transform:uppercase;margin-bottom: 30px;">
+        action
+    </div>
+
+    <div class="check-in">
+        check-in 
+    </div>
+    <div style="color:rgb(226, 69, 69); font-size: x-small; margin: 1px auto;inline-size: 300px;">Warning: note that this can't be reversed onced checked-in  </div>
+</div>
+
+{% endblock %}

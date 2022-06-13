@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+
+<div class="user-container">
+    <div class="user-img-container">
+        <img src="{% static 'images/event1 (3).jpg' %}" alt="" class="user-img">
+    </div>
+    <div class="user-name">
+        <div style="margin:30px auto;font-size:x-large; font-weight: 800; inline-size: 100px; text-align: center;">winter</div>
+        <div class="user-about" >hello welcome to my wall</div>
+    </div> 
+   
+    <div class="user-others">
+        <div class="user-events">events for you</div>
+        <a style="text-decoration: none;" href="{% url 'logout' %}"><div class="user-logout">logout</div></a>
+    </div>
+
+ </div>
+
+{% endblock %}

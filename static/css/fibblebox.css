@@ -469,8 +469,9 @@ footer{
 .login-box{
     padding: 10px;
     background-color: rgb(255, 255, 255);
-    margin: 20%;
+    margin: 15%;
     margin-top: 10%;
+    margin-bottom: 50vw;
 }
 .login-header{
     margin-top: 5% ;
@@ -1174,4 +1175,127 @@ height: 50%;
     height:92vh;width: 100vw; z-index: 9; 
     background-color: #3333337e; 
     position: fixed; top: 0px;
+}
+.search-result{
+    position: fixed; top:40vw;
+    width: 100%;
+    z-index: 12;
+}
+.search-item{
+    padding: 5px;
+    padding-top: 30px;
+    padding-left: 20px;
+    width: 300px;
+    height: 50px;
+    margin: 5px auto;
+    background-color: white;
+    color: #0a0c0f;
+    border-bottom: #000000 1px solid;
+    border-radius: 5px;
+    
+}
+.visible{
+    display:block;
+}
+.user-container{
+    width: 30vw;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 30px;
+    box-shadow: #c7c7c7cb 2px 5px 20px;
+}
+.user-img-container{
+    width: 150px;
+    margin: 20px auto;
+}
+.user-img{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+.user-about{
+    margin: 20px auto;
+    inline-size: 300px;
+    text-align: center;
+    font-size: small;
+    color: #8897c2;
+}
+.user-others{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.user-events{
+    background-color: var(--font-color);
+    padding: 10px;
+    color: var(--background-color-form-input);
+    font-size: small;
+    border-radius: 15px;
+    width: 100px;
+}
+.user-logout{
+    border: solid var(--background-color-form-input) 1px;
+    padding: 10px;
+    width: 100px;
+    color: var(--background-color-form-input);
+    font-size: small;
+    border-radius: 15px;
+    text-align: center;
+    transition: background-color 1s;
+}
+.user-logout:hover{
+    background-color: var(--background-color-dark);
+    border: none;
+}
+.check-ticket-background{
+    width: 100%;
+    background-image: url(/static/images/event1\ \(3\).jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 80vh;
+}
+.check-ticket-content{
+    width: 100%;
+    height: 500px;
+    background-color: white;
+    border-radius: 20px 20px 0px 0px;
+    margin-top: -20px;
+}
+.ticket-detials{
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: center;
+    width: 80%;
+    margin-left:5%;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+.ticket-event{
+    text-align: center;
+    padding: 30px;
+    text-transform: uppercase;
+}
+.check-in{
+    background-color: rgb(151, 247, 247);
+    padding: 10px;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+    color: #25717c;
+    margin: 5px auto;
+    margin-bottom: 20px;
+    box-shadow: #a3a3a37a 1px 3px 10px;
+}
+.ticket-event-btn{
+    position:absolute; top:200px; left: 39%;
+    color: rgb(24, 24, 24);
+    background-color: rgb(255, 255, 255); 
+    height: 20px; padding: 10px;
+    border-radius: 20px;
+    opacity: 0.9;
+    font-size: small;
 }

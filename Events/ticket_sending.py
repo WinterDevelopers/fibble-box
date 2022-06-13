@@ -32,7 +32,7 @@ def send_ticket(quantities, type, name, email):
             #font = ImageFont.truetype('\FreeMono.ttf', 100)
             
             img_edit.text((10,52), name, fill=(225,135,132))
-            img_edit.text((20,52), email, fill=(225,135,132))
+            img_edit.text((10,100), email, fill=(225,135,132))
             img_edit.text((10,500), code, fill=(225,135,132))
             img.save("ticket.jpg")
 
@@ -56,7 +56,7 @@ def send_ticket(quantities, type, name, email):
             image2 = Image.open('link.png')
             image_copy2 = image2.copy()
 
-            image.paste(image_copy2, (10,10))
+            image.paste(image_copy2, (300,50))
 
             image.save('ticket.jpg')
 

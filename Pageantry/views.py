@@ -1,5 +1,7 @@
+from multiprocessing import context
 from django.conf import settings
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http.request import HttpRequest
 from django.http.response import HttpResponse
@@ -41,6 +43,10 @@ def Login(request):
            print('failed!!!')
     return render(request, template_name)
 
+def logout_func(request):
+
+    logout(request)
+    return redirect('home')
 
 def register(request):
   
@@ -262,6 +268,14 @@ def sending_coupon_codes(request, token):
     if sending_email:
         return redirect('home')
     return redirect('Pageantry:login')
+
+@login_required(login_url='Pageantry:login')
+def userPage(request):
+    template_name = 'user_page.html'
+
+    context = {}
+
+    return render(request, template_name, context)
 
 # MY FETCH VIEW FUNCTIONS////////////////////////////////////////////////////////////////////
 #///////////////////////////////////////////////////////////////////////////////////////////

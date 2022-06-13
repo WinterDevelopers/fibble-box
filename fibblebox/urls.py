@@ -19,11 +19,12 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from Pageantry.views import home
+from Pageantry.views import home, logout_func
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home' ),
+    path('loggingout', logout_func, name='logout'),
     path('pageantry/', include('Pageantry.urls')),
     path('events/', include('Events.urls')),
     path('blog/', include('Blog.urls')),

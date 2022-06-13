@@ -66,10 +66,17 @@
     {% endblock content %}
     <div class="none" id="mobile-search">
         <form action="" style="position:fixed; top:80px; z-index:10; left: 10vw; right: auto;">
-            <input type="search" name="" id="" class="search-btn">
+            <input type="search" name="" id="search-input" class="search-btn">
         </form>
         <div class="hide-search" id="close-search">
             <span style="font-size: 20px;">&#215;</span>
+        </div>
+    </div>
+    <div class="none" id="search-result">
+        <div id="search-visible" class="none visible">
+            <div class="search-item" id="search-item">
+
+            </div>
         </div>
     </div>
     <div class="none" id="search-background"></div>
@@ -100,7 +107,7 @@
                 </svg>
             </div>
             <div>
-                <a href="{% url 'Pageantry:login' %}" style="text-decoration: none;color:#4A536B;">
+                <a href="{% url 'Pageantry:user_page' %}" style="text-decoration: none;color:#4A536B;">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="25px">
                         <g>

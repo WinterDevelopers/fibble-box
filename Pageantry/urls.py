@@ -4,7 +4,7 @@ from django.urls.resolvers import URLPattern
 
 from .views import (base, Login, register, pageantry, candidate, payment, payment_processor,
                     verify_payment, purchase_coupon, payment_coupon, coupon_delete, coupon_processor,
-                    coupon_verify_payment, sending_coupon_codes,payment_delete)
+                    coupon_verify_payment, sending_coupon_codes,payment_delete, userPage)
 
 app_name = 'Pageantry'
 
@@ -17,6 +17,7 @@ urlpatterns = [
     path('processing-payment', payment_processor, name='payment_processor'),
     path('delete-coupon', coupon_delete, name='delete_coupon'),
     path('purchase-coupons/',purchase_coupon, name= 'purchase_coupon'),
+    path('user', userPage, name='user_page'),
     path('coupon-payment/<slug:token>/',payment_coupon, name ="coupon_payment"),
     path('<slug:slug>/', pageantry, name='pageantry'),
     path('candidate/<slug:id>/', candidate, name='candidate'),
