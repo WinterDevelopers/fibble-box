@@ -667,5 +667,50 @@ footer{
     color: rgb(42, 255, 255);
     border: #fdffff 1px solid;
 }
+.dashboard{
+    display: grid;grid-template-columns: 50% 50%;grid-gap:10px;
+    padding: 0;
+    width: 100%;
+    margin: 0px auto;
+    padding: 50px auto;
+    background-color: #f0f0f0;
+   
 
+}
+.dashboard-container{
+    width: 90%;
+    margin: 10px auto;
+    height: 350px;
+    border-radius: 5px;
+
+}
+.loading-animation{
+    animation: loading 1s linear infinite alternate;
+}
+@keyframes loading {
+    from{
+        background-color: #c2c2c2;
+    }to{background-color: #ffffff;}
+}
+
+.dashboard-container-inner{
+    margin: 40px auto;
+    width: 200px;
+    
+
+}
+.dashboard-icon{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    margin: 0px auto;
+}
+.ticket-stats{
+    display:flex; flex-direction:column
+}
+.ticket-stats >div{
+    margin-bottom: 20px;
+}
 

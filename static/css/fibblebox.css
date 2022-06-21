@@ -1256,7 +1256,7 @@ height: 50%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 80vh;
+    height: 50vh;
 }
 .check-ticket-content{
     width: 100%;
@@ -1291,11 +1291,15 @@ height: 50%;
     box-shadow: #a3a3a37a 1px 3px 10px;
 }
 .ticket-event-btn{
-    position:absolute; top:200px; left: 39%;
+    position:absolute; top:200px; left: 0;right:0;
+    margin: 0px auto;
     color: rgb(24, 24, 24);
-    background-color: rgb(255, 255, 255); 
+    background-color: rgba(255, 255, 255, 0.897); 
     height: 20px; padding: 10px;
     border-radius: 20px;
-    opacity: 0.9;
+    border: solid 3px white;
+   
     font-size: small;
+    text-align: center;
+    width: 100px;
 }

@@ -2,32 +2,45 @@
 {% load static %}
 
 {% block content %}
+<style>
+    .VALID{
+        color: rgb(102, 255, 102);
+    }
+    .INVALID{
+        color: rgb(255, 0, 0);
+    }
+    a{
+        text-decoration: none;
+    }
+</style>
 
 <div class="check-ticket-background" width="100px">
 
-    <div class="ticket-event-btn" >view event</div>
+    <a href="{% url 'Events:event' event %}">
+        <div class="ticket-event-btn" >view event</div>
+    </a>
 
 </div>
 <div class="check-ticket-content">
     <div class="ticket-event">
-        event name
+        {{event}}
     </div>
     <div class="ticket-detials">
         <div>
             <h3>Ticket Id</h3>
-            <p>9595f8f97c</p>
+            <p>{{ticket_id}}</p>
         </div>
         <div>
             <h3>Name</h3>
-            <p>winter</p>
+            <p>{{name}}</p>
         </div>
         <div>
             <h3>Type</h3>
-            <p>VIP</p>
+            <p>{{type}}</p>
         </div>
         <div>
             <h3>Status</h3>
-            <div style="color: rgb(102, 255, 102);">valid</div>
+            <div class="{{status}}">{{status}}</div>
         </div>
     </div>
 
@@ -38,7 +51,7 @@
     <div class="check-in">
         check-in 
     </div>
-    <div style="color:rgb(226, 69, 69); font-size: x-small; margin: 1px auto;inline-size: 300px;">Warning: note that this can't be reversed onced checked-in  </div>
+    <div style="color:rgb(226, 69, 69); font-size: x-small; margin: 1px auto;inline-size: 300px;">Warning: note that this can't be reversed once checked-in  </div>
 </div>
 
 {% endblock %}

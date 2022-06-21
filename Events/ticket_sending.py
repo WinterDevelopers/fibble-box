@@ -8,7 +8,7 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-from .models import  Ticket, PurchasedTicket
+from .models import  Ticket, PurchasedTicket, Event
 
 import secrets
 import qrcode
@@ -16,34 +16,41 @@ import qrcode
 def send_ticket(quantities, type, name, email):
     for quantity in range(quantities):
         ticket = Ticket.objects.filter(id=type)
-        print('remmy',quantity)
         code_condition = False
+        #let's create a ticket code and check if exist
+        #if it exist then we create another code and check
+        #once it dosen't exist then we move to the next line of code
+        # O complexity is O(N) there would take n amount of time to achive it 
         while not code_condition:
             code = secrets.token_urlsafe(5)
             purchase_code = PurchasedTicket.objects.filter(code=code)
             if not purchase_code:
                 code_condition = True
-                print(code)
-
+        #then this code value we would use to design the ticket
         for tick in ticket:
             img = Image.open(tick.image_URL[1:])
             img_edit = ImageDraw.Draw(img)
-            img_edit.rectangle((5,40,1000,200), fill="white")
-            #font = ImageFont.truetype('\FreeMono.ttf', 100)
+            img_edit.rectangle((100,200,600, 300), fill="white")
+            img_edit.rectangle((100,400,1000,500), fill="white")
+            img_edit.rectangle((100,600,500,700), fill="white")
+            my_font = ImageFont.truetype('data-latin.ttf', 100)
+            my_font2 = ImageFont.truetype('data-latin.ttf', 60)
+            my_font3= ImageFont.truetype('data-latin.ttf', 40)
+
             
-            img_edit.text((10,52), name, fill=(225,135,132))
-            img_edit.text((10,100), email, fill=(225,135,132))
-            img_edit.text((10,500), code, fill=(225,135,132))
+            img_edit.text((120,197), name, font=my_font, fill=(0, 0, 0))
+            img_edit.text((120,417), email,font=my_font2, fill=(0, 0, 0))
+            img_edit.text((120,630), code,font=my_font3, fill=(0, 0, 0))
             img.save("ticket.jpg")
 
 
             qr = qrcode.QRCode(
                 version=1,
-                box_size=5,
+                box_size=10,
                 border=3
             )
 
-            data = 'https://www.fibblebox.com'
+            data = f'https://www.fibblebox.com/events/check-ticket/{code}'
             qr.add_data(data)
             qr.make(fit=True)
 
@@ -56,7 +63,7 @@ def send_ticket(quantities, type, name, email):
             image2 = Image.open('link.png')
             image_copy2 = image2.copy()
 
-            image.paste(image_copy2, (300,50))
+            image.paste(image_copy2, (1600,300))
 
             image.save('ticket.jpg')
 
@@ -104,6 +111,9 @@ def send_ticket(quantities, type, name, email):
 
             # Log in to server using secure context and send email
             context = ssl.create_default_context()
+            #get the event for the ticket
+            event_name = Event.objects.get(name=tick.event)
+            type_ticket = tick.type
             with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
                 server.login(sender_email, password)
                 server.sendmail(sender_email, receiver_email, text)
@@ -111,5 +121,5 @@ def send_ticket(quantities, type, name, email):
 
                 print('has sent the email')
 
-                PurchasedTicket.objects.create(code=code, name=name)
+                PurchasedTicket.objects.create(code=code, name=name, event=event_name, type=type_ticket)
                 return condition

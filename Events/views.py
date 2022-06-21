@@ -1,3 +1,5 @@
+from asyncio import events
+from re import template
 from django.conf import settings
 
 import json
@@ -7,7 +9,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
-from .models import Event, Event_activities, Event_gallery, Order, OrderItem, Sponsor,Ticket, shippingDetails
+from .models import Event, Event_activities, Event_gallery, Order, OrderItem, Sponsor,Ticket, shippingDetails, PurchasedTicket
 
 from .ticket_processor import Ticket_processing
 # Create your views here.
@@ -83,10 +85,29 @@ def Shipping(request):
 
     return render(request, template_name, context)
 
-def check_ticket(request):
+def check_ticket(request, ticket_id):
+    ticket = PurchasedTicket.objects.get(code=ticket_id)
+    name = ticket.name
+    type = ticket.type
+    event = ticket.event
+    if not ticket.status:
+        status = "VALID"
+    else:
+        status = "INVALID"
+    context = {'ticket_id':ticket_id, 'name':name, 'type':type, 'status':status, 'event':event}
     template_name = 'ticket_checker.html'
 
-    return render(request,template_name)
+    return render(request,template_name, context)
+
+def dashboard(request):
+    template_name = "event_dashboard.html"
+
+    event={
+        'name':'LAMBA'
+    }
+    context = {'event':event}
+
+    return render(request, template_name, context)
 #//////////////////////////////////////////////////////////////////////////////////////////
 #/////////////////////////////////////////////////////////////////////////////////////////
 

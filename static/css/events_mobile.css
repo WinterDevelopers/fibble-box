@@ -274,5 +274,8 @@
         background-color: #3333337e; 
         position: fixed; top: 0px;
     }
+    .dashboard{
+        display: grid;grid-template-columns: 100%;    
+    }
 }
     

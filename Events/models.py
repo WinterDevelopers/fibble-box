@@ -53,7 +53,7 @@ class Event(models.Model):
 
 
 class Ticket(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event')
     type = models.CharField(max_length=70, null=True)
     image = models.ImageField(upload_to='media/events/tickets',null=True)
     specification = models.CharField(max_length=1000, null=True)
@@ -220,9 +220,11 @@ class shippingDetails(models.Model):
 
 class PurchasedTicket(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE, null=True)
-    code = models.CharField(null=True, max_length=10)
+    code = models.CharField(null=True, max_length=20)
+    type = models.CharField(null=True, max_length=30)
     name = models.CharField(max_length=100, null=True)
     date_purchased = models.DateTimeField(default=timezone.now())
+    status = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return self.name
