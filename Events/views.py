@@ -27,6 +27,11 @@ def Event_index(request, name):
     event_gallery = Event_gallery.objects.filter(event=event)
     event_activities = Event_activities.objects.filter(event=event)
     sponsors = Sponsor.objects.filter(event=event)
+
+    event.insight = (event.insight +1)
+    print(event.insight)
+    event.save()
+
     if request.user.is_authenticated:
         item = 6
     else:
@@ -94,18 +99,40 @@ def check_ticket(request, ticket_id):
         status = "VALID"
     else:
         status = "INVALID"
-    context = {'ticket_id':ticket_id, 'name':name, 'type':type, 'status':status, 'event':event}
+    context = {'ticket_id':ticket_id, 'name':name,
+    'type':type, 'status':status, 'event':event}
     template_name = 'ticket_checker.html'
 
     return render(request,template_name, context)
+from Events.person_authentication import organizers
 
-def dashboard(request):
+
+@organizers
+def dashboard(request,name):
+    count = PurchasedTicket.objects.count()
+    event = Event.objects.get(name=name)
     template_name = "event_dashboard.html"
+    ticket = PurchasedTicket.objects.all()
+    def totalRevenue():
+        if event.total_revenue >= 1000000:
+            value_int = "%.1f %s"%(event.total_revenue/1000000,'M')
+        elif event.total_revenue >= 1000:
+            value_int = "%.1f %s"%(event.total_revenue/1000,'K')
+        else:
+            value_int = event.total_revenue
+        return value_int
+    def views():
+        if event.insight >= 1000000:
+            views = "%.1f %s"%(event.insight/1000000, 'M')
+        elif event.insight >= 1000:
+            views = "%.1f %s"%(event.insight/1000, 'k')
+        else:
+            views = event.insight
+        return views
+    view = views
+    revenue = totalRevenue
 
-    event={
-        'name':'LAMBA'
-    }
-    context = {'event':event}
+    context = {'event':event, 'count':count, 'views':view, 'revenue':revenue, 'tickets':ticket}
 
     return render(request, template_name, context)
 #//////////////////////////////////////////////////////////////////////////////////////////

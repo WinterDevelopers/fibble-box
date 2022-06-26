@@ -673,7 +673,7 @@ footer{
     width: 100%;
     margin: 0px auto;
     padding: 50px auto;
-    background-color: #f0f0f0;
+    background-color: #eeeeee;
    
 
 }
@@ -712,5 +712,18 @@ footer{
 }
 .ticket-stats >div{
     margin-bottom: 20px;
+}
+.view-event{
+    font-size:smaller; width: 120px; 
+    background-color: rgb(98, 135, 255);
+    top: 40px;
+    box-shadow: rgb(185, 185, 185) 2px 2px 10px;
+    left: 0; right: 0; margin: 0px auto; 
+    position: absolute; color: rgb(0, 8, 122); 
+    border-radius: 30px;
+    padding: 18px 0px;
+}
+.view-event:hover{
+    box-shadow: none;
 }
 

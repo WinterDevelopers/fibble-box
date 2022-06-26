@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
@@ -30,6 +31,7 @@ class Event(models.Model):
     phone = models.IntegerField(null=True)
     instagram = models.CharField(max_length=100,null=True)
     facebook = models.CharField(max_length=100, null=True)
+    insight = models.PositiveIntegerField(default=0, null=True)
 
     @property
     def image_URL(self):
@@ -39,7 +41,7 @@ class Event(models.Model):
             image = ''
 
         return image
-
+    @property
     def video_URL(self):
         try:
             video = self.video.url
@@ -48,13 +50,27 @@ class Event(models.Model):
         
         return video
 
+    @property
+    def total_revenue(self):
+        revenue = self.purchasedticket_set.all()
+        total = sum([data.cost for data in revenue])
+        return total
+
     def __str__(self) -> str:
         return self.name
 
+TICKET_CHIOCIES = (
+    ('reg','regular'),
+    ('vip','vip'),
+    ('br','bronze'),
+    ('au', 'gold'),
+    ('plat','platanium')
+)
 
 class Ticket(models.Model):
+    name = models.CharField(max_length=70, null=True)
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event')
-    type = models.CharField(max_length=70, null=True)
+    type = models.CharField(max_length=70,choices=TICKET_CHIOCIES, default='reg')
     image = models.ImageField(upload_to='media/events/tickets',null=True)
     specification = models.CharField(max_length=1000, null=True)
     price = models.PositiveBigIntegerField(null=True)
@@ -222,6 +238,7 @@ class PurchasedTicket(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE, null=True)
     code = models.CharField(null=True, max_length=20)
     type = models.CharField(null=True, max_length=30)
+    cost = models.PositiveBigIntegerField(null=True)
     name = models.CharField(max_length=100, null=True)
     date_purchased = models.DateTimeField(default=timezone.now())
     status = models.BooleanField(default=False)
