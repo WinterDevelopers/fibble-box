@@ -27,6 +27,7 @@ a{
     padding: 20px 10px; 
     margin-left: auto; 
     margin-right: 8%;
+    font-size: smaller;
     display: flex; flex-direction: row;
 }
 .nav-bar-desktop > div{
@@ -74,7 +75,8 @@ footer{
 }
 .sponsor-items{
     margin: 10px;
-    width: 50px;
+    width: 100px;
+    padding-left: 2px;
 }
 .sponsors-content{
     display:flex; flex-direction: row; overflow-x: auto; white-space: nowrap;

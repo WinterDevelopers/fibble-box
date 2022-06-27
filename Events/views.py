@@ -1,4 +1,5 @@
 from asyncio import events
+from cgi import print_environ
 from re import template
 from django.conf import settings
 
@@ -110,6 +111,10 @@ from Events.person_authentication import organizers
 @organizers
 def dashboard(request,name):
     count = PurchasedTicket.objects.count()
+    group = request.user.groups.all()[:1] 
+    for a in group:
+        if not a == name:
+           return redirect('home')
     event = Event.objects.get(name=name)
     template_name = "event_dashboard.html"
     ticket = PurchasedTicket.objects.all()

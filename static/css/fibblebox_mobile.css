@@ -420,6 +420,9 @@
     .others{
         height: 1230px;
     }
+    .others-header{
+        inline-size: 200px;
+    }
     .user-container{
         width: 80vw;
     }

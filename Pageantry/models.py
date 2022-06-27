@@ -192,9 +192,6 @@ class couponPayment(models.Model):
         return str(self.amount)
 
 
-
-
-
 class Payment(models.Model):
     candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE, null=True)
     amount = models.PositiveIntegerField(null=True)

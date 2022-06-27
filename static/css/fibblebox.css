@@ -1055,7 +1055,7 @@ height: 50%;
 .others{
     background-color: black;
     width: 100vw;
-    height: 600px;
+    height: 700px;
     margin-top: 30px;
     padding-top: 30px;
     margin-bottom: 100px;
@@ -1064,7 +1064,7 @@ height: 50%;
 .others>div{
     display: grid;
     grid-template-columns: auto auto;
-    padding: 5px 170px;
+    padding: 5px 5px;
     row-gap: 10px;
 }
 .others-box{
@@ -1077,6 +1077,8 @@ height: 50%;
 }
 .others-header{
     color: white;
+    inline-size: 450px;
+    margin: 0px auto;
     font-weight: 800;
     padding: 20px 20px;
     font-size: larger;

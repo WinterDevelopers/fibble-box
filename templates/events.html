@@ -84,7 +84,6 @@
                     this may require the person to be fully active duriing the show/party to get noticed
                     and this also comes with money price 
                 </p>
-                {{event.total_revenue}}
             </div>     
         </div>
         <div  class="special-guest" id="events-special-guest">
@@ -110,7 +109,7 @@
             <h2 class="sponsor-header">Sponsors</h2>
             <div class="sponsors-content">
                 {% for sponsor in sponsors %}
-                <img src="{{sponsor.image_URL}}" alt="" class="sponsors-items" width="100px">
+                 <img src="{{sponsor.image_URL}}" alt="" class="sponsor-items">
                 {% endfor %}
             </div>
         </div>

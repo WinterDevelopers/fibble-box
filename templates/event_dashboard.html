@@ -286,7 +286,6 @@
             }
             else if(type=='vip'){
                 vip +=1
-                console.log('rstdyfugih')
             }
             else if(type=='bronze'){
                 bronze +=1
@@ -302,7 +301,7 @@
     }
     console.log(regular,vip,bronze,gold,platanium)
     //sold ticket bar
-    document.getElementById('reg_bar').style.width=(regular/sold_ticket *160)+'px'
+    document.getElementById('reg_bar').style.width=(regular/sold_ticket *160 +1)+'px'
     document.getElementById('vip_bar').style.width=(vip/sold_ticket *160 +1)+'px'
     document.getElementById('bronz_bar').style.width=(bronze/sold_ticket *160 +1)+'px'
     document.getElementById('gold_bar').style.width=(gold/sold_ticket *160 +1)+'px'
