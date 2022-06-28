@@ -107,7 +107,7 @@ def purchase_coupon(request):
 def payment_coupon(request, token):
     template_name = 'coupon_payment.html'
 
-    public_key = settings.PUBLIC_KEY
+    public_key = settings.PAYSTACK_PUBLIC_KEY
     coupon_item = couponPayment.objects.get(token=token)
     coupon_email = coupon_item.email
     coupon_cost = coupon_item.amount

@@ -29,7 +29,7 @@ STATIC_DIR = BASE_DIR/ 'static'
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["178.62.97.24","fibblebox.com","127.0.0.1", "www.fibblebox.com"]
 if not DEBUG:
@@ -151,9 +151,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 from dotenv import load_dotenv
 
 load_dotenv()
-SECRET_KEY = os.environ.get('SECRET_KEY')
+PAYSTACK_SECRET_KEY = os.environ.get('PAYSTACK_SECRET_KEY')
 #SECRET_KEY = 'sk_test_7515a3e58c6c638eefbc4c375567b051b869d0fc'
-PUBLIC_KEY = os.environ.get('PUBLIC_KEY')
+PAYSTACK_PUBLIC_KEY = os.environ.get('PAYSTACK_PUBLIC_KEY')
 #PUBLIC_KEY = 'pk_test_d62d0abc9b452417dcded834b109dfe257cd425a'
 
 
