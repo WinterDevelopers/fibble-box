@@ -226,9 +226,9 @@ class Payment(models.Model):
                 self.verification_status = True
             self.save()
         if self.verification_status:
-            return True
+            return True, men
         else:
-            return False
+            return False, men
 
 
     def __str__(self) -> str:
