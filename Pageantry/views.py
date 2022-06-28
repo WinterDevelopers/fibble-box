@@ -227,7 +227,7 @@ def verify_payment(request:HttpRequest, reference):
         candidate.save()
         messages.success(request, f"verification successful, your {votes} vote(s) was added")
     else:
-        messages.error(request, "verification failed")
+        messages.error(request, "verification failed!!")
 
     return redirect('Pageantry:candidate', candidate.id )
 
