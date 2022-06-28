@@ -1,5 +1,7 @@
 from django.conf import settings
-
+from django.shortcuts import redirect
+from django.http import request
+from django.contrib import messages
 import requests
 
 
@@ -18,6 +20,10 @@ class Paystack():
         }
         url = self.base_url + path
         response = requests.get(url, headers=headers)
+        men = str(response)
+        messages.error(request, men)
+
+        return redirect('Pageantry:candidate',2)
         print(response)
 
         if response.status_code == 200:
