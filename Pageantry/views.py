@@ -217,7 +217,6 @@ def verify_payment(request:HttpRequest, reference):
     payment = get_object_or_404(Payment, reference=reference)
     candidate = get_object_or_404(Candidate, name= payment.candidate)
     print(candidate)
-    redirect('home')
     verified = payment.verified_payment()
     amount = payment.amount
     #print(verified)
