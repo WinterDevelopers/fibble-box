@@ -84,7 +84,7 @@ def Shipping(request):
     print(my_user)
     customer = request.user.customer
     order = get_object_or_404(Order, customer=customer, completed=False)
-    public_key = settings.PUBLIC_KEY
+    public_key = settings.PAYSTACK_PUBLIC_KEY
     event = {'name':'LAMBA'}
     context = {'order':order, 'public_key':public_key, 'event':event}
     template_name = 'shipping.html'
