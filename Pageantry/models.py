@@ -219,16 +219,16 @@ class Payment(models.Model):
 
     def verified_payment(self) -> bool:
         paystack = Paystack()
-        status, result, men = paystack.verify_payment(self.reference, self.amount_value)
+        status, result = paystack.verify_payment(self.reference, self.amount_value)
         
         if status:
             if result['amount']/100 == self.amount:
                 self.verification_status = True
             self.save()
         if self.verification_status:
-            return True, men
+            return True
         else:
-            return False, men
+            return False
 
 
     def __str__(self) -> str:

@@ -18,15 +18,14 @@ class Paystack():
         }
         url = self.base_url + path
         response = requests.get(url, headers=headers)
-        men = str(self.PAYSTACK_SECRET_KEY)
        
         print(response)
 
         if response.status_code == 200:
             response_data = response.json()
             print(response_data)
-            return response_data['status'],  response_data['data'], men
+            return response_data['status'],  response_data['data']
         
         response_data = response.json()
         print(response_data)
-        return response_data["status"], response_data["message"], men
+        return response_data["status"], response_data["message"]

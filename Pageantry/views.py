@@ -218,7 +218,7 @@ def verify_payment(request:HttpRequest, reference):
     candidate = get_object_or_404(Candidate, name= payment.candidate)
     print(candidate)
     
-    verified, he = payment.verified_payment()
+    verified = payment.verified_payment()
     amount = payment.amount
     #print(verified)
     if verified:
