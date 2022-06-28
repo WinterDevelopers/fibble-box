@@ -4,7 +4,7 @@ import requests
 
 
 class Paystack():
-    PAYSTACK_SECRET_KEY = "sk_test_7515a3e58c6c638eefbc4c375567b051b869d0fc"
+    PAYSTACK_SECRET_KEY = settings.SECRET_KEY
     base_url = 'https://api.paystack.co'
 
     def verify_payment(self, reference, *args, **kwargs):
