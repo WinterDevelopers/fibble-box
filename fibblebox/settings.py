@@ -151,7 +151,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 from dotenv import load_dotenv
 
 load_dotenv()
-SECRET_KEY = os.environ.get('SECRET_KEY')
+PAY_SECRET_KEY = os.environ.get('SECRET_KEY')
 #SECRET_KEY = 'sk_test_7515a3e58c6c638eefbc4c375567b051b869d0fc'
 PUBLIC_KEY = os.environ.get('PUBLIC_KEY')
 #PUBLIC_KEY = 'pk_test_d62d0abc9b452417dcded834b109dfe257cd425a'
