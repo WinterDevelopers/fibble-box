@@ -219,7 +219,7 @@ class Payment(models.Model):
 
     def verified_payment(self) -> bool:
         paystack = Paystack()
-        status, result= paystack.verify_payment(self.reference, self.amount_value)
+        status, result = paystack.verify_payment(self.reference, self.amount_value)
         
         if status:
             if result['amount']/100 == self.amount:
