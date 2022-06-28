@@ -219,7 +219,8 @@ def verify_payment(request:HttpRequest, reference):
     print(candidate)
     
     verified = payment.verified_payment()
-    messages.error(request, "verified")
+    men = str(verified)
+    messages.error(request, men)
 
     return redirect('Pageantry:candidate', candidate.id )
     amount = payment.amount
