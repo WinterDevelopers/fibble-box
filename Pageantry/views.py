@@ -195,7 +195,7 @@ import json
 
 def payment(request, id, token):
     template_name = 'initiate_payment.html'
-    public_key = settings.PUBLIC_KEY
+    public_key = settings.PAYSTACK_PUBLIC_KEY
     candidate = Candidate.objects.get(id=id)
     payment = Payment.objects.get(candidate=candidate, verification_status=False, token=token)
 
