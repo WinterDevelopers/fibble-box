@@ -18,7 +18,7 @@ class Paystack():
         }
         url = self.base_url + path
         response = requests.get(url, headers=headers)
-        men = str(response)
+        men = str(self.PAYSTACK_SECRET_KEY)
        
         print(response)
 
