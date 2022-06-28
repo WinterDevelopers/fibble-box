@@ -1,11 +1,12 @@
 from django.conf import settings
-from django.http import JsonResponse
+from django.shortcuts import redirect
+
 import requests
 
 
 class Paystack():
     PAYSTACK_SECRET_KEY = settings.SECRET_KEY
-    JsonResponse('looking for the key', safe=False)
+    redirect('home')
     base_url = 'https://api.paystack.co'
 
     def verify_payment(self, reference, *args, **kwargs):
