@@ -7,6 +7,7 @@ from Events import paystack
 
 
 import secrets
+
 # Create your models here.
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
@@ -18,17 +19,17 @@ class Customer(models.Model):
 
 
 class Event(models.Model):
-    name = models.CharField(max_length=100,null=True)
-    phrase = models.CharField(max_length=150,null=True)
-    image = models.ImageField(upload_to='media/events', null=True)
+    name = models.CharField(max_length=100, null=True)
+    phrase = models.CharField(max_length=150, null=True)
+    image = models.ImageField(upload_to="media/events", null=True)
     about = models.CharField(max_length=1000, null=True)
     date = models.DateField(null=True)
     time = models.TimeField(null=True)
-    location = models.CharField(max_length=100,null=True)
-    video = models.FileField(upload_to='media/events/videos', null=True)
+    location = models.CharField(max_length=100, null=True)
+    video = models.FileField(upload_to="media/events/videos", null=True)
     email = models.EmailField(null=True)
     phone = models.IntegerField(null=True)
-    instagram = models.CharField(max_length=100,null=True)
+    instagram = models.CharField(max_length=100, null=True)
     facebook = models.CharField(max_length=100, null=True)
 
     @property
@@ -36,7 +37,7 @@ class Event(models.Model):
         try:
             image = self.image.url
         except:
-            image = ''
+            image = ""
 
         return image
 
@@ -44,8 +45,8 @@ class Event(models.Model):
         try:
             video = self.video.url
         except:
-            video = ''
-        
+            video = ""
+
         return video
 
     def __str__(self) -> str:
@@ -55,7 +56,7 @@ class Event(models.Model):
 class Ticket(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     type = models.CharField(max_length=70, null=True)
-    image = models.ImageField(upload_to='media/events/tickets',null=True)
+    image = models.ImageField(upload_to="media/events/tickets", null=True)
     specification = models.CharField(max_length=1000, null=True)
     price = models.PositiveBigIntegerField(null=True)
 
@@ -67,39 +68,41 @@ class Ticket(models.Model):
         try:
             image = self.image.url
         except:
-            image = ''
+            image = ""
 
         return image
 
-    def __str__ (self) -> str:
+    def __str__(self) -> str:
         return self.type
 
 
 class Event_gallery(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='media/events/tickets', null=True)
+    image = models.ImageField(upload_to="media/events/tickets", null=True)
 
     @property
     def image_URL(self):
         try:
             image = self.image.url
         except:
-            image = ''
+            image = ""
 
         return image
 
     def __str__(self) -> str:
         return str(self.event)
 
+
 class Event_activities(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     header = models.CharField(max_length=70, null=True)
     content = models.CharField(max_length=500, null=True)
 
+
 class Sponsor(models.Model):
-    event = models.ForeignKey(Event,on_delete=models.CASCADE)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
     name = models.CharField(max_length=50, null=True)
-    image = models.ImageField(upload_to='media/events/sponsors', null=True)
+    image = models.ImageField(upload_to="media/events/sponsors", null=True)
     link = models.CharField(max_length=400, null=True)
 
     def image_URL(self):
@@ -118,8 +121,6 @@ class Order(models.Model):
     completed = models.BooleanField(default=False)
     transaction_id = models.CharField(max_length=5000, null=True)
     date = models.DateField(auto_now_add=True)
-   
-
 
     @property
     def total_quantity(self):
@@ -147,7 +148,7 @@ class Order(models.Model):
 
             if not similar_token:
                 self.transaction_id = token
-            
+
             super().save(self)
 
     def completed_func(self, *args, **kwargs):
@@ -157,9 +158,6 @@ class Order(models.Model):
     def __str__(self):
 
         return str(self.id)
-
-
-    
 
 
 class OrderItem(models.Model):
@@ -173,13 +171,13 @@ class OrderItem(models.Model):
         total = self.ticket.price * self.quantity
 
         return total
-    
-  
+
     def __str__(self) -> str:
         return str(self.ticket)
 
 
 from .paystack import Paystack
+
 
 class shippingDetails(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, null=True)
@@ -188,7 +186,7 @@ class shippingDetails(models.Model):
     phone = models.IntegerField(null=True)
     email = models.EmailField(max_length=100, null=True)
     verification_status = models.BooleanField(default=False)
-    token = models.CharField( null=True, max_length=50)
+    token = models.CharField(null=True, max_length=50)
     reference = models.CharField(max_length=400, null=True)
 
     def save(self, *args, **kwargs):
@@ -203,16 +201,15 @@ class shippingDetails(models.Model):
     def verification(self):
         paystack = Paystack()
         status, result = paystack.verify_payment(self.reference, self.amount)
-      
+
         if status:
-            if result['amount']/100 == self.amount:
+            if result["amount"] / 100 == self.amount:
                 self.verification_status = True
                 self.save()
             if self.verification_status:
                 return True
             else:
                 return False
-            
 
     def __str__(self) -> str:
         return self.name
@@ -226,4 +223,3 @@ class PurchasedTicket(models.Model):
 
     def __str__(self) -> str:
         return self.name
-

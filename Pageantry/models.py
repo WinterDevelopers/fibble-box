@@ -30,7 +30,6 @@ class User(models.Model):
         return self.username
 
 
-
 CATEGORIES = [
     ('pg','pagentry'),
     ('aw','awards'),
@@ -192,9 +191,6 @@ class couponPayment(models.Model):
         return str(self.amount)
 
 
-
-
-
 class Payment(models.Model):
     candidate = models.ForeignKey(Candidate, on_delete=models.CASCADE, null=True)
     amount = models.PositiveIntegerField(null=True)
@@ -253,3 +249,4 @@ class pageantrySponsor(models.Model):
 
     def __str__(self) -> str:
         return self.name
+        

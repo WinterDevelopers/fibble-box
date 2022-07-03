@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{{form.error_class}}
+<h1> {{post.title}}  </h1>
+{{post.text}} <br>
+{{comments}}
+<form method=post action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input name="Post comment" type=submit value="Post comment"/>
+</form>
+{% endblock content %}>

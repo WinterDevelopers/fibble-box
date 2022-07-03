@@ -21,14 +21,15 @@ from django.conf import settings
 
 from Pageantry.views import home
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('account/', include('account.urls')),
     path('', home, name='home' ),
     path('pageantry/', include('Pageantry.urls')),
     path('events/', include('Events.urls')),
     path('blog/', include('Blog.urls')),
 ]
-
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -54,7 +54,7 @@ def register(request):
             name = form.cleaned_data.get('first_name')
             email = form.cleaned_data.get('email')
 
-            user = authenticate(username=username,password= raw_password)
+            user = authenticate(username=username, password=raw_password)
             print(user)
             login(request, user)
             my_user = request.user

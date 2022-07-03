@@ -1,1 +1,9 @@
 .env
+.idea
+.pytest_cache
+/include/
+/Lib/
+/Scripts/
+/share/
+*.ini
+*.vscode
