@@ -14,7 +14,7 @@ def index(request):
     return render(request, template_name)
 
 
-@login_required(login_url="/pageantry/login/account/")
+@login_required(login_url="/pageantry/login/")
 def become_writer(request):
     if request.method == "POST":
         form = WriterForm(request.POST)
@@ -32,13 +32,13 @@ def become_writer(request):
 
 def posts_list(request):
     posts = Post.objects.all()
-    template_name = "home.html"
+    template_name = "posts_list.html"
     context = {"posts": posts}
     return render(request, template_name, context)
 
 
 def post_detail(request, slug):
-    post = Post.objects.get(slug=slug)
+    post = get_object_or_404(Post, slug=slug)
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -58,7 +58,7 @@ def post_detail(request, slug):
     return render(request, template_name, context)
 
 
-@login_required(login_url="/pageantry/login/account/")
+@login_required(login_url="/pageantry/login/")
 def add_post(request):
     if request.method == "POST":
         form = AddPostForm(request.POST)
@@ -81,7 +81,7 @@ def add_post(request):
     return render(request, template_name, context)
 
 
-@login_required(login_url="/pageantry/login/account/")
+@login_required(login_url="/pageantry/login/")
 def edit_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     if request.user == post.writer:
@@ -103,7 +103,7 @@ def edit_post(request, slug):
     return render(request, template_name, context)
 
 
-@login_required(login_url="/pageantry/login/account/")
+@login_required(login_url="/pageantry/login/")
 def delete_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     if request.user == post.writer:
@@ -115,3 +115,4 @@ def delete_post(request, slug):
     template_name = "delete_post.html"
     context = {"post": post}
     return render(request, template_name, context)
+    

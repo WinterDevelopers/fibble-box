@@ -24,7 +24,7 @@ from Pageantry.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('account/', include('account.urls')),
+    # path('account/', include('account.urls')),  TODO: add the accounts app for users.
     path('', home, name='home' ),
     path('pageantry/', include('Pageantry.urls')),
     path('events/', include('Events.urls')),

@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 
-from pageantry.models import User
+from Pageantry.models import User
 
 
 # Create your models here.
@@ -39,10 +39,10 @@ class Post(models.Model):
     text = models.TextField()
     writer = models.ForeignKey(Writer, on_delete=models.CASCADE)
     date_published = models.DateField(("Date Published"), auto_now_add=True)
+    last_updated = models.DateField(("Last Updated"), auto_now=True)
 
     class Meta:
-        verbose_name = ("post")
-        verbose_name_plural = ("posts")
+        ordering = ["-date_published"]
 
     def __str__(self):
         return f"{self.title}"

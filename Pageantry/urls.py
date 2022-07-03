@@ -10,12 +10,12 @@ app_name = 'Pageantry'
 
 urlpatterns = [
     
-    path('base' ,base, name='base'),
-    path('login' ,Login, name='login'),
-    path('register', register, name='register'),
-    path('coupon-processing', coupon_processor, name='coupon_processor'),
-    path('processing-payment', payment_processor, name='payment_processor'),
-    path('delete-coupon', coupon_delete, name='delete_coupon'),
+    path('base/' ,base, name='base'),
+    path('login/' ,Login, name='login'),
+    path('register/', register, name='register'),
+    path('coupon-processing/', coupon_processor, name='coupon_processor'),
+    path('processing-payment/', payment_processor, name='payment_processor'),
+    path('delete-coupon/', coupon_delete, name='delete_coupon'),
     path('purchase-coupons/',purchase_coupon, name= 'purchase_coupon'),
     path('coupon-payment/<slug:token>/',payment_coupon, name ="coupon_payment"),
     path('<slug:slug>/', pageantry, name='pageantry'),
