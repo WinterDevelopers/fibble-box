@@ -15,7 +15,7 @@
             <h3 style="margin-left: 5%;">
                 <a href="{% url 'Events:event' event.name %}" style="color: black;"> {{event.name}} </a>
             </h3>
-            <div style="margin: 20px auto; position: relative;margin-left: 55vw;" id="cart-bag">
+            <div style="margin: 20px auto; position: relative;margin-left: 50vw;" id="cart-bag">
                 <div class="cart-item"></div>
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve" width="24px" >
@@ -36,10 +36,10 @@
             </svg>
             </div>
             <div class="nav-bar-desktop">
-                <div>About</div>
-                <div>Ticket Prices</div>
-                <div>Special Guest</div>
-                <div>Contact</div>
+                <div><a href="#event-about">About</a></div>
+                <div> <a href="{% url 'Events:ticket' event.name %}">Ticket Pricing</a></div>
+                <div> <a href="#special-video">Special Video</a></div>
+                <div><a href="#event-contact"> Contact</a></div>
             </div>
             <div class="nav-bar-mobile-icon" id="hamburger-icon" onclick="menuToggel()"> 
                 <svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 64 64" width="32px" height="32px"><path d="M7 29v5l50 1v-7L7 29zM7 11v6h50v-6H7zM7 46v7l50-1v-5L7 46z"/></svg>
@@ -61,7 +61,7 @@
                 <a href="{% url 'Events:ticket' event.name %}">Ticket Pricing</a>
             </div>
             <div class="mobile-menu-item">
-                <a href="#event-special-artist">Special Artist</a>
+                <a href="#special-video">Special Video</a>
             </div>
             <div class="mobile-menu-item">
                 <a href="#event-contact"> Contact</a>
@@ -115,6 +115,7 @@
     <div style="height: 60px; background-color: none;"></div>
 
     {% block content %}
+
 
 
     {% endblock content %}
@@ -206,6 +207,32 @@
                 <div><p style="color: rgba(205, 205, 235, 0.842);text-align: center;">2021 copyright(c) developed by winterdevelopers </p></div>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         </footer>
+        <script>
+            $(document).ready(function(){
+              // Add smooth scrolling to all links
+              $("a").on('click', function(event) {
+            
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                  // Prevent default anchor click behavior
+                  event.preventDefault();
+            
+                  // Store hash
+                  var hash = this.hash;
+            
+                  // Using jQuery's animate() method to add smooth page scroll
+                  // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                  $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                  }, 800, function(){
+               
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                  });
+                } // End if
+              });
+            });
+            </script>
         <script type="text/javascript" src="{% static 'js/search.js' %}"></script>
 
     </body>

@@ -9,11 +9,12 @@
         <link rel="stylesheet" href="{% static 'css/fibblebox_mobile.css' %}">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link rel="stylesheet" href="{% static 'css/blog_mobile.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
         
     </head>
-    <body>
+    <body style="scroll-behavior:smooth;">
     <div class="nav-bar">
         <div class="nav-bar-head">
             <a href="{% url 'home' %}">
@@ -24,9 +25,9 @@
             </a>
         </div>
         <div class="nav-bar-links">
-            <div>home</div>
-            <div>about us</div>
-            <div>contact</div>
+            <div><a href="#home">home</a></div>
+            <div><a href="#about">about us</a></div>
+            <div><a href="#contact">contact</a></div>
             
             <div class="nav-bar-search">
                 <input type='search' placeholder="  search..." id="search" onkeyup="simple_search()">
@@ -132,17 +133,17 @@
         </div>
 
         <footer>
-            <div class="footer-item">
+            <div class="footer-item" id="contact">
                 <div class="footer-box">
                     <img src="{% static 'logos/fibble_box_logo.png' %}" alt="">
                     <p style="margin-left: 10px;">Fibble Box</p>
                 </div>
                 <div>
-                    <h4>services</h4>
-                    <p>voting</p>
-                    <p>pagentry</p>
-                    <p>survey</p>
-                    <p>ticket</p>
+                    <h4>Services</h4>
+                    <a href="#pageantry">voting</a>
+                    <a href="#pageantry">pagentry</a>
+                    <a href="#event">events</a>
+                    <a href="#event">ticketing</a>
                 </div>
                 <div>
                     <h4>Go social</h4>
@@ -157,6 +158,32 @@
     
                 <div><p style="color: rgba(205, 205, 235, 0.842);text-align: center;">2021 copyright(c) developed by winterdevelopers </p></div>
         </footer>
+        <script>
+            $(document).ready(function(){
+              // Add smooth scrolling to all links
+              $("a").on('click', function(event) {
+            
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                  // Prevent default anchor click behavior
+                  event.preventDefault();
+            
+                  // Store hash
+                  var hash = this.hash;
+            
+                  // Using jQuery's animate() method to add smooth page scroll
+                  // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                  $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                  }, 800, function(){
+               
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                  });
+                } // End if
+              });
+            });
+            </script>
         <script type="text/javascript" src="{% static 'js/fibblebox.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/search.js' %}"></script>
     </body>

@@ -14,7 +14,11 @@
     .nav-bar-desktop{
         display: none;
     }
-
+    .nav-bar-mobile-icon{
+        display:block;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
     .nav-bar-mobile{
         position:fixed;
         bottom: 0px;
@@ -30,9 +34,6 @@
     .nav-bar-mobile >div{
         margin-inline-end: 25vw;
         text-align: center;
-        
-    
-        
     }
     
     .nav-bar-mobile >div:first-child{
@@ -148,6 +149,9 @@
     .activity > div{
         width: 100%;
     }
+    .special-video-clip{
+        height: 300px;
+    }
     .ticket-border{
         border-width: 3px ;
         border-style: solid;
@@ -167,6 +171,18 @@
         width: 99%;
       
         padding: 0;
+    }
+    .contact-email-item > div:first-child{
+        margin: 0 10px;
+    }
+    .contact-email-item{
+        padding:15px 30px;
+    }
+    .contact-phone-item > div:first-child{
+        margin: 0 10px;
+    }
+    .contact-phone-item{
+        padding:15px 30px;
     }
     .Ticket-info{
         inline-size: 270px; 

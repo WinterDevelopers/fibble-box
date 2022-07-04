@@ -308,6 +308,9 @@ body{
     padding-inline-end: 40px;
     padding-top: 20px;
 }
+.nav-bar-links>div>a{
+    color: var(--font-color);text-decoration: none;
+}
 .nav-bar-search{
     margin-right: 20px;
     margin-bottom: 10px;
@@ -343,9 +346,12 @@ footer{
 .footer-item>div{
     text-align: start;
 }
-.footer-item >div> p{
-    color: #aed6dc9f;
-    text-align: start;   
+.footer-item >div> a{
+    display: block;
+    color: #aed6dc9f;padding-bottom: 5px;
+    text-align: start;text-decoration: none;
+    
+
 }
 .footer-box{
     margin-top: 100px;

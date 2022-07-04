@@ -19,7 +19,7 @@
 <div class="categories" >
     <h4 style="text-align: center;text-transform:uppercase;">Categories</h4>
     <div class="categories-item">
-        <a href="#pagentry" class="categories-link">
+        <a href="#pageantry" class="categories-link">
             <div>
                 <div class="circle">
                     <img class="categories-img" style="margin-top: 5px;" src="{% static 'logos/pagentry-logo.png' %}" alt="pagentry-logo">
@@ -92,7 +92,7 @@
         <div class="category-text2"> Who will be the next crowned... </div>
 
     </div>
-    <div class="content">
+    <div class="content" id="pageantry">
         {% for pageantry in pageantries %}
         <div>
             <div  class="content-box">
@@ -140,7 +140,7 @@
 
 
 <!--Events-->
-<div style="position: relative; margin-bottom: 30px;">
+<div style="position: relative; margin-bottom: 30px;" id="event">
     <img src="{% static 'images/event1 (1).jpg' %}" alt="" style="width: 100vw; height: 400px; object-fit: cover;">
     <div style="-webkit-text-fill-color: transparent; background:linear-gradient(to right,rgb(142, 255, 249),rgb(245, 242, 69));-webkit-background-clip: text;" class="category-text1"> EVENTS </div>
     <div class="category-text2"> looking for the hootest event? <br> we got you covered </div>
@@ -236,7 +236,7 @@
 
 <div style="width: 90%; background-color: rgb(140, 140, 140); position: relative; top: 10px; height: 1px; margin: 20px auto;"></div>
 -->
-<div class="others">
+<div class="others" id="about">
     <div class="others-header">Want to know more about Fibblebox? </div>
     <div>
         <div class="others-box">

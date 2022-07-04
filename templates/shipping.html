@@ -51,11 +51,9 @@
         }).then((data)=>console.log(data));
 
         console.log('deleting......we')
-}
-
-</script>
-<script>
-
+    }
+    //////////////////////////////
+    //getting the reqiured docs
     let name = document.querySelector('[name="name"]').value;
     let email = document.querySelector('[name="email"]').value;
     let phone = document.querySelector('[name="phone"]').value;
@@ -76,23 +74,19 @@
         body:JSON.stringify({'name':name,'email':email,'order_amount':'{{order.total_cost}}',
                              'phone':phone, 'order_number':'{{order.total_quantity}}', 'token':'{{order.transaction_id}}'})
         }).then((res)=>{
-            return res.json
+            return console.log(res.json)
         }).then((data)=>
             console.log(data)
         )
         console.log('sent detials')
         }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
     submit_btn.addEventListener('click', function(e){
         e.preventDefault();
-
         fetch_payment();
         submit_btn.className = 'none';
-        setTimeout(reference_func, 2000)
-        
-
-
+        setTimeout(reference_func, 2500)
     });
     
 
@@ -130,7 +124,6 @@
            ]
         },
         callback: function(response){
-            var token = document.querySelector('.token')
             window.location.href="{% url 'Events:ticket_payment_verification' order.transaction_id %}";
         },
         onClose: function(){

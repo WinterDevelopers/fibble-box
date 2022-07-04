@@ -110,11 +110,7 @@ from Events.person_authentication import organizers
 
 @organizers
 def dashboard(request,name):
-    count = PurchasedTicket.objects.count()
-    group = request.user.groups.all()[:1] 
-    for a in group:
-        if not a == name:
-           return redirect('home')
+    count = PurchasedTicket.objects.count()    
     event = Event.objects.get(name=name)
     template_name = "event_dashboard.html"
     ticket = PurchasedTicket.objects.all()
@@ -241,9 +237,8 @@ def shipping_process(request):
     customer = request.user.customer
     order = get_object_or_404(Order, customer=customer, completed=False)
     shippingDetails.objects.create(name=name, email=email, phone=phone, order=order, amount=amount, token=token)
-
-    print(data)
-    return JsonResponse('shipping', safe=False)
+    
+    return JsonResponse('shipping details gotten and created', safe=False)
 
 def reference(request):
 
