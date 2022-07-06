@@ -752,7 +752,7 @@ height: 50%;
     box-shadow: rgba(119, 119, 119, 0.274) 1px 1px 10px; 
 }
 .candidate-btn-minus>div{
-    margin: 2px 0px;
+    margin: 4px 0px;
 }
 .candidate-btn-plus{
     width:50px; 
