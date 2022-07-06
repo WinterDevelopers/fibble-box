@@ -220,12 +220,13 @@ def verify_payment(request:HttpRequest, reference):
     
     verified = payment.verified_payment()
     amount = payment.amount
-    #print(verified)
+    print(amount)
     if verified:
         votes = amount/100
         candidate.votes += votes 
         candidate.save()
-        messages.success(request, f"verification successful, your {votes} vote(s) was added")
+        vote_num = int(votes)
+        messages.success(request, f"verification successful, your {vote_num} vote(s) was added")
     else:
         messages.error(request, "verification failed!!")
 

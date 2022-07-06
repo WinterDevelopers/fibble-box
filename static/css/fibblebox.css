@@ -751,6 +751,9 @@ height: 50%;
     font-size: xx-large; 
     box-shadow: rgba(119, 119, 119, 0.274) 1px 1px 10px; 
 }
+.candidate-btn-minus>div{
+    margin: 2px 0px;
+}
 .candidate-btn-plus{
     width:50px; 
     height:50px; 
@@ -761,6 +764,9 @@ height: 50%;
     text-align: center; 
     font-size: xx-large;
     box-shadow: rgba(119, 119, 119, 0.274) 1px 1px 10px; 
+}
+.candidate-btn-plus>div{
+    margin: 6px 0px;
 }
 .candidate-vote-count{
     width:50px; 
@@ -1023,22 +1029,25 @@ height: 50%;
 .messages-success{
     text-align: center;
     font-size: 15px;
-    background-color: rgba(5, 105, 255, 0.885);
-    color: #a2d2ff;
-    width: 100vw;
-    height: 40px;
+    padding-top:0.5px ;
+    background-color: #a2d2ff;
+    color: #0047a5;
+    width: 80vw;
+    margin: 10px auto;
+    height: 55px;
 }
 .messages-failed{
     text-align: center;
     font-size: 15px;
-    background-color: rgba(252, 43, 43, 0.885);
-    color: #ffbdbd;
-    width: 100vw;
-    height: 40px;
+    background-color: #ffbdbd;
+    color: rgba(252, 43, 43, 0.885);
+    margin: 0px auto;
+    width: 80vw;
+    height: 55px;
 }
 .intro_text{
-    font-weight: 600;
-    width: 50px;
+    font-weight: 300;
+    inline-size: 90vw;
     margin-left: 5vw;
 }
 .event-btn{
