@@ -429,4 +429,43 @@
     .check-ticket-background{
         height: 40vh;
     }
+    .pageant{
+        margin-bottom: 50px;
+    }
+    .pageant>img{
+        height: 650px;
+    }
+    .top-pageant-img{
+        position:absolute; top:40px; left:5%;
+    }
+    .top-pageant-img>img{
+        width:90vw;border-radius: 20px;
+        height: 70vw;
+
+    }
+    .pageant-info{
+        position:absolute; top:300px; left:10px; 
+        color: white;
+    }
+    .pageant-name{
+        font-size:20px;font-weight: 600;text-transform: uppercase;
+        margin-bottom: 20px; margin-top: 25px;margin-left: 5%;
+    }
+    .pageant-detail{
+        inline-size:80vw;text-align:left;
+        margin-bottom:20px; margin-left: 5%;
+    }
+    .pageant-date{
+        margin-bottom:50px;margin-left:5%;
+    }
+    .pageant-view{
+        background-color: white;margin-left: 5%;
+        height: 50px;font-size:25px;
+        color: black; width: 200px; 
+        border-radius: 10px; text-align: center;
+    }
+    .pageant-view>div{
+        width:50px;margin:auto;
+        padding-top: 10px;
+    }
 }

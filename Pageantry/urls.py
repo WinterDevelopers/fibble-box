@@ -4,12 +4,12 @@ from django.urls.resolvers import URLPattern
 
 from .views import (base, Login, register, pageantry, candidate, payment, payment_processor,
                     verify_payment, purchase_coupon, payment_coupon, coupon_delete, coupon_processor,
-                    coupon_verify_payment, sending_coupon_codes,payment_delete, userPage)
+                    coupon_verify_payment, sending_coupon_codes,payment_delete, userPage, pagentries)
 
 app_name = 'Pageantry'
 
 urlpatterns = [
-    
+    path('',pagentries.as_view(), name='pageantry_page'),
     path('base' ,base, name='base'),
     path('login' ,Login, name='login'),
     path('register', register, name='register'),

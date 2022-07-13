@@ -13,6 +13,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Event, Event_activities, Event_gallery, Order, OrderItem, Sponsor,Ticket, shippingDetails, PurchasedTicket
 
 from .ticket_processor import Ticket_processing
+
+from django.views.generic.list import ListView
 # Create your views here.
 
 def Event_nav(request):

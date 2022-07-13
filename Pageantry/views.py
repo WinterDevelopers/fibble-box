@@ -1,4 +1,5 @@
 from multiprocessing import context
+import django
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -13,10 +14,28 @@ from Events.models import Customer, Event,Order, OrderItem, Ticket
 
 from Pageantry.send_email import SendEmail
 from .register_form import Registration
+from django.core.paginator import Paginator
 
 from .models import *
 
 import json
+
+from django.views.generic.list import ListView
+
+#create your view
+
+class pagentries(ListView):
+    paginate_by = 1
+    model = Pageantry
+    template_name = 'pageantry_page.html'
+
+    def get_context_data(self,*args, **kwargs):
+        context = super(pagentries, self).get_context_data(**kwargs)
+
+
+        context['pageantry'] = Pageantry.objects.order_by('-id')[:1]
+        return context
+
 
 
 def base(request):
@@ -82,8 +101,8 @@ def register(request):
 # Create your views here.
 
 def home(request):
-    pageantries = Pageantry.objects.all()[:3]
-    events  = Event.objects.all()[:3]
+    pageantries = Pageantry.objects.all().order_by('-id')[:3]
+    events  = Event.objects.all().order_by('-id')[:3]
     
     template_name = 'index.html'
     context = {'pageantries':pageantries, 'events':events}

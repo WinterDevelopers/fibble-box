@@ -51,6 +51,9 @@ class Pageantry(models.Model):
     date = models.DateField()
     count_down = models.DateTimeField()
 
+    class Meta:
+        ordering = ['-id']
+
     @property
     def total_votes(self):
         candidate_vote = self.pageantry_candidate.all()

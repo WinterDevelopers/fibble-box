@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% for pageant in pageantry %}
+    <div style="position:relative;margin-top: 10px;margin-bottom: 70px;" class="pageant">
+        <img src="{{pageant.pageantryBanner}}" alt="" >
+        <div class="top-pageant-img">
+            <img src="{{pageant.pageantryImage}}" alt="">
+        </div>
+        <div class="pageant-info">
+            <div class="pageant-name">
+                {{pageant.name}}
+            </div>
+            <div class="pageant-detail">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, et assumenda in, 
+                adipisci autem, doloribus perferendis ullam nemo delectus iusto distinctio praesentium 
+                dicta dolore possimus tempora nisi odit fugit veritatis?
+            </div>
+            <div class="pageant-date">
+                {{pageant.date}}
+            </div>
+            <div class="pageant-view">
+                <div>view</div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+<div style="width:94vw;height:1px;position:relative;margin:0px 3vw;background-color:rgb(177, 177, 177);top:-30px"></div>
+
+    <div class="content" id="pageantry">
+        {% for pageantry in page_obj %}
+        <div>
+            <div  class="content-box">
+                <img src="{{pageantry.pageantryBanner}}" alt="Awards" width="350px" height="150" style="filter: blur(5px); -webkit-filter: blur(5px); background-size: cover;">
+                <div class="content-box-info">
+                    <div>
+                        <img src="{{pageantry.pageantryImage}}" alt="" width="150px" height="180px" style=" border-radius: 5px 0px 0px 5px;">
+                    </div>
+                    <div class="content-box-info-text">
+                        <h5 class="pageantry_name searchable">{{pageantry.name}}</h5>
+                        <p style="margin-top: -25px; font-size: xx-small;">{{pageantry.date}}</p>
+                        <p style="font-size: xx-small; font-weight: 600; padding-top: 10px;">
+                            {{pageantry.discription}}
+                        </p>
+                    </div>
+                </div>
+                <div style="position: absolute; top: 80%; left: 75%; background-color: rgb(46, 46, 46); color: white; padding: 10px 15px; font-size: x-small; border-radius: 5px; font-weight: 600;">
+                    <a href="{% url 'Pageantry:pageantry' pageantry.slug %}" style="color: white; text-decoration: none; ">VIEW</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+
+        <span>
+            {% if page_obj.has_previous %}
+            <a href="?page=1" class="paginator_others"> first</a>
+            <a href="?page={{page_obj.previous_page_number}}" class="paginator_others">&laquo;</a>
+            {% endif %}
+        </span>
+    
+        <span class="paginator_current">
+            {{page_obj.number}}
+        </span>
+        <span>
+            {% if page_obj.has_next %}
+                <a href="?page={{page_obj.next_page_number}}" class="paginator_others">&raquo;</a>
+                <a href="?page={{page_obj.paginator.num_pages}}" class="paginator_others">last </a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
