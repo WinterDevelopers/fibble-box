@@ -175,7 +175,7 @@ footer{
     background-color: #4a536b8c; width: 100vw; height: 40px; padding-top: 20px;margin-top: 0px;
 }
 .activity-header{
-    text-align: center;
+    text-align: center;text-transform: capitalize;
     color: #4A536B;
     font-size: 35px;
 
@@ -187,6 +187,9 @@ footer{
     width: 50%;
     margin: 0 auto;
     margin-bottom: 100px;
+}
+.activity>div>p{
+    text-align: left;
 }
 .activity-title{
     font-size:35px; font-weight: 600;
@@ -386,13 +389,13 @@ footer{
 .ticket-img-container{
     position: relative; 
     margin-bottom: 30px; 
-    width: 500px; 
+    width: 600px; 
     margin:0px auto;
 }
 .ticket-img-container >img{
-    margin: 0px auto;
-    width: 500px;
-    height: 300px;
+    margin: 0px auto;border-radius:10px ;
+    width: 600px;
+    height: 200px;
 }
 .ticket-dots{
     height: 300px; border-style: dotted; 
@@ -401,7 +404,7 @@ footer{
     border-right: none;
     border-color: rgb(255, 255, 255); 
     position: absolute; 
-    left: 15%;top: 0;
+    left: 70%;top: 0;
 }
 .ticket-clip-top{
     background-color: rgb(255, 255, 255); 
@@ -409,14 +412,14 @@ footer{
     height: 15px; 
     width: 15px;
     position: absolute; 
-    left: 13.5%;top: -3%;
+    left: 69%;top: -5%;
 }
 .ticket-clip-bottom{
     background-color: rgb(255, 255, 255); 
     border-radius: 50%; 
     height: 15px; width: 15px;
     position: absolute; 
-    left: 13.5%;top: 97%;
+    left: 69%;top: 98%;
 }
 .Ticket-info{
     inline-size: 450px; 
@@ -734,5 +737,14 @@ footer{
 }
 .view-event:hover{
     box-shadow: none;
+}
+.ticket-qr{
+    background-color: white;
+    padding: 2px;
+    position: absolute;
+    top:40;left:74%;
+}
+.ticket-qr>img{
+    width: 120px;
 }
 

@@ -20,6 +20,9 @@
             <div class="ticket-type">{{ticket.name}}</div>
             <div class="ticket-img-container">
                 <img src="{{ticket.image_URL}}" alt="ticket-view" >
+                <div class="ticket-qr">
+                    <img src="{% static 'images/qr-icon.png' %}" alt="">
+                </div>
                 <div class="ticket-dots"></div>
                 <div class="ticket-clip-top"></div>
                 <div class="ticket-clip-bottom"></div>
