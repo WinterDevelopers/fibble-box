@@ -1,3 +1,5 @@
+from ckeditor.fields import RichTextField
+
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -11,8 +13,8 @@ class Writer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     first_name = models.CharField(("First Name"), max_length=50)
     last_name = models.CharField(("Last Name"), max_length=50)
-    slug = models.SlugField()
-    bio = models.TextField(help_text="About yourself")
+    slug = models.SlugField(null=True)
+    bio = RichTextField(("About yourself"))
     date_joined = models.DateField(("Date Joined"), auto_now_add=True)
     d_o_b = models.DateField(("Date of Birth"), null=True)
 
@@ -34,10 +36,10 @@ class Writer(models.Model):
 
 class Post(models.Model):
 
+    writer = models.ForeignKey(Writer, on_delete=models.CASCADE)
     title = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=50, unique=True)
-    text = models.TextField()
-    writer = models.ForeignKey(Writer, on_delete=models.CASCADE)
+    content = RichTextField(null=True)
     date_published = models.DateField(("Date Published"), auto_now_add=True)
     last_updated = models.DateField(("Last Updated"), auto_now=True)
 
@@ -54,6 +56,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("Blog:post-detail", kwargs={"slug": self.slug})
+
 
 class Comment(models.Model):
 

@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.utils.text import slugify
 
 from .models import Writer, Post, Comment
-from .forms import CommentForm, AddPostForm, EditPostForm, WriterForm
+from .forms import CommentForm, PostForm, WriterForm
 
 
 # Create your views here.
@@ -52,7 +52,7 @@ def post_detail(request, slug):
             form.error_class
     else:
         form = CommentForm()
-    comments = Comment.objects.all()
+    comments = post.comment_set.all()
     template_name = "post_detail.html"
     context = {"post": post, "form": form, "comments": comments}
     return render(request, template_name, context)
@@ -61,17 +61,16 @@ def post_detail(request, slug):
 @login_required(login_url="/pageantry/login/")
 def add_post(request):
     if request.method == "POST":
-        form = AddPostForm(request.POST)
+        form = PostForm(request.POST)
         if form.is_valid():
-            title = form.cleaned_data["title"]
-            text = form.cleaned_data["text"]
-            slug = slugify(title)
+            new_post = form.save(commit=False)
             writer = get_object_or_404(Writer, user=request.user)
-            post = Post(title=title, text=text, slug=slug, writer=writer)
-            post.save()
-            return redirect(post.get_absolute_url())
+            new_post.writer = writer
+            new_post.slug = slugify(new_post.title)
+            new_post.save()
+            return redirect(new_post.get_absolute_url())
     else:
-        form = AddPostForm()
+        form = PostForm()
         if hasattr(request.user, "writer"):
             writer = request.user
         else:
@@ -86,16 +85,14 @@ def edit_post(request, slug):
     post = get_object_or_404(Post, slug=slug)
     if request.user == post.writer:
         if request.method == "POST":
-            form = EditPostForm(instance=post, data=request.POST)
+            form = PostForm(instance=post, data=request.POST)
             if form.is_valid():
-                title = form.cleaned_data["title"]
-                text = form.cleaned_data["text"]
-                slug = slugify(title)
-                post = Post(title=title, text=text, slug=slug)
-                post.save()
+                updated_post = form.save(commit=False)
+                updated_post.slug = slugify(updated_post.title)
+                updated_post.save()
                 return redirect(post.get_absolute_url())
         else:
-            form = EditPostForm(instance=post)
+            form = PostForm(instance=post)
     else:
         return HttpResponseForbidden()
     template_name = "edit_post.html"

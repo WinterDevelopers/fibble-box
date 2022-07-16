@@ -1,0 +1,671 @@
+:root{
+    --font-color: #4A536B;
+    --background-color: rgb(236, 236, 236);
+    --background-color-dark: #4A536B;
+    --background-color-form-input: #D4F9FF;
+}
+@font-face {
+    font-family: party ;
+    src: url(../fonts/PartyConfettiRegular-eZOn3.ttf);
+}
+
+body{
+    margin: 0px;
+    font-family: 'party';
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.nav-bar{
+    display: flex; flex-direction: row; 
+    background-color: rgb(246, 253, 251); opacity:0.8 ; 
+    position:fixed; width: 100%; z-index: 1;
+    margin-bottom: 100px; top: 0px;
+}
+.nav-bar-desktop{
+    padding: 20px 10px; 
+    margin-left: auto; 
+    margin-right: 8%;
+    display: flex; flex-direction: row;
+}
+.nav-bar-desktop > div{
+    padding: 0px 10px;
+}
+.nav-bar-mobile-icon{
+    display: none;
+}
+.nav-bar-mobile{
+    display: none;
+}
+footer{
+    background-color: var(--background-color-dark);
+}
+.footer-item{
+    display:grid;
+    grid-template-columns: auto auto auto;
+    color: #AED6DC;
+    padding-inline-start: 10px;
+    text-align: center;
+}
+.footer-item > div > img{
+    width: 100px;
+    height: 100px;
+}
+.footer-item>div{
+    text-align: start;
+}
+.footer-item >div> p{
+    color: #aed6dc9f;
+    text-align: start;   
+}
+.footer-box{
+    margin-top: 100px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+}
+.sponsors{
+
+    background-color: rgb(85, 85, 85); padding: 20px; text-align: center; color: white;
+}
+.sponsors-header{
+    text-transform: uppercase; margin-top: 0px;
+}
+.sponsor-items{
+    margin: 10px;
+    width: 50px;
+}
+.sponsors-content{
+    display:flex; flex-direction: row; overflow-x: auto; white-space: nowrap;
+    justify-content: space-evenly;
+}
+.back-img{
+    width: 100vw; position: fixed;
+    z-index: -1; top: -1px; 
+    height: 760px; 
+    background-repeat: no-repeat; 
+    background-position: center; background-size:cover;
+}
+.mobile-menu-content{
+    display: none;
+}
+.none{
+    display: none;
+}
+.major-text{
+    margin-top: 150px;
+    font-size: 55;
+    text-align: center; 
+    text-transform:uppercase;
+}
+.minor-text{
+    margin-top: 50px; 
+    font-size: 20;
+    font-weight: 100; 
+    text-align: center; 
+    text-transform:capitalize;
+}
+.ticket-btn{
+    padding: 10px; 
+    border: solid 3px rgb(243, 243, 243); 
+    color: white;
+    width: 160px; 
+    margin:100px auto; 
+    border-radius: 30px;
+    font-size: 25px; 
+    text-align: center;
+    font-family: roboto;
+    background-color: #8a8a8a7c;
+    transition: all 0.5s;
+}
+.ticket-btn:hover{
+    background-color: white;
+    color: black;
+    border-color: black;
+}
+.ticket-btn-click{
+    padding: 10px; 
+    border: solid 3px rgb(0, 0, 0); 
+    color: rgb(0, 0, 0);
+    width: 160px; 
+    margin:100px auto; 
+    border-radius: 30px;
+    font-size: 25px; 
+    text-align: center;
+    font-family: roboto;
+    background-color: #ffffff;
+}
+.count-down{
+    background-color: rgb(247, 255, 255); width: 100vw; 
+    z-index: 0; 
+    height:1200px ;
+    padding-bottom: 100px;
+    margin-top: 300px; 
+    clip-path: polygon(0 25%, 100% 0, 100% 100%, 0 100%); 
+    position: relative;
+   
+}
+.count-down-header{
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+}
+.info{
+    color: black; 
+    position: absolute; 
+    top: 60%; 
+    width: 100vw
+}
+.info-event{
+    margin: 50px auto; 
+    width: 50vw; 
+    font-weight: 500; 
+    font-size:20px; 
+    text-align: center;
+
+}
+.gallery-header{
+    position: absolute; text-align: center; color: white;
+    background-color: #4a536b8c; width: 100vw; height: 40px; padding-top: 20px;margin-top: 0px;
+}
+.activity-header{
+    text-align: center;
+    color: #4A536B;
+    font-size: 35px;
+
+}
+.activity{
+    height: auto; background-color: rgb(255, 255, 255); text-align: center; padding: 50px;
+}
+.activity > div{
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+.activity-title{
+    font-size:35px; font-weight: 600;
+    margin-bottom: 50px;
+   
+}
+.special-guest{
+    background-color:rgb(255, 255, 255) ;
+    width: 100vw; 
+    height: auto;
+    padding:20px 0px;
+}
+.how-to-ticket{
+    background-color: rgb(126, 126, 126); 
+    text-align: center; 
+    padding: 20px;
+    color: white;
+}
+.ticket-border{
+    border-width: 3px ;
+    border-style: solid;
+    border-radius: 10px;
+    border-image:linear-gradient(to right, rgb(0, 229, 255),rgb(15, 26, 85)) 1; 
+    height: 200px;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px; 
+    padding: 10px;
+}
+.get-ticket{
+    border: 2px solid rgb(213, 254, 255);
+    text-decoration: none;
+    border-radius: 15px;padding: 10px; 
+    width: 200px; margin: 50px auto;
+    font-family: roboto;color: white;
+    background-color: rgb(126, 126, 126);
+    transition: all 0.5s;
+}
+.get-ticket:hover{
+    background-color: white;
+    color: black;
+}
+.get-ticket-click{
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 15px;padding: 10px; 
+    width: 200px; margin: 50px auto;
+    font-family: roboto;
+    color:black;
+    background-color: rgba(255, 255, 255, 0.213);
+}
+.contact{
+    background-color: rgb(51, 0, 0); 
+    padding: 5px; text-align: center;
+    color: white;
+}
+.contact-header{
+    font-size:30px;
+    padding-bottom: 30px;
+    padding-top: 20px;
+    
+}
+.contact-phone{
+    padding-top: 5px;
+    border: solid 1px white;
+    border-left:none ;
+    border-right:none ;
+    width: 100%;
+    height: 40px;
+    
+}
+.contact-phone-1{
+    margin-right:30vw ;
+    font-family: roboto;
+    font-size: 20px;
+    
+}
+.contact-phone-2{
+    margin-left:30vw;
+    font-size: 30px;
+}
+.contact-phone-item{
+    padding:15px 5px;
+    border: solid 1px white;
+    border-left:none ;
+    border-right:none ;
+    border-top: none;
+    font-size: large;
+    display: flex;
+}
+.contact-phone-item > div:first-child{
+
+    margin: 0 20px;
+}
+.contact-email{
+    padding-top: 5px;
+    border-bottom: solid 1px white;
+    width: 100%;
+    height: 40px;
+}
+.contact-email-1{
+    margin-right:30vw ;
+    font-family: roboto;
+    font-size: 20px;
+    
+}
+.contact-email-2{
+    margin-left:30vw;
+    font-size: 30px;
+}
+.contact-email-item{
+    padding:15px 5px;
+    border: solid 1px white;
+    border-left:none ;
+    border-right:none ;
+    border-top: none;
+    font-size: large;
+    display: flex;
+}
+.contact-email-item > div:first-child{
+    margin: 0 20px;
+}
+.social-header{
+    font-size: 30px;
+    padding: 30px 0px;
+}
+.social-icon-header{
+    display: flex; flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}
+.social-icon-header div{
+    justify-content: space-evenly;
+}
+.gallery{
+    background-color: white;
+    width: 100vw;
+    position: relative;
+}
+.gallery-view{
+    display: flex; flex-direction: row;
+    overflow: scroll;
+    scroll-snap-type:x mandatory;
+}
+
+.gallery-img{
+    height: 650px;
+    width: 50vw;
+    object-fit: fill;
+    scroll-snap-align: start;
+}
+.ticket-container{
+    margin: 30px auto;
+    width:auto;
+}
+.Ticket-header{
+    background-color: rgb(0, 0, 0); 
+    color: rgb(255, 115, 0); 
+    padding: 10px;
+    height: 200px;
+    padding-left: 60px;
+}
+.Ticket-header-text{
+    font-size: larger; 
+    font-weight: 800; 
+    font-family: roboto; 
+    margin-top: 30px;
+}
+.Ticket-header-text2{
+    text-align: start; 
+    font-size: small; 
+    display: block; 
+    color: white; 
+    margin-top: 20px;
+}
+.get-ticket-btn{
+    background-color: rgb(255, 115, 0);
+    color: white; 
+    text-align: center; 
+    width: 100px; 
+    margin: auto; 
+    padding: 10px; 
+    border-radius: 5px; 
+    margin-top: 20px;
+    font-size: smaller;
+
+}
+.ticket-type{
+    text-align: center; 
+    font-size: large;
+    font-weight: 600; 
+    margin-bottom: 10px;
+}
+.ticket-img-container{
+    position: relative; 
+    margin-bottom: 30px; 
+    width: 500px; 
+    margin:0px auto;
+}
+.ticket-img-container >img{
+    margin: 0px auto;
+    width: 500px;
+    height: 300px;
+}
+.ticket-dots{
+    height: 300px; border-style: dotted; 
+    border-top: none; 
+    border-bottom: none; 
+    border-right: none;
+    border-color: rgb(255, 255, 255); 
+    position: absolute; 
+    left: 15%;top: 0;
+}
+.ticket-clip-top{
+    background-color: rgb(255, 255, 255); 
+    border-radius: 50%; 
+    height: 15px; 
+    width: 15px;
+    position: absolute; 
+    left: 13.5%;top: -3%;
+}
+.ticket-clip-bottom{
+    background-color: rgb(255, 255, 255); 
+    border-radius: 50%; 
+    height: 15px; width: 15px;
+    position: absolute; 
+    left: 13.5%;top: 97%;
+}
+.Ticket-info{
+    inline-size: 450px; 
+    text-align:start ; 
+    padding: 10px;
+    width: 450px;
+    margin: auto;
+    
+}
+.Ticket-info >div{
+    display: flex;
+}
+.Ticket-price{
+    inline-size: 100px; 
+    text-align:start ; 
+    font-size: 15px;
+    font-weight: 300;
+    margin-top: 25px;
+}
+.ticket-bottom{
+    display: flex; 
+    flex-direction: row;
+    width: 500px;
+    margin: auto;
+}
+.ticket-minus{
+    text-align: center;
+    padding:5px;
+    position: relative;
+    border-radius: 50%; 
+    width: 24px;
+    height: 24px; 
+    border:solid 3px blue; 
+    justify-content: center;
+    margin: 10px;
+    font-size: x-large;
+    margin-top: 15px; 
+    margin-left: 10px;
+}
+.cart-ticket-minus{
+    text-align: center;
+    padding:5px;
+    position: relative;
+    border-radius: 50%; 
+    width: 24px;
+    height: 24px; 
+    border:solid 3px blue; 
+    justify-content: center;
+    margin: 10px;
+    font-size: x-large;
+    margin-top: 15px; 
+    margin-left: 10px;
+}
+.ticket-number{
+    padding: 5px;
+    border-radius: 50%;
+    position: relative;
+    width: 32px;
+    height: 32px; 
+    border:solid 3px rgb(255, 255, 255); 
+    text-align: center; 
+    background-color: white;
+    margin: 10px; 
+    font-size: x-large; 
+    box-shadow: inset rgb(173, 173, 173) 1px 1px 2px;
+}
+.cart-ticket-number{
+    padding: 5px;
+    border-radius: 50%;
+    position: relative;
+    width: 32px;
+    height: 32px; 
+    border:solid 3px rgb(255, 255, 255); 
+    text-align: center; 
+    background-color: white;
+    margin: 10px; 
+    font-size: x-large; 
+    box-shadow: inset rgb(173, 173, 173) 1px 1px 2px;
+}
+.ticket-plus{
+    padding: 1px;
+    text-align: center;
+    position: relative;
+    border-radius: 50%; 
+    width: 35px;
+    height: 35px;
+    color: white;
+    background-color: blue;
+    margin: 10px; font-size: x-large;margin-top: 15px;text-align: center;
+}
+.cart-ticket-plus{
+    padding: 1px;
+    text-align: center;
+    position: relative;
+    border-radius: 50%; 
+    width: 35px;
+    height: 35px;
+    color: white;
+    background-color: blue;
+    margin: 10px; font-size: x-large;margin-top: 15px;text-align: center;
+}
+.add-ticket{
+    border-radius: 2px; 
+    font-weight: 700;
+    position: relative;
+    background-color: blue;
+    padding: 5px;
+    color: white;
+    width: 80px; 
+    height: 30px; 
+    margin-left: 40%;
+    text-align: center; 
+    margin-top: 15px;
+    box-shadow: 1px 2px 3px rgb(118, 118, 118);
+}
+.cart-item{
+    position: absolute;
+    width: 15px;
+    height: 15px; 
+    border-radius: 50%; 
+    background-color: black; 
+    color: white; 
+    font-size: small; 
+    text-align: center; 
+    padding: 1px;
+    left: 3.5px;
+    top: -10px;
+}
+.cart-page{
+    position: fixed;
+    top: 2px; 
+    left: 10%; 
+    z-index: 5;
+    animation-name: cart_page;
+    animation-duration: 0.5s;
+    overflow-y: scroll;
+    height: 90vh;
+}
+@keyframes cart_page {
+    from {top: -500px;}
+    to {top: 0px}
+    
+}
+.close-cart{
+    margin: 6px auto;
+    width: 100px;
+    margin: 30px auto;
+    padding: 2px 5px;
+    background-color: rgb(255, 255, 255);
+    text-align: center; margin-bottom: 20px;
+    border-radius: 20px; height: 30px;
+    color: rgb(19, 19, 19);
+
+}
+.cart-container{
+    padding: 10px;
+    padding-bottom: 30px;
+    background-color: rgba(243, 243, 243, 0);
+    display: grid;
+    width: 85vw;
+    grid-template-columns: 60% 40%;
+}
+.cart-summary{
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 10px;
+    border-radius:10px ;
+    width:88%;
+}
+.cart-summary-container{
+    padding:20px 30px;
+    display: flex;
+    flex-direction: row;
+}
+.contact-arrow{
+    transform: rotate(180deg);
+}
+.cart-summary-container2{
+    padding:2px 10px;
+    display: flex;
+    flex-direction: row;
+    border-top:1px rgb(133, 133, 133) solid ;
+    width: 90%; 
+    margin: auto;
+}
+.cart-total{
+    background-color: white;
+    padding: 10px; 
+    border-radius: 10px;
+    padding: 20px;
+}
+.cart-total-item{
+    display: flex; 
+    flex-direction: row; 
+    border-bottom: 1px solid rgb(133, 133, 133);
+}
+.cart-total-item-list{
+    padding: 10px 5px;
+}
+.your-order{
+    padding: 5px;
+    background-color: black;
+    color: rgb(255, 115, 0);
+    width: 100vw;
+    height: auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.your-order-item{
+    display: flex;
+    color: white;
+    justify-content: space-evenly;
+    font-size:large;
+    margin-bottom: 30px;
+}
+.customer-details{
+    text-align: center;
+    padding-top: 10px;
+    width: 60%;
+    background-color: rgb(255, 255, 255);
+    margin: 0px auto;
+}
+.customer-form{
+    padding: 5px;
+}
+.customer-form >input{
+    background-color: var(--background-color-form-input);
+    margin-bottom: 10px;
+    border: none;
+    padding: 10px;
+}
+
+.customer-form >input[type=submit]{
+    background-color: var(--background-color-dark);
+    color: #AED6DC;
+    width: 40%;
+}   
+.make-payment{
+    background-color: #4A536B;
+    color:#AED6DC;
+    padding: 8px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    text-align: center;
+    margin: 40px auto;
+    width: 25%;
+    border-radius: 20px;
+    box-shadow: #000000d7 2px 2px 5px;
+
+}
+.messages{
+    position: fixed;
+    top:150px;
+    left:10vw;
+    right: 10vw;
+    padding: 10px;
+    background-color: rgba(1, 173, 173, 0.699);
+    color: rgb(42, 255, 255);
+    border: #fdffff 1px solid;
+}
+
+

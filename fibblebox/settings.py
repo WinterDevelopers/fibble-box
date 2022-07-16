@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
+import django
 from django.core.management.utils import get_random_secret_key
 
 from pathlib import Path
@@ -51,7 +52,12 @@ INSTALLED_APPS = [
     'Events.apps.EventsConfig',
     'Blog.apps.BlogConfig',
     'account.apps.AccountConfig',
+
+    # Others
+    'ckeditor'
+  
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -91,13 +97,14 @@ WSGI_APPLICATION = 'fibblebox.wsgi.application'
 
 if DEBUG:
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite4',
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite4',
+        }
     }
-}
+    
 else:
-    DATABASES =   {
+    DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'fibbleboxdb',
@@ -105,8 +112,8 @@ else:
             'PASSWORD': 'climaxdata',
             'HOST': 'localhost',
             'PORT': '',
-            }   
-        }
+        }   
+    }
     
 
 # Password validation
@@ -160,6 +167,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # #PUBLIC_KEY = 'pk_test_d62d0abc9b452417dcded834b109dfe257cd425a'
 
 
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
