@@ -55,8 +55,8 @@ def send_ticket(quantities, id, name, email):
             img_edit.text((500,150), 'Category',font=my_font1, fill=(70, 70, 70))
             img_edit.text((510,200), type_ticket,font=my_font1, fill=(0, 0, 0))
             img_edit.text((1050,550), code,font=my_font1, fill=(0, 0, 0))
-            img_edit.text((700,600), 'fibblebox.com',font=my_font, fill=(70, 70, 70))
-            img_edit.text((80,500), f'Date of event: {date}',font=mini_font, fill=(0, 0, 0))
+            img_edit.text((700,600), 'fibblebox.com',font=mini_font, fill=(70, 70, 70))
+            img_edit.text((80,500), f'Date of event: {date}',font=my_font, fill=(0, 0, 0))
             img.save("ticket/ticket.jpg")
 
 
