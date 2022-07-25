@@ -274,7 +274,7 @@ def shipping_process(request):
     print(data)
     customer = request.user.customer
     order = get_object_or_404(Order, customer=customer, completed=False)
-    shippingDetails.objects.create(name=name, email=email, phone=phone, order=order, amount=amount, token=token)
+    shippingDetails.objects.create(name=name, email=email,order=order, amount=amount, token=token)
     
     return JsonResponse('shipping details gotten and created', safe=False)
 

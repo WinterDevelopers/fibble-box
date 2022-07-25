@@ -39,6 +39,7 @@ def send_ticket(quantities, id, name, email):
             event_name_string = event_name.name
             date = event_name.date
             type_ticket = tick.type
+            cost = tick.cost
 
             img = Image.open('ticket/template/template.jpg')
             img_edit = ImageDraw.Draw(img)
@@ -138,5 +139,5 @@ def send_ticket(quantities, id, name, email):
 
                 print('has sent the email')
 
-                PurchasedTicket.objects.create(code=code, name=name, event=event_name, type=type_ticket)
+                PurchasedTicket.objects.create(code=code, name=name,cost=cost, event=event_name, type=type_ticket)
                 return condition
