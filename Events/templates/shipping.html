@@ -74,7 +74,7 @@
         body:JSON.stringify({'name':name,'email':email,'order_amount':'{{order.total_cost}}',
                              'phone':phone, 'order_number':'{{order.total_quantity}}', 'token':'{{order.transaction_id}}'})
         }).then((res)=>{
-            return console.log(res.json)
+            return console.log(res.status,'respons')
         }).then((data)=>
             console.log(data)
         )
