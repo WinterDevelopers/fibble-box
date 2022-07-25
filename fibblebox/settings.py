@@ -162,15 +162,3 @@ PAYSTACK_PUBLIC_KEY = os.environ.get('PAYSTACK_PUBLIC_KEY')
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-#from django.core.mail.backends.console
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER = 'fibblebox@gmail.com'
-EMAIL_HOST_PASSWORD = 'pnzygxgtykewwfow'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 465
-EMAIL_USE_TLS = True
-
-DEFAULT_FROM_EMAIL = 'fibblebox@gmail.com'
-#EMAIL_FILE_PATH = BASE_DIR/'sent_emails'
