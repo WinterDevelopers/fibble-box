@@ -1,4 +1,5 @@
-from unicodedata import name
+from re import template
+from unicodedata import category, name
 from PIL import Image, ImageDraw, ImageFont
 from django.shortcuts import get_object_or_404
 
@@ -13,35 +14,49 @@ from .models import  Ticket, PurchasedTicket, Event
 import secrets
 import qrcode
 
-def send_ticket(quantities, type, name, email):
+def send_ticket(quantities, id, name, email):
     for quantity in range(quantities):
-        ticket = Ticket.objects.filter(id=type)
+
+        ticket = Ticket.objects.filter(id=id)
         code_condition = False
         #let's create a ticket code and check if exist
         #if it exist then we create another code and check
         #once it dosen't exist then we move to the next line of code
         # O complexity is O(N) there would take n amount of time to achive it 
+
         while not code_condition:
-            code = secrets.token_urlsafe(5)
+
+            code = secrets.token_urlsafe(10)
             purchase_code = PurchasedTicket.objects.filter(code=code)
             if not purchase_code:
                 code_condition = True
         #then this code value we would use to design the ticket
-        for tick in ticket:
-            img = Image.open(tick.image_URL[1:])
-            img_edit = ImageDraw.Draw(img)
-            img_edit.rectangle((100,200,600, 300), fill="white")
-            img_edit.rectangle((100,400,1000,500), fill="white")
-            img_edit.rectangle((100,600,500,700), fill="white")
-            my_font = ImageFont.truetype('data-latin.ttf', 100)
-            my_font2 = ImageFont.truetype('data-latin.ttf', 60)
-            my_font3= ImageFont.truetype('data-latin.ttf', 40)
 
-            
-            img_edit.text((120,197), name, font=my_font, fill=(0, 0, 0))
-            img_edit.text((120,417), email,font=my_font2, fill=(0, 0, 0))
-            img_edit.text((120,630), code,font=my_font3, fill=(0, 0, 0))
-            img.save("ticket.jpg")
+        for tick in ticket:
+
+            event_name = Event.objects.get(name=tick.event)
+            #event_name_upper  = event_name.upper()
+            event_name_string = event_name.name
+            date = event_name.date
+            type_ticket = tick.type
+
+            img = Image.open('ticket/template/template.jpg')
+            img_edit = ImageDraw.Draw(img)
+            mini_font= ImageFont.truetype('data-latin.ttf', 15)
+            my_font= ImageFont.truetype('data-latin.ttf', 30)
+            my_font1= ImageFont.truetype('data-latin.ttf', 40)
+            my_font2= ImageFont.truetype('data-latin.ttf', 60)
+            img_edit.text((500,50), event_name_string, font=my_font2, fill=(0, 0, 0))
+            img_edit.text((80,150), 'Name', font=my_font1, fill=(70, 70, 70))
+            img_edit.text((80,200), name, font=my_font1, fill=(0, 0, 0))
+            img_edit.text((80,250), 'Email',font=my_font1, fill=(70, 70, 70))
+            img_edit.text((80,300), email,font=my_font1, fill=(0, 0, 0))
+            img_edit.text((500,150), 'Category',font=my_font1, fill=(70, 70, 70))
+            img_edit.text((510,200), type_ticket,font=my_font1, fill=(0, 0, 0))
+            img_edit.text((1050,550), code,font=my_font1, fill=(0, 0, 0))
+            img_edit.text((700,600), 'fibblebox.com',font=my_font, fill=(70, 70, 70))
+            img_edit.text((80,500), f'Date of event: {date}',font=mini_font, fill=(0, 0, 0))
+            img.save("ticket/ticket.jpg")
 
 
             qr = qrcode.QRCode(
@@ -55,27 +70,29 @@ def send_ticket(quantities, type, name, email):
             qr.make(fit=True)
 
             img = qr.make_image(fill='black', back_color='white')
+            img.save('ticket/link.png')
 
-            img.save('link.png')
+            image = Image.open('ticket/ticket.jpg')
 
-            image = Image.open('ticket.jpg')
-
-            image2 = Image.open('link.png')
+            image2 = Image.open('ticket/link.png')
             image_copy2 = image2.copy()
 
-            image.paste(image_copy2, (1600,300))
+            image.paste(image_copy2, (1000,100))
+            image3 = Image.open('static/logos/fibble_box_logo.png')
 
-            image.save('ticket.jpg')
+            logo_image = image3.resize((200,200))
+            logo_copy = logo_image.copy()
+
+            image.paste(logo_copy,(650,250))
+            image.save('ticket/ticket.jpg')
 
 
-            receiver_email = 'chrisroyalty127@gmail.com'
-
-            
+            receiver_email = email
 
             subject = "An email with attachment from Fibble Box"
-            body = "This is an email with attachment of your coupon codes sent from Fibblebox"
-            sender_email = "christianezekwem101@gmail.com"
-            password = "gipymqhbsghieelq"
+            body = "This is an email with attachment of your ticket purchased from Fibblebox"
+            sender_email = 'fibblebox@gmail.com'
+            password = 'pnzygxgtykewwfow'
 
             # Create a multipart message and set headers
             message = MIMEMultipart()
@@ -87,7 +104,7 @@ def send_ticket(quantities, type, name, email):
             # Add body to email
             message.attach(MIMEText(body, "plain"))
 
-            filename = "ticket.jpg"  # In same directory as script
+            filename = "ticket/ticket.jpg"  # In same directory as script
 
             # Open PDF file in binary mode
             with open(filename, "rb") as attachment:

@@ -1,20 +1,16 @@
-from multiprocessing import context
-import django
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http.request import HttpRequest
-from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from django.shortcuts import get_object_or_404
 from django.http import JsonResponse
 from django.contrib import messages
 from Events.models import Customer, Event,Order, OrderItem, Ticket
-
+from Blog.models import Post
 from Pageantry.send_email import SendEmail
 from .register_form import Registration
-from django.core.paginator import Paginator
 
 from .models import *
 
@@ -25,15 +21,15 @@ from django.views.generic.list import ListView
 #create your view
 
 class pagentries(ListView):
-    paginate_by = 1
+    paginate_by = 5
     model = Pageantry
     template_name = 'pageantry_page.html'
 
     def get_context_data(self,*args, **kwargs):
+
         context = super(pagentries, self).get_context_data(**kwargs)
-
-
         context['pageantry'] = Pageantry.objects.order_by('-id')[:1]
+
         return context
 
 
@@ -103,9 +99,10 @@ def register(request):
 def home(request):
     pageantries = Pageantry.objects.all().order_by('-id')[:3]
     events  = Event.objects.all().order_by('-id')[:3]
+    blog = Post.objects.all().order_by('-id')[:3]
     
     template_name = 'index.html'
-    context = {'pageantries':pageantries, 'events':events}
+    context = {'pageantries':pageantries, 'events':events, 'posts':blog}
 
     return render(request, template_name, context)
 
@@ -273,14 +270,14 @@ def sending_coupon_codes(request, token):
     numbers_coupons = customer.number_of_coupons
     the_coupons = CouponGenerator()
     coupon_codes = the_coupons.generator(numbers_coupons)
-    print (coupon_codes)
+    #print (coupon_codes)
 
     for x in coupon_codes:
         code = x
         voting_coupons = votingCode.objects.create(coupon=code)
         voting_coupons.save()
         
-    with open('voting_coupons.txt', 'w') as file:
+    with open('voting_coupons/voting_coupons.txt', 'w') as file:
         for a in coupon_codes:
             file.write('%s \n'% a)
 
@@ -297,6 +294,20 @@ def userPage(request):
     context = {}
 
     return render(request, template_name, context)
+
+
+def search_view(request):
+    template_name = 'search_result.html'
+    if request.method == 'POST':
+        search_query = request.POST.get('search_input')
+        pageantry = Pageantry.objects.filter(name__contains=search_query)
+        events = Event.objects.filter(name__contains=search_query)
+    else:
+        pageantry, events=None
+
+    context = {'pageantry':pageantry, 'events':events}
+
+    return render(request, template_name,context)
 
 # MY FETCH VIEW FUNCTIONS////////////////////////////////////////////////////////////////////
 #///////////////////////////////////////////////////////////////////////////////////////////

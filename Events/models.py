@@ -60,17 +60,17 @@ class Event(models.Model):
         return self.name
 
 TICKET_CHIOCIES = (
-    ('reg','regular'),
-    ('vip','vip'),
-    ('br','bronze'),
-    ('au', 'gold'),
-    ('plat','platanium')
+    ('REGULER','regular'),
+    ('VIP','vip'),
+    ('BRONZE','bronze'),
+    ('GOLD', 'gold'),
+    ('PLATANIUM','platanium')
 )
 
 class Ticket(models.Model):
     name = models.CharField(max_length=70, null=True)
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event')
-    type = models.CharField(max_length=70,choices=TICKET_CHIOCIES, default='reg')
+    type = models.CharField(max_length=70,choices=TICKET_CHIOCIES, default='REGULAR')
     image = models.ImageField(upload_to='media/events/tickets',null=True)
     specification = models.CharField(max_length=1000, null=True)
     price = models.PositiveBigIntegerField(null=True)

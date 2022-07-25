@@ -311,11 +311,8 @@ body{
 .nav-bar-links>div>a{
     color: var(--font-color);text-decoration: none;
 }
+
 .nav-bar-search{
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
-.nav-bar-search > input[type=search]{
     background-color: rgba(247, 247, 247, 0.685);
     padding: 10px;
     border-radius: 20px;
@@ -323,7 +320,6 @@ body{
     width: 250px;
     font-weight: 500;
     font-family: poppins;
-    
 }
 .nav-bar-mobile{
     display: none;
@@ -1308,7 +1304,7 @@ height: 50%;
     color: #25717c;
     margin: 5px auto;
     margin-bottom: 20px;
-    box-shadow: #a3a3a37a 1px 3px 10px;
+    box-shadow: #d1d1d17a 1px 3px 10px;
 }
 .ticket-event-btn{
     position:absolute; top:200px; left: 0;right:0;
@@ -1374,4 +1370,17 @@ height: 50%;
 }
 .paginator_others:last-child{
    margin-right: 1px;
+}
+.search-card{
+    background-color: white;width: 40vw;
+    padding: 5px;margin: 20px auto;
+    box-shadow: #a3a3a359 1px 1px 10px;
+    border-radius: 10px;display: flex;
+    flex-direction: row;
+}
+.search-img{
+    width: 50px;height:50px; border-radius: 10px;
+}
+.search-card>div{
+    margin-left: 20px;
 }

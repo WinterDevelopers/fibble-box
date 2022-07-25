@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: fibblebox@gmail.com
+Date: Wed, 20 Jul 2022 16:00:09 -0000
+Message-ID: <165833280966.9449.16555697845347383219@christian-Laptop>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/reset/MQ/b8vb49-045318228c2aaa616d0cb617d7019eb6/
+
+Your username, in case you’ve forgotten: winter
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

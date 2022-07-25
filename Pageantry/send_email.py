@@ -12,8 +12,8 @@ class SendEmail():
 
         subject = "An email with attachment from Fibble Box"
         body = "This is an email with attachment of your coupon codes sent from Fibblebox"
-        sender_email = "christianezekwem101@gmail.com"
-        password = "gipymqhbsghieelq"
+        sender_email = 'fibblebox@gmail.com'
+        password =  'pnzygxgtykewwfow'
 
         # Create a multipart message and set headers
         message = MIMEMultipart()
@@ -25,7 +25,7 @@ class SendEmail():
         # Add body to email
         message.attach(MIMEText(body, "plain"))
 
-        filename = "voting_coupons.txt"  # In same directory as script
+        filename = "voting_coupons/voting_coupons.txt"  # In same directory as script
 
         # Open PDF file in binary mode
         with open(filename, "rb") as attachment:

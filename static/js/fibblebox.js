@@ -20,27 +20,6 @@ var pageantry_name = document.querySelectorAll(".name");
 var i, a;
 
 
-// search functionality
-function simple_search(){
-    let search = document.getElementById('search').value;
-        search = search.toLowerCase();
-    let search_list = document.getElementsByClassName("search_list")
-
-    for(i=0; i<search_list.length; i++){
-        if(!search_list[i].innerHTML.toLowerCase().includes(search)){
-            search_list[i].style.display="none";
-
-        }
-        else{
-            search_list[i].style.display="block"
-        }
-        if(search.length<1){
-            search_list[i].style.display="none";
-        }  
-    }
-}
-//ends
-
 
 //updating the total amount for the votes
 

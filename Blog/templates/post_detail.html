@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="blog-page">
+    <div>
+        <div class="blog-content-image">
+            <img src="{{post.postImage_URL}}" alt="" width="100%">
+        </div>
+        <div class="blog-title">
+            {{post.title}}
+        </div>
+        <div class="blog-details">
+            <div>Date: {{post.date_published}}</div>
+            <div>Authors: {{post.writer}}</div>
+            <div>Views: {{post.insight}}</div>
+        </div>
+        <div style="width:94%;height:1px;position:relative;margin:-1px 3vw;background-color:rgb(177, 177, 177);top:20px"></div>
+        <div class="blog-content">
+            {{post.content|safe}}
+        </div>
+        <form action="" method="post">
+            <div class="blog-add-comment">
+                {{form.error_class}}
+                <h2>Add Comment</h2>
+                {% csrf_token %}    
+                {{form}}
+                <input name="Post comment" type=submit value="Post comment">
+            </div>
+        </form>
+        <div class="blog-comment">
+            <h2>Comments</h2>
+            {% for comment in comments %}           
+            <div class="comment-title">
+                <div class="blog-comment-name">
+                    {{comment.username}}
+                </div>
+                <div class="blog-comment-date">
+                    Date:  {{comment.date_posted}}
+                </div>
+            </div>
+            <div class="blog-comment-content">
+               {{comment.comment}}           
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+        <div class="blog-ads">
+            <img src="{% static 'images/event1 (5).jpg' %}" alt="">
+        </div>
+        <div class="blog-others">
+            <h4>Other Articels</h4>
+
+            {% for other in other_posts %}
+            <div>
+                <img src="{{other.postImage_URL}}" alt="" width="30%">
+                <div style="margin-left: 5px;">{{other.title}}</div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

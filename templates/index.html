@@ -176,15 +176,15 @@
     
 </div>
 <div>
-    <div style=" width: 35vw; height: 50px; margin: 10px auto; text-align: center; position: relative;">
-        <div class="content-viewmore">
-            View more
+    <a href="{% url 'Events:events_page' %}" style="text-decoration:none;color:white">
+        <div style=" width: 35vw; height: 50px; margin: 10px auto; text-align: center; position: relative;">
+            <div class="content-viewmore">
+                View more
+            </div>
         </div>
-    </div>
+       </a>
 </div>
 
-
-<!-- Blog 
 <div style="position: relative; margin-top: 10px;">
     <img src="{% static 'images/event1 (6).jpg' %}" alt="" style="width: 100vw; height: 400px; object-fit: cover;margin-top: 20px;">
     <div class="category-text1" style="color: white;"> FEEDS </div>
@@ -214,19 +214,21 @@
             <p>Explore</p>
         </div>
     </div>
-
+    {% for post in posts %}
     <div class="blog-post">
-        <img src="{% static 'images/ronaldo.jpg' %}" alt="" class="blog-image">
+        <img src="{{post.postImage_URL}}" alt="" class="blog-image">
         <div class="blog-info">
-            <h3>Will ronaldo rise again</h3>
-            <p>After a long rivary between ronaldo and other players
-                i think the only problems were....
+            <h3>{{post.title}}</h3>
+            <p>{{post.content| slice:100 |safe}}...
             </p>
         </div>
-        <div class="blog-button">
-            <p>Explore</p>
-        </div>
+        <a style="text-decoration:none;" href="{% url 'Blog:post-detail' post.slug %}">
+            <div class="blog-button">
+                <p>Explore</p>
+            </div>
+        </a>
     </div>
+    {% endfor %}
 </div>
 <div>
     <div style=" width: 35vw; height: 50px; margin: 10px auto; text-align: center; position: relative;">
@@ -237,7 +239,7 @@
 </div>
 
 <div style="width: 90%; background-color: rgb(140, 140, 140); position: relative; top: 10px; height: 1px; margin: 20px auto;"></div>
--->
+
 <div class="others" id="about">
     <div class="others-header">Want to know more about Fibblebox? </div>
     <div>

@@ -13,3 +13,6 @@ def organizers(view_func):
             return redirect('home')
         
     return wrapper_func
+
+
+

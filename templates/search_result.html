@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div style="margin-bottom:70vw; margin-top: 50px;">
+
+    {% for result in pageantry %}
+    <a href="{% url 'Pageantry:pageantry' result.slug %}" style="text-decoration:none;">
+        <div class="search-card">
+            <img src="{{result.pageantryImage}}" class="search-img" alt="">
+            <div>
+                <div style="text-transform:uppercase; color:#4A536B;">
+                    {{result.name}}
+                </div>
+                <div style="color:rgb(36, 36, 36); font-size: x-small;">
+                    {{result.discription|slice:35}}...
+                </div>
+                <div style='color:grey; font-size: x-small;'>
+                    {{result.date}}
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+    {% for result in events %}
+
+    <a href="{% url 'Events:event' result.name %}" style="text-decoration:none;">
+        <div class="search-card">
+            <img src="{{result.image_URL}}" class="search-img" alt="">
+            <div>
+                <div style="text-transform:uppercase; color:#4A536B;">
+                    {{result.name}}
+                </div>
+                <div style="color:rgb(36, 36, 36); font-size: x-small;">
+                    {{result.phrase|slice:35}}...
+                </div>
+                <div style='color:grey; font-size: x-small;'>
+                    {{result.date}}
+                </div>
+            </div>
+        </div>
+    </a>
+
+    {% endfor %}
+
+</div>
+{% endblock %}

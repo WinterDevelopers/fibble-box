@@ -4,10 +4,10 @@
 {% block content %}
 <style>
     .VALID{
-        color: rgb(102, 255, 102);
+        color: rgb(106, 255, 106);
     }
-    .INVALID{
-        color: rgb(255, 0, 0);
+    .USED{
+        color: rgb(172, 172, 172);
     }
     a{
         text-decoration: none;
@@ -28,7 +28,7 @@
     <div class="ticket-detials">
         <div>
             <h3>Ticket Id</h3>
-            <p>{{ticket_id}}</p>
+            <p id="ticket_id">{{ticket_id}}</p>
         </div>
         <div>
             <h3>Name</h3>
@@ -44,14 +44,37 @@
         </div>
     </div>
 
-    <div style="text-align: center; text-transform:uppercase;margin-bottom: 30px;">
-        action {{count}}
+   {% if auth %}
+   <div style="text-align: center; text-transform:uppercase;margin-bottom: 30px;">
+    action 
     </div>
 
-    <div class="check-in">
-        check-in 
+    <div class="check-in" id="check_in">
+    check-in 
     </div>
     <div style="color:rgb(226, 69, 69); font-size: x-small; margin: 1px auto;inline-size: 300px;">Warning: note that this can't be reversed once checked-in  </div>
+   {% endif %}
 </div>
+<script>
+    var ticket_id = document.getElementById('ticket_id').innerText;
 
+    
+    $(document).ready(function(){
+        $('#check_in').click(function(){
+            fetch('/events/checking_in',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json',
+                    'X-CSRFToken':csrftoken,
+                },
+                body:JSON.stringify({'id':ticket_id})
+            }).then((response)=>{
+                return response.json()
+            }).then((info) => 
+                location.reload()
+                
+            )
+        })
+    })
+</script>
 {% endblock %}

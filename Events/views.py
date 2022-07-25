@@ -1,6 +1,3 @@
-from asyncio import events
-from cgi import print_environ
-from re import template
 from django.conf import settings
 
 import json
@@ -17,6 +14,20 @@ from .ticket_processor import Ticket_processing
 from django.views.generic.list import ListView
 # Create your views here.
 
+class events_page(ListView):
+    template_name: str = 'event_page.html'
+    model = Event
+    paginate_by: int = 5
+
+    def get_context_data(self,*args, **kwargs):
+
+        context = super(events_page, self).get_context_data(**kwargs)
+        context['events'] = Event.objects.order_by('-id')[:1]
+
+        return context
+
+
+
 def Event_nav(request):
     template_name = 'event_base.html'
     context = {}
@@ -32,11 +43,11 @@ def Event_index(request, name):
     sponsors = Sponsor.objects.filter(event=event)
 
     event.insight = (event.insight +1)
-    print(event.insight)
+    #print(event.insight)
     event.save()
 
     if request.user.is_authenticated:
-        item = 6
+        item = 0
     else:
         item = 1
     
@@ -93,16 +104,34 @@ def Shipping(request):
 
     return render(request, template_name, context)
 
+
+
+
 def check_ticket(request, ticket_id):
+   
     ticket = PurchasedTicket.objects.get(code=ticket_id)
     name = ticket.name
     type = ticket.type
     event = ticket.event
+    groups = 'none'
+    if not str(request.user )== 'AnonymousUser':
+        groups = request.user.groups.all()
+
+    group_list = []
+    auth = False
+    for group in groups:
+       group_str = str(group)
+       event_str = str(event)
+       group_list.append(group_str)
+       
+    if  event_str in group_list:
+        auth = True
+    
     if not ticket.status:
         status = "VALID"
     else:
-        status = "INVALID"
-    context = {'ticket_id':ticket_id, 'name':name,
+        status = "USED"
+    context = {'ticket_id':ticket_id, 'name':name,'auth':auth,
     'type':type, 'status':status, 'event':event}
     template_name = 'ticket_checker.html'
 
@@ -112,6 +141,11 @@ from Events.person_authentication import organizers
 
 @organizers
 def dashboard(request,name):
+    groups = request.user.groups.all()
+    for group in groups:
+        group_str = str(group)
+    if not name in group_str:
+        return redirect('home')
     count = PurchasedTicket.objects.count()    
     event = Event.objects.get(name=name)
     template_name = "event_dashboard.html"
@@ -138,6 +172,7 @@ def dashboard(request,name):
     context = {'event':event, 'count':count, 'views':view, 'revenue':revenue, 'tickets':ticket}
 
     return render(request, template_name, context)
+    
 #//////////////////////////////////////////////////////////////////////////////////////////
 #/////////////////////////////////////////////////////////////////////////////////////////
 
@@ -253,9 +288,11 @@ def reference(request):
 
     return JsonResponse({'reference':reference, 'token':token} ,safe=False, status = 200)
 
-def shipping_delete(request):
-    
+def checking_in(request):
 
-    print('deleted that bitch')
-
-    return JsonResponse({'will delete':0}, safe=False)
+    data = json.loads(request.body)
+    transact_id = data['id']
+    purchase_ticket = get_object_or_404(PurchasedTicket, code=transact_id)
+    purchase_ticket.status = True
+    purchase_ticket.save()
+    return JsonResponse('checked_in', safe=False)

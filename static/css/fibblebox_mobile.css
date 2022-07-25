@@ -468,4 +468,7 @@
         width:50px;margin:auto;
         padding-top: 10px;
     }
+    .search-card{
+       width: 70vw;
+    }
 }

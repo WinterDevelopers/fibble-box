@@ -18,16 +18,24 @@ from django.urls import path, include
 
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth import views as auth_view
 
-from Pageantry.views import home, logout_func
+
+from Pageantry.views import home, logout_func, search_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home' ),
+    path('search', search_view, name='search'),
     path('loggingout', logout_func, name='logout'),
     path('pageantry/', include('Pageantry.urls')),
     path('events/', include('Events.urls')),
     path('blog/', include('Blog.urls')),
+    path('reset_password/', auth_view.PasswordResetView.as_view(), name='reset_password'),
+    path('reset_password_sent/', auth_view.PasswordResetDoneView.as_view(), name="password_reset_done"),
+    path('reset/<uidb64>/<token>/', auth_view.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset_password_complete',  auth_view.PasswordResetCompleteView.as_view(), name='password_reset_complete')
+
 ]
 
 

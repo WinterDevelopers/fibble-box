@@ -10,7 +10,6 @@ from email.mime.text import MIMEText
 
 from .models import Order, OrderItem, Ticket, shippingDetails, PurchasedTicket
 from .ticket_sending import send_ticket
-
 import secrets
 import qrcode
 
@@ -22,16 +21,17 @@ class Ticket_processing():
         details = get_object_or_404(shippingDetails, order=order)
         email = details.email
         name = details.name
+        
 
         if not order.completed:
             orderitem = OrderItem.objects.filter(order=order)
             print(orderitem)
             for item in orderitem:
                 quantities = item.quantity 
-                type = item.ticket.id
+                id = item.ticket.id
                 print(item)
                 print(type)
                 print('qty: ', quantities)
-                send_ticket(quantities,type,name,email)
+                send_ticket(quantities,id,name,email)
                 
                 

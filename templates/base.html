@@ -29,17 +29,15 @@
             <div><a href="#about">about us</a></div>
             <div><a href="#contact">contact</a></div>
             
-            <div class="nav-bar-search">
-                <input type='search' placeholder="  search..." id="search" onkeyup="simple_search()">
+            <div >
+                <form action="{% url 'search' %}" method="post">
+                    {% csrf_token %}
+                    <input type='search' placeholder="  search..." id="search" name="search_input" class="nav-bar-search" >
+                </form>
             </div>
         </div>
         
-    </div>
-    <div class="search_item">
-        <li class="search_list" >nuesa</li>
-        <li class="search_list">fassa</li>
-        <li class="search_list">lawsa</li>
-    </div>     
+    </div>    
     <script type="text/javascript">
        function getCookie(name) {
         let cookieValue = null;
@@ -66,20 +64,15 @@
 
     {% endblock content %}
     <div class="none" id="mobile-search">
-        <form action="" style="position:fixed; top:80px; z-index:10; left: 10vw; right: auto;">
-            <input type="search" name="" id="search-input" class="search-btn">
+        <form action="{% url 'search' %}" method=POST style="position:fixed; top:80px; z-index:10; left: 10vw; right: auto;">
+            {% csrf_token %}
+            <input type="search" id="search-input" name="search_input" class="search-btn">
         </form>
         <div class="hide-search" id="close-search">
             <span style="font-size: 20px;">&#215;</span>
         </div>
     </div>
-    <div class="none" id="search-result">
-        <div id="search-visible" class="none visible">
-            <div class="search-item" id="search-item">
-
-            </div>
-        </div>
-    </div>
+   
     <div class="none" id="search-background"></div>
     <!-- the navbar mobile -->
         <div class="nav-bar-mobile">

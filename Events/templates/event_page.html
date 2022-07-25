@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/events.css' %}">
+    <link rel="stylesheet" href="{% static 'css/events_mobile.css' %}">
+</head>
+
+<div class="event_top">
+    {% for event in events %}
+    <div>
+        <img src="{{event.image_URL}}" alt="events-image">
+    
+    </div>
+    <div class="event_top_list">
+        <div>
+            {{event.name}}
+        </div>
+        <div>
+            {{event.about}}
+        </div>
+        <div>
+            <a href="{% url 'Events:event' event.name %}">
+                <div>
+                    let's party
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+<div style="width:94%;height:1px;position:relative;margin:30px 3vw;background-color:rgb(177, 177, 177);top:20px"></div>
+
+<div class="party">
+    <!--  -->
+    {% for event in page_obj %}
+    <div class="party-box">
+        <img src="{{event.image_URL}}" alt="party-image" class="party-image">
+        <div class="party-info">
+            <h2 class="searchable" >{{event.name}}</h2>
+            <h5>{{event.date}}</h5>
+            <p>{{event.phrase}}</p>
+        </div>
+        <div class="party-footer">
+            <div class="party-footer-others">
+                <h4>Time</h4>
+                <p>{{event.time}}</p>
+            </div>
+            <a href="{% url 'Events:event' event.name %}" class="event-btn">
+                <div class="party-button">Let's party</div>
+            </a>
+            <div class="party-footer-others">
+                <h4>Location</h4>
+                <p>{{event.location}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+</div>
+<div class="pagination">
+
+    <span>
+        {% if page_obj.has_previous %}
+        <a href="?page=1" class="paginator_others"> first</a>
+        <a href="?page={{page_obj.previous_page_number}}" class="paginator_others">&laquo;</a>
+        {% endif %}
+    </span>
+
+    <span class="paginator_current">
+        {{page_obj.number}}
+    </span>
+    <span>
+        {% if page_obj.has_next %}
+            <a href="?page={{page_obj.next_page_number}}" class="paginator_others">&raquo;</a>
+            <a href="?page={{page_obj.paginator.num_pages}}" class="paginator_others">last </a>
+        {% endif %}
+    </span>
+</div>
+
+
+{% endblock %}

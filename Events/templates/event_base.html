@@ -121,14 +121,15 @@
     {% endblock content %}
     <!-- the navbar mobile -->
     <div class="none" id="mobile-search">
-        <form action="" style="position:fixed; top:80px; z-index:10; left: 10vw; right: auto;">
-            <input type="search" name="" id="" class="search-btn">
+        <form method=POST action="{% url 'search' %}" 
+        style="position:fixed;top:80px;z-index:10;left:10vw;right:auto;">
+        {% csrf_token %}
+            <input type="search" name="search_input" id="" class="search-btn">
         </form>
         <div class="hide-search" id="close-search">
             <span style="font-size: 20px;">&#215;</span>
         </div>
     </div>
-    <div class="none" id="search-background"></div>
     <!-- the navbar mobile -->
         <div class="nav-bar-mobile">
             <div>

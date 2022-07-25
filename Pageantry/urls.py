@@ -2,6 +2,7 @@ from unicodedata import name
 from django.urls import path
 from django.urls.resolvers import URLPattern
 
+
 from .views import (base, Login, register, pageantry, candidate, payment, payment_processor,
                     verify_payment, purchase_coupon, payment_coupon, coupon_delete, coupon_processor,
                     coupon_verify_payment, sending_coupon_codes,payment_delete, userPage, pagentries)
@@ -25,5 +26,6 @@ urlpatterns = [
     path('payment-verification/<slug:reference>/', verify_payment, name='verify_payment'),
     path('payment-deleting',payment_delete, name='payment_delete'),
     path('coupon-verification/<slug:token>/',coupon_verify_payment, name= 'coupon_verification' ),
-    path('sending_coupons/<slug:token>/',sending_coupon_codes, name='sending_coupons')
+    path('sending_coupons/<slug:token>/',sending_coupon_codes, name='sending_coupons'),
+
 ]

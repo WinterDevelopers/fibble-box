@@ -747,4 +747,36 @@ footer{
 .ticket-qr>img{
     width: 120px;
 }
-
+.event_top{
+    display: flex; flex-direction: row;
+    margin-top: 10.5px;
+    margin-bottom: 40px;
+}
+.event_top>div{
+    width: 50%;
+    height: 400px;
+}
+.event_top>div>img{
+    height: 100%; width: 100%;
+    object-fit: cover;
+}
+.event_top_list{
+    padding:0px 20px;
+    padding-left: 50px; 
+    background-color: white;
+}
+.event_top_list>div:first-child{
+    font-size: 50px;
+    font-weight: 800;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+.event_top_list>div:nth-child(2){
+    inline-size: 400px;
+    margin-bottom: 50px;
+}
+.event_top_list>div:nth-child(3){
+    background-color: black;text-align: center;
+    padding: 10px;border-radius: 5px;
+    width: 100px; box-shadow: 1px 2px 10px rgba(128, 128, 128, 0.534);
+}
