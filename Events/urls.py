@@ -7,6 +7,7 @@ from django.contrib.auth import views as auth_view
 app_name = 'Events'
 
 urlpatterns = [
+    path('', events_page.as_view(), name='events_page'),
     path('event_nav/', Event_nav, name='event_nav'),
     path('shipping/', Shipping, name='shipping'),
     path('ajax/', ajax, name='ajax'),
@@ -14,8 +15,7 @@ urlpatterns = [
     path('cart-items',cart_content_ajax, name='cart-items' ),
     path('cart-arthemetics/', cart_arthemetics, name='cart-arthemetics'),
     path('reference/',reference,name='reference'),
-    path('shipping_process',shipping_process, name='shipping_process'),
-    path('', events_page.as_view(), name='events_page'),
+    path('shipping_process/',shipping_process, name='shipping_process'),
     path('dashboard/<slug:name>', dashboard, name='dashboard'),
     path('check-ticket/<slug:ticket_id>/', check_ticket, name='check_ticket'),
     path('<slug:name>/', Event_index, name='event'),

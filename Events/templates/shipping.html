@@ -17,7 +17,7 @@
         </div>
         <div class="customer-details">
             customer details
-            <form action="" method="" class="customer-form">
+            <form action="" method="POST" class="customer-form">
                 {% csrf_token %}
                 <input type="text" placeholder="Name" name="name">
                 <input type="email" name="email" id="" placeholder="Email">
@@ -65,7 +65,7 @@
         let email = document.querySelector('[name="email"]').value;
         let phone = document.querySelector('[name="phone"]').value;
         
-        fetch('/events/shipping_process',{
+        fetch('/events/shipping_process/',{
         method:'POST',
         headers:{
             'Content-Type':'application/json',
