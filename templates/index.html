@@ -190,30 +190,6 @@
     <div class="category-text1" style="color: white;"> FEEDS </div>
 </div>
 <div class="blog">
-    <div class="blog-post">
-        <img src="{% static 'images/messi.jpg' %}" alt="" class="blog-image">
-        <div class="blog-info">
-            <h3>Why Messi is the Best</h3>
-            <p>After a long rivary between messi and other players
-                i think the only problems were....
-            </p>
-        </div>
-        <div class="blog-button">
-            <p>Explore</p>
-        </div>
-    </div>
-
-    <div class="blog-post">
-        <img src="{% static 'images/9ja-party2.jpg' %}" alt="" class="blog-image">
-        <div class="blog-info">
-            <h3>This party was rated 3rd</h3>
-            <p>this party was a mind blowing event that actually shock the economy of the country....
-            </p>
-        </div>
-        <div class="blog-button">
-            <p>Explore</p>
-        </div>
-    </div>
     {% for post in posts %}
     <div class="blog-post">
         <img src="{{post.postImage_URL}}" alt="" class="blog-image">
