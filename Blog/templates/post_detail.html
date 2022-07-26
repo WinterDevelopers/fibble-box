@@ -2,9 +2,6 @@
 {% load static %}
 
 {% block content %}
-
-
-
 <div class="blog-page">
     <div>
         <div class="blog-content-image">
@@ -18,7 +15,7 @@
             <div>Authors: {{post.writer}}</div>
             <div>Views: {{post.insight}}</div>
         </div>
-        <div style="width:94%;height:1px;position:relative;margin:-1px 3vw;background-color:rgb(177, 177, 177);top:20px"></div>
+        <div style="width:94%;height:1px;position:relative;margin:-1px 3vw;background-color:rgb(177, 177, 177);top:10px"></div>
         <div class="blog-content">
             {{post.content|safe}}
         </div>

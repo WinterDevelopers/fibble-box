@@ -40,6 +40,7 @@
 .blog-content{
     background-color: white;
     padding: 30px;
+    line-height: 200%;
 }
 .blog-add-comment{
     text-align: center;

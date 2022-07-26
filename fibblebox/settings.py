@@ -29,7 +29,7 @@ STATIC_DIR = BASE_DIR/ 'static'
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["178.62.97.24","fibblebox.com","127.0.0.1", "www.fibblebox.com"]
 if not DEBUG:
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'Blog',
     #others
     'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -161,4 +162,6 @@ PAYSTACK_PUBLIC_KEY = os.environ.get('PAYSTACK_PUBLIC_KEY')
 
 MEDIA_URL = 'media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_UPLOAD_PATH = 'media/ckeditor/'
