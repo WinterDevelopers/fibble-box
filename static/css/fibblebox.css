@@ -1335,6 +1335,7 @@ height: 50%;
 }
 .pageant-name{
     font-size:30px;font-weight: 600; margin-bottom: 30px;
+    margin-top: 30px;
 }
 .pageant-detail{
     inline-size:500px;text-align:left; margin-bottom:20px;
