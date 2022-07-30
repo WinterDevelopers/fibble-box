@@ -1,8 +1,7 @@
-from unicodedata import name
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
-from requests import request
+from django.urls import reverse
 
 from Events import paystack
 
@@ -23,7 +22,7 @@ class Event(models.Model):
     phrase = models.CharField(max_length=150,null=True)
     image = models.ImageField(upload_to='media/events', null=True)
     about = models.CharField(max_length=1000, null=True)
-    date = models.DateField(null=True)
+    date_published = models.DateField(null=True)
     time = models.TimeField(null=True)
     location = models.CharField(max_length=100,null=True)
     video = models.FileField(upload_to='media/events/videos', null=True)
@@ -55,6 +54,9 @@ class Event(models.Model):
         revenue = self.purchasedticket_set.all()
         total = sum([data.cost for data in revenue])
         return total
+
+    def get_absolute_url(self):
+        return reverse('Events:event', kwargs={'name':self.name})
 
     def __str__(self) -> str:
         return self.name

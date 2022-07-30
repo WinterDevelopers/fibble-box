@@ -5,18 +5,36 @@
 
 <div class="user-container">
     <div class="user-img-container">
-        <img src="{% static 'images/event1 (3).jpg' %}" alt="" class="user-img">
+        <img id="profile-image" src="" alt="user-image" class="user-img">
     </div>
     <div class="user-name">
-        <div style="margin:30px auto;font-size:x-large; font-weight: 800; inline-size: 100px; text-align: center;">winter</div>
+        <div style="margin:30px auto;font-size:x-large; font-weight: 800; inline-size: 100px; text-align: center;">
+            {{my_user}}
+        </div>
         <div class="user-about" >hello welcome to my wall</div>
     </div> 
    
     <div class="user-others">
-        <div class="user-events">events for you</div>
-        <a style="text-decoration: none;" href="{% url 'logout' %}"><div class="user-logout">logout</div></a>
+        <a style="text-decoration: none;" href="{% url 'Events:events_page' %}">
+            <div class="user-events">events for you</div>
+        </a>
+        <a style="text-decoration: none;" href="{% url 'logout' %}">
+            <div class="user-logout">logout</div>
+        </a>
     </div>
 
  </div>
 
+ <script>
+    const profile_name = {
+        1:"{% static 'images/profile1.png' %}",
+        2:"{% static 'images/profile2.png' %}",
+        3:"{% static 'images/profile3.png' %}",
+        4:"{% static 'images/profile4.png' %}",
+        5:"{% static 'images/profile5.png' %}",
+    }
+    var rand_number = Math.floor((Math.random() *5)+1)
+    document.getElementById('profile-image').src = profile_name[rand_number]
+
+ </script>
 {% endblock %}

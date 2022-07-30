@@ -7,6 +7,10 @@ from django.utils.text import slugify
 from .models import Writer, Post, Comment
 from .forms import CommentForm, PostForm, WriterForm
 
+from django.http import HttpResponse
+
+def about(request):
+    return HttpResponse('about page')
 
 # Create your views here.
 def index(request):

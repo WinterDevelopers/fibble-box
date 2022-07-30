@@ -59,28 +59,30 @@
 <div id="top-events" style="padding-bottom: 20px;">
     <h3 style="margin-left: 15px;">Top Events</h3>
     <div class="top-events" >
-        <div class="top-events-post">
-            <img src="{% static 'images/9ja-party2.jpg'  %}" alt="post-image" height="200px" width="150px" style="border-radius: 10px;">
-            <p>9ja party of winter</p>
-        </div>
-        <div class="top-events-post">
-            <img src="{% static 'images/cafe.jpg'  %}" alt="post-image" height="200px" width="150px" style="object-fit: cover; background-position: center;border-radius: 10px;">
-            <p>winter cafe</p>
-        </div>
-        <div class="top-events-post">
-            <img src="{% static 'images/ebony.jpg'  %}" alt="post-image" height="200px" width="150px" style="border-radius: 10px;">
-            <p>beauty ebony</p>
-        </div>
-        <div class="top-events-post">
-            <img src="{% static 'images/face-abj.jpg'  %}" alt="post-image" height="200px" width="150px" style="border-radius: 10px;">
-            <p>face of ABJ</p>
-        </div>
-        <div class="top-events-post">
-            <img src="{% static 'images/face-anambra.jpg'  %}" alt="post-image" height="200px" width="150px" style="border-radius: 10px;">
-            <p>face of Anambra</p>
-        </div>
-        
-    
+        {% for top_event in pageantries %}
+            <a href="{% url 'Pageantry:pageantry' top_event.slug %}" style="text-decoration:none; color:#4A536B;">
+                <div class="top-events-post" >
+                    <img src="{{top_event.pageantryImage}}" alt="post-image" height="200px" width="150px" style="border-radius: 10px;object-fit: cover">
+                    <p>{{top_event.name}}</p>
+                </div>
+            </a>
+        {% endfor %}
+        {% for top_event in events %}
+            <a href="{% url 'Events:event' top_event.name %}" style="text-decoration:none; color:#4A536B;">
+                <div class="top-events-post">
+                    <img src="{{top_event.image_URL}}" alt="post-image" height="200px" width="150px" style="border-radius: 10px;object-fit: cover">
+                    <p>{{top_event.name}}</p>
+                </div>
+            </a>
+        {% endfor %}
+        {% for top_event in posts %}
+            <a href="{% url 'Blog:post-detail' top_event.slug %}" style="text-decoration:none; color:#4A536B;">
+                <div class="top-events-post">
+                    <img src="{{top_event.postImage_URL}}" alt="post-image" height="200px" width="150px" style="border-radius: 10px; object-fit: cover;">
+                    <p>{{top_event.title |slice:15}}...</p>
+                </div>
+            </a>
+        {% endfor %}
     </div>
 </div>
 

@@ -53,9 +53,10 @@ def Login(request):
        if user:
         login(request, user)
         print('login!!!')
-        return redirect('Events:event', 'LAMBA')
+        return redirect('Pageantry:user_page')
        else:
-           print('failed!!!')
+           messages.error(request,'Wrong username or password')
+
     return render(request, template_name)
 
 def logout_func(request):
@@ -290,8 +291,8 @@ def sending_coupon_codes(request, token):
 @login_required(login_url='Pageantry:login')
 def userPage(request):
     template_name = 'user_page.html'
-
-    context = {}
+    my_user = request.user
+    context = {'my_user':my_user}
 
     return render(request, template_name, context)
 

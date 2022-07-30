@@ -265,17 +265,25 @@ def cart_arthemetics(request):
     return JsonResponse('worked', safe=False, status=200)
 
 def shipping_process(request):
+    customer = request.user.customer
+    order = get_object_or_404(Order, customer=customer, completed=False)
+    try:
+        shipping_exists = shippingDetails.objects.get(order=order)
+    except:
+        shipping_exists = False
+    print('see it',shipping_exists)
+    if shipping_exists:
+        shipping_exists.delete()
     data = json.loads(request.body)
     name = data['name']
     email = data['email']
     phone = data['phone']
     amount = data['order_amount']
     token = data['token']
-    print(data)
-    customer = request.user.customer
-    order = get_object_or_404(Order, customer=customer, completed=False)
+    #print(data)
+
     shippingDetails.objects.create(name=name, email=email,order=order, amount=amount, token=token)
-    
+
     return JsonResponse('shipping details gotten and created', safe=False)
 
 def reference(request):

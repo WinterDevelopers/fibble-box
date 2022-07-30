@@ -16,17 +16,26 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.contrib.sitemaps.views import sitemap
+
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_view
 
 
 from Pageantry.views import home, logout_func, search_view
+from Blog.sitemap import ViewSitemap
+
+sitemaps = {
+    'meta-data': ViewSitemap
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home' ),
     path('search', search_view, name='search'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+    name='django.contrib.sitemaps.views.sitemap'),
     path('loggingout', logout_func, name='logout'),
     path('pageantry/', include('Pageantry.urls')),
     path('events/', include('Events.urls')),
