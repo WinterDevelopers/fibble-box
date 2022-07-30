@@ -39,7 +39,7 @@ def send_ticket(quantities, id, name, email):
             event_name_string = event_name.name
             date = event_name.date
             type_ticket = tick.type
-            cost = tick.cost
+            cost = tick.price
 
             img = Image.open('ticket/template/template.jpg')
             img_edit = ImageDraw.Draw(img)
