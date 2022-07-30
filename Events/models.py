@@ -22,7 +22,7 @@ class Event(models.Model):
     phrase = models.CharField(max_length=150,null=True)
     image = models.ImageField(upload_to='media/events', null=True)
     about = models.CharField(max_length=1000, null=True)
-    date_published = models.DateField(null=True)
+    date = models.DateField(null=True)
     time = models.TimeField(null=True)
     location = models.CharField(max_length=100,null=True)
     video = models.FileField(upload_to='media/events/videos', null=True)
